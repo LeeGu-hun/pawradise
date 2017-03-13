@@ -19,5 +19,8 @@ public class AuthInfo {
 	public String getName() {
 		return name;
 	}
+	public void add(){
+		
+	}
 	
 }
