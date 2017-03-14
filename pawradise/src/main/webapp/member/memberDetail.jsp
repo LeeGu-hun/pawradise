@@ -29,7 +29,7 @@
 				    <li><a class="active" href="#">내가 쓴 글</a></li>
 				    <li><a href="#">구매내역</a></li>
 				    <li><a href="#">문의내역</a></li>
-				    <li><a href="#">개인정보수정</a></li>
+				    <li><a href="#">개인 정보 수정</a></li>
 				</ul>
 			</div>
 	
