@@ -249,8 +249,9 @@
 
 	<div class="divide60"></div><!-- 60px 공간이 필요하면 이 태그를 쓰세요 -->
 	
-	<div class="container"> <!-- 가운데 정렬이 필요하면  <div class="container"> 가 필요합니다 -->
-		<div class="row">
+	<!-- 가운데 정렬은 <div class="container"><div class="row"> 이 안에 작업파일 넣으면 다 정렬됩니다 </div></div> -->
+	<div class="container"> 	
+		<div class="row">			
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="center-heading">
 					<h2>냥냥 멍멍 귀여워</h2>
@@ -261,9 +262,10 @@
 				</div>
 			</div>
 		</div>
-	<!--center heading end-->
-		
+
+
 		<div class="divide50"></div><!-- 50px 공간이 필요하면 이 태그를 쓰세요 -->
+		<!-- 제품설명 부분 -->		
 		<div class="row">
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed green">
@@ -273,7 +275,7 @@
 					<p>피곤할땐 놀아주기도 힘들어요! 혼자서도 잘 노는 똑똑한 장난감 지금 경험 해 보세요!</p>
 				</div>
 			</div>
-			<!--colored boxed col end-->
+			<!--세로 설명 1-->
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed dark">
 					<i class="fa fa-tablet"></i>
@@ -282,7 +284,7 @@
 					<p>집에 없을때에도 함께 노는듯한 기분을 느낄 수 있도록 모바일과 연동되어 있습니다.</p>
 				</div>
 			</div>
-			<!--colored boxed col end-->
+			<!--세로 설명 2-->
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed blue">
 					<i class="fa fa-heart"></i>
@@ -291,7 +293,7 @@
 					<p>냥이와 멍이의 기분만을 생각합니다. 사랑으로 함께 하세요!</p>
 				</div>
 			</div>
-			<!--colored boxed col end-->
+			<!--세로 설명3-->
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed red">
 					<i class="fa fa-sliders"></i>
@@ -300,10 +302,12 @@
 					<p>제품 로그기록을 웹과 모바일을 통해서 보실 수 있습니다.</p>
 				</div>
 			</div>
-			<!--colored boxed col end-->
+		<!--세로 설명4-->
 		</div>
-	</div>
-	<!--services container-->
+	</div>	
+	<!--제품설명부분 끝-->
+	
+	<!--고객상품평 시작-->
 	<div class="testimonials-v-2 wow animated fadeInUp"
 		data-wow-duration="700ms" data-wow-delay="100ms">
 		<div class="container">
@@ -400,166 +404,10 @@
 			</div>
 		</div>
 	</div>
-	<!--testimonials v-2 end-->
+	<!--고객상품평 끝-->
 
-	<footer id="footer">
-		<div class="container">
-
-			<div class="row">
-				<div class="col-md-3 col-sm-6 margin30">
-					<div class="footer-col">
-						<h3>About Company</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Integer lorem quam, adipiscing condimentum tristique vel,
-							eleifend sed turpis. Pellentesque cursus arcu id magna euismod in
-							elementum purus molestie.</p>
-						<ul class="list-inline social-1">
-							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-							<li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-						</ul>
-					</div>
-				</div>
-				<!--footer col-->
-				<div class="col-md-3 col-sm-6 margin30">
-					<div class="footer-col">
-						<h3>Contact</h3>
-
-						<ul class="list-unstyled contact">
-							<li><p>
-									<strong><i class="fa fa-map-marker"></i> Address:</strong>
-									Busan Korea
-								</p></li>
-							<li><p>
-									<strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a
-										href="#">Support@nyangmung.com</a>
-								</p></li>
-							<li>
-								<p>
-									<strong><i class="fa fa-phone"></i> Phone:</strong> +82 010
-									1234 5678
-								</p>
-							</li>
-							<li>
-								<p>
-									<strong><i class="fa fa-print"></i> Fax</strong> 1800 2345 2132
-								</p>
-							</li>
-
-						</ul>
-					</div>
-				</div>
-				<!--footer col-->
-				<div class="col-md-3 col-sm-6 margin30">
-					<div class="footer-col">
-						<h3>Community</h3>
-						<ul class="list-inline f2-work">
-							<li><a href="portfolio-single.html"><img
-									src="img/img-1.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-2.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-3.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-4.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-5.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-6.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-7.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-8.jpg" class="img-responsive" alt=""></a></li>
-							<li><a href="portfolio-single.html"><img
-									src="img/img-9.jpg" class="img-responsive" alt=""></a></li>
-						</ul>
-					</div>
-				</div>
-				<!--footer col-->
-				<div class="col-md-3 col-sm-6 margin30">
-					<div class="footer-col">
-						<h3>Newsletter</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Integer lorem quam,</p>
-						<form role="form" class="subscribe-form">
-							<div class="input-group">
-								<input type="text" class="form-control"
-									placeholder="Enter email to subscribe"> <span
-									class="input-group-btn">
-									<button class="btn  btn-theme-dark btn-lg" type="submit">Ok</button>
-								</span>
-							</div>
-						</form>
-					</div>
-				</div>
-				<!--footer col-->
-
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-					<div class="footer-btm">
-						<span>&copy;2017 copyright by SoCute</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--default footer end here-->
-	<!--scripts and plugins -->
-	<!--must need plugin jquery-->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/jquery-migrate.min.js"></script>
-	<!--bootstrap js plugin-->
-	<script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<!--easing plugin for smooth scroll-->
-	<script src="js/jquery.easing.1.3.min.js" type="text/javascript"></script>
-	<!--sticky header-->
-	<script type="text/javascript" src="js/jquery.sticky.js"></script>
-	<!--flex slider plugin-->
-	<script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
-	<!--parallax background plugin-->
-	<script src="js/jquery.stellar.min.js" type="text/javascript"></script>
-	<!--digit countdown plugin-->
-	<script src="js/waypoints.min.js"></script>
-	<!--digit countdown plugin-->
-	<script src="js/jquery.counterup.min.js" type="text/javascript"></script>
-	<!--on scroll animation-->
-	<script src="js/wow.min.js" type="text/javascript"></script>
-
-	<script src="js/jquery.isotope.min.js" type="text/javascript"></script>
-	<!--image loads plugin -->
-	<script src="js/jquery.imagesloaded.min.js" type="text/javascript"></script>
-	<!--owl carousel slider-->
-	<script src="owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
-	<!--popup js-->
-	<script src="js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-
-
-	<!--customizable plugin edit according to your needs-->
-	<script src="js/custom.js" type="text/javascript"></script>
-
-	<!--revolution slider plugins-->
-	<script src="rs-plugin/js/jquery.themepunch.tools.min.js"
-		type="text/javascript"></script>
-	<script src="rs-plugin/js/jquery.themepunch.revolution.min.js"
-		type="text/javascript"></script>
-	<script src="js/revolution-custom.js" type="text/javascript"></script>
-	<script src="js/isotope-custom.js" type="text/javascript"></script>
-	<!--revolution slider plugins-->
-	<script src="rs-plugin/js/jquery.themepunch.tools.min.js"
-		type="text/javascript"></script>
-	<script src="rs-plugin/js/jquery.themepunch.revolution.min.js"
-		type="text/javascript"></script>
-	<script src="js/revolution-custom.js" type="text/javascript"></script>
-
-	<!-- Jasny Bootstrap -->
-	<script type="text/javascript" src="js/jquery.metisMenu.js"></script>
-	<script type="text/javascript" src="js/jasny-bootstrap.min.js"></script>
-	<script type="text/javascript">
-		// MetsiMenu
-		$('#side-menu').metisMenu();
-	</script>
+<!--하단 footer부분 인클루드시작 body태그안에들어감 -->	
+	<%@ include file="/include/footer.jsp" %>
+<!--하단 footer부분 인클루드 끝 body태그안에들어감-->	
 </body>
 </html>
