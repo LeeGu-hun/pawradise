@@ -368,7 +368,7 @@
         </div><!--full width-->
         <div class="divide50"></div>
         <div class="text-center">
-            <a href="community.jsp" class="btn btn-lg border-black">커뮤니티 전체보기</a>
+            <a href="/boardList" class="btn btn-lg border-black">커뮤니티 전체보기</a>
         </div>
         
         <div class="divide60"></div>
