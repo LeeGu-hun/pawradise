@@ -3,8 +3,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>냥냥멍멍귀여워</title>
-  <!-- Bootstrap -->
+<title>파우라다이스</title>
+  <!-- 공통CSS 인클루드부분 -->
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
