@@ -38,28 +38,26 @@
                         <a href="index.jsp"> Home</a>
                     </li>
                     <li>
-                        <a href="#">펫 커뮤니티<span class=" arrow"></span></a>
+                        <a href="#">COMMUNITY<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="mypetlife.html">마이펫의 사생활</a></li>
-                            <li><a href="helpme.html">도와줘요 펫</a></li>                        
+                            <li><a href="mypetlife.html">포토갤러리</a></li>                       
                         </ul>
                     </li>
                     <li>
-                        <a href="#">제품소개<span class=" arrow"></span></a>
+                        <a href="#">PAWRADISE<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="cat1.html">오토레이져캣</a></li>
-                            <li><a href="pet1.html">모바일자동급여기</a></li>
 
                         </ul> 
                     </li>
                     <li>
-                        <a href="#">마이페이지<span class=" arrow"></span></a>
+                        <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="/member/memberDetail.jsp">마이페이지</a></li>
                         </ul> 
                     </li>
                     <li>
-                        <a href="#">고객문의<span class=" arrow"></span></a>
+                        <a href="#">About Us<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="#">제품문의</a></li>
                             <li><a href="#">제휴문의</a></li>

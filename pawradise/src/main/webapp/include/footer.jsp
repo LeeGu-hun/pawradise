@@ -4,10 +4,8 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6 margin30">
                         <div class="footer-col">
-                            <h3>About Company</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
-                            </p>
+                            <h3>Pawradise</h3>
+                            <p>파우라다이스는 생명을 소중하게 생각합니다. 모든 생명은 가치가 있고 그에 맞는 대우를 받을 권리가 있습니다. 인간과 동물이 모두 잘 사는 세사을 꿈꾸는 발바닥천국입니다.</p>
                             <ul class="list-inline social-1">
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
