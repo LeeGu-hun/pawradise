@@ -41,7 +41,7 @@
                     <li>
                         <a href="#">COMMUNITY<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="mypetlife.html">포토갤러리</a></li>                       
+                            <li><a href="boardList">포토갤러리</a></li>                       
                         </ul>
                     </li>
                     <li>

@@ -243,7 +243,7 @@
 
 <!-- 게시판 바로가기 링크시작 -->		
 	<div class="text-center">
-		<a href="/boardList" class="btn btn-lg border-black">커뮤니티 전체보기</a>
+		<a href="boardList" class="btn btn-lg border-black">커뮤니티 전체보기</a>
 	</div>
 <!-- 게시판 바로가기 링크 끝-->		
 
