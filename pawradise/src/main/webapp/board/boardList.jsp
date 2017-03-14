@@ -122,7 +122,7 @@ function goMemList(){
 				</table>
 
 			</c:if>
-		</div>
+
 	</div>
 <!--하단 footer부분 인클루드시작 body태그안에들어감 -->	
 	<%@ include file="/include/footer.jsp" %>
