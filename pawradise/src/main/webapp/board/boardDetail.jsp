@@ -92,7 +92,10 @@ function goDelete() {
 						value="수정하기">
 				</tr>
 			</table>
-
+		</div>	
 	</div>
+<!--하단 footer부분 인클루드시작 body태그안에들어감 -->	
+	<%@ include file="/include/footer2.jsp" %>
+<!--하단 footer부분 인클루드 끝 body태그안에들어감-->		
 </body>
 </html>
