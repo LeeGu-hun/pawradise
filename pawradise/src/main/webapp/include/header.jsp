@@ -4,10 +4,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>파우라다이스</title>
-  <!-- 공통CSS 인클루드부분 -->
+  <!-- 공통CSS 인클루드부분  -->
         <link href="<%=request.getContextPath() %>/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-
+        
         <!-- font awesome for icons -->
         <link href="<%=request.getContextPath() %>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
         <!-- flex slider css -->
@@ -17,7 +16,6 @@
         <!--Revolution slider css-->
         <link href="<%=request.getContextPath() %>/rs-plugin/css/settings.css" rel="stylesheet" type="text/css" media="screen">
         <link href="<%=request.getContextPath() %>/css/rev-style.css" rel="stylesheet" type="text/css" media="screen">
-
 
         <!--jasny css-->
         <link href="<%=request.getContextPath() %>/css/jasny-bootstrap.min.css" rel="stylesheet">
