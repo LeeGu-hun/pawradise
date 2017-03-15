@@ -48,7 +48,7 @@ public class BoardController {
 	// 수정하기POST
 	@RequestMapping(value = "/board/update/{num}", method = RequestMethod.POST)
 	public String submit(@PathVariable("num") int num, Board board) {
-		boardDao.update(board);
+//		boardDao.update(board);
 		return "redirect:/board/detail/{num}";
 	}
 
@@ -133,7 +133,7 @@ public class BoardController {
 			return "board/boardReply";
 
 		AuthInfo authInfo = (AuthInfo) session.getAttribute("authInfo");
-		board.setWriter(authInfo.getName());
+//		board.setWriter(authInfo.getName());
 
 		MultipartFile multi = board.getMultiFile();
 		String newFileName = "";
@@ -151,7 +151,7 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
-		boardDao.reply(board);
+//		boardDao.reply(board);
 		return "redirect:/boardList";
 	}
 

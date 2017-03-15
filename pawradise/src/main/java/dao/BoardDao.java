@@ -37,13 +37,23 @@ public class BoardDao {
 	private RowMapper<Board> boardRowMapper = new RowMapper<Board>() {
 		@Override
 		public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Board board = new Board(rs.getInt("num"), rs.getString("writer"), rs.getString("subject"),
-					rs.getString("content"), rs.getString("file"), rs.getInt("re_ref"), rs.getInt("re_lev"),
-					rs.getInt("re_seq"), rs.getInt("readcount"), rs.getDate("regdate"));
+			Board board = new Board(
+					rs.getInt("seq"), 
+					rs.getString("name"), 
+					rs.getString("title"),
+					rs.getString("content"), 
+					rs.getString("fileName"),
+					rs.getDate("regdate"),
+					rs.getInt("readCount"), 
+					rs.getInt("reply"),
+					rs.getInt("reply_step"), 
+					rs.getInt("reply_level")
+					);
 			return board;
 		}
 	};
-
+	
+	
 	// 글의 갯수 구하기
 	public int getListCount() {
 		Integer listCount = jdbcTemplate.queryForObject("select count(*) from board ", Integer.class);
@@ -83,7 +93,7 @@ public class BoardDao {
 		jdbcTemplate.update("update board set re_ref=? where num=?", num, num);
 	}
 
-	// 댓글 등록하기
+	/*// 댓글 등록하기
 	@Transactional
 	public int reply(final Board board) {
 
@@ -118,7 +128,7 @@ public class BoardDao {
 
 		return 0;
 	}
-
+*/
 	// 조회수 업데이트
 	public void readCountUpdate(int num) {
 		jdbcTemplate.update("update board set readcount=readcount+1 where num=?", num);
@@ -168,10 +178,10 @@ public class BoardDao {
 		return result;
 	}
 
-	// 글 수정하기
+/*	// 글 수정하기
 	public void update(Board board) {
 		jdbcTemplate.update("update board set subject=?, content=? where num=?", board.getSubject(), board.getContent(),
 				board.getNum());
-	}
+	}*/
 
 }
