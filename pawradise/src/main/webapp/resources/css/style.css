@@ -25,11 +25,54 @@ body {
 /*-----------------------------------------------------------------------------------*/
 *,
 *:before,
-*:after {
+*:after { 
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+/* 미경 수정부분!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.agreeform{
+	position:relative;
+	margin-left:-150px;
+	left:50%;
+	aligh:center;
+}
+.agreecontents{
+	width:500px;
+	height:350px;
+	border: 1px solid black;
+	overflow-y:scroll;
+	scrollbar-base-color: #d9d9d9;
+    scrollbar-3dlight-color: #d9d9d9;
+    scrollbar-darkshadow-color: #d9d9d9;
+    scrollbar-face-color: #d9d9d9;
+    scrollbar-highlight-color: #d9d9d9;
+    scrollbar-shadow-color: #d9d9d9;
+    scrollbar-track-color: #f2f2f2;
+}
+#loginbutton{
+	border:0;
+	background-color:#D5D5D5;
+	width:70px;
+	height:40px;
+	color:white;
+}
+.joininfo{
+	position:relative;
+	margin-left:-150px;
+	left:50%;
+}
+#joinbutton{
+	border:0;
+	background-color:#FF9436;
+	width:70px;
+	height:40px;
+	color:white;
+}
+
+/* 미경 수정부분 여기까지!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 :focus {
   outline: 0 !important;

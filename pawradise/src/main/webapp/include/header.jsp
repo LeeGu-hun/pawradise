@@ -30,7 +30,7 @@
         <!--popups css-->
         <link href="<%=request.getContextPath() %>/css/magnific-popup.css" rel="stylesheet" type="text/css">
         <!-- custom css-->
-        <link href="<%=request.getContextPath() %>/css/style.css" rel="stylesheet" type="text/css" media="screen">
+        <link href="<%=request.getContextPath() %>/css/style.css?ver=2" rel="stylesheet" type="text/css" media="screen">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
