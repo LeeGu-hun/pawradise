@@ -7,9 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class Board{
 	
-	
-	
-	
 	private int num;
 	private String writer;
 	private String subject;

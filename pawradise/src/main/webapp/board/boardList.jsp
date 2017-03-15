@@ -52,7 +52,7 @@ function goMemList(){
 		<div class="container">
 
             <div class="center-heading">
-                <h2>포토게시판</h2>
+                <h2>마이페이지</h2>
                 <span class="center-line"></span>
             </div>   
             
@@ -100,15 +100,14 @@ function goMemList(){
 					</c:forEach>
 					<tr>
 						<td colspan="5">
-							<ul class="pageUL">
+							<ul  class="pagination">
 								<c:if test="${pageMaker.prev }">
 									<li><input type="button" value="이전"
 										onclick='pageGo(${pageMaker.page-1});' /></li>
 								</c:if>
 								<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
 									var="idx">
-									<li
-										class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+									<li	class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
 										<a href='#' onclick='pageGo(${idx});'>${idx}</a>
 									</li>
 								</c:forEach>

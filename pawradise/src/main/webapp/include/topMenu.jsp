@@ -17,8 +17,11 @@
                 <div class="logo-side-nav">
                     <a href="<%=request.getContextPath() %>/index.jsp"><img id="logo" src="<%=request.getContextPath() %>/img/logo.png" alt="iDea"></a>
                 </div>
+                <input type="text" name="members" id="members" hidden />
+                
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
+                    <c:if test="${! empty members}">
                         <div class="dropdown profile-element"> <span>
                                 <img alt="image" class="img-circle" src="<%=request.getContextPath() %>/img/customer-1.jpg" width="60">
                             </span>
@@ -32,8 +35,9 @@
                                 <li><a href="#"><i class="pe-7s-power"></i>로그아웃</a></li>
                             </ul>
                         </div>
+                     </c:if>   
                     </li>
-
+				
                     <li>
                         <a href="<%=request.getContextPath() %>/index.jsp"> Home</a>
                     </li>
@@ -53,7 +57,7 @@
                     <li>
                         <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="/member/memberDetail.jsp">마이페이지</a></li>
+                            <li><a href="<c:url value="/member/detail/${members.id}"/>">마이페이지</a></li>
                         </ul> 
                     </li>
                     <li>
