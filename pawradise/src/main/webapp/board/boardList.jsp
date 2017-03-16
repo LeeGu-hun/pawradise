@@ -69,7 +69,7 @@ function goMemList(){
 			</form:form>
 			<p>
 
-				<input type="submit" value="글쓰기" onclick="goWriter();">
+				<input type="submit" value="글쓰기" onclick="goName();">
 			</p>
 			<c:if test="${!empty boards}">
 				<table class="table">
@@ -82,19 +82,12 @@ function goMemList(){
 					</tr>
 					<c:forEach var="board" items="${boards}">
 						<tr>
-							<td>${board.num}</td>
-							<td><c:choose>
-									<c:when test="${board.re_lev>0 }">
-										<c:forEach var="i" begin="0" end="${board.re_lev}" step="1">
-								&nbsp;
-							</c:forEach>
-									</c:when>
-									<c:otherwise></c:otherwise>
-								</c:choose> <a href="<c:url value="/board/detail/${board.num}"/>">${board.subject}</a>
+							<td>${board.seq}</td>
+							<td><a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
 							</td>
 							<td><fmt:formatDate value="${board.regDate}"
 									pattern="yyyy-MM-dd" /></td>
-							<td>${board.writer}</td>
+							<td>${board.name}</td>
 							<td>${board.readcount}</td>
 						</tr>
 					</c:forEach>

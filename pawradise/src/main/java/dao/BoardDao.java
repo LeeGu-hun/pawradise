@@ -18,6 +18,7 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import bean.Board;
+import bean.Comment;
 import bean.Member;
 import command.BoardCommand;
 import command.PageMaker;
@@ -37,23 +38,13 @@ public class BoardDao {
 	private RowMapper<Board> boardRowMapper = new RowMapper<Board>() {
 		@Override
 		public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
-			Board board = new Board(
-					rs.getInt("seq"), 
-					rs.getString("name"), 
-					rs.getString("title"),
-					rs.getString("content"), 
-					rs.getString("fileName"),
-					rs.getDate("regdate"),
-					rs.getInt("readCount"), 
-					rs.getInt("reply"),
-					rs.getInt("reply_step"), 
-					rs.getInt("reply_level")
-					);
+			Board board = new Board(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
+					rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"), rs.getInt("readCount"),
+					rs.getInt("reply"));
 			return board;
 		}
 	};
-	
-	
+
 	// 글의 갯수 구하기
 	public int getListCount() {
 		Integer listCount = jdbcTemplate.queryForObject("select count(*) from board ", Integer.class);
@@ -67,71 +58,65 @@ public class BoardDao {
 	}
 
 	// 글 내용보기
-	public Board getDetail(int num) {
-		List<Board> results = jdbcTemplate.query("select * from board where num=? ", boardRowMapper, num);
+	public Board getDetail(int seq) {
+		List<Board> results = jdbcTemplate.query("select * from board where seq=? ", boardRowMapper, seq);
 		return results.isEmpty() ? null : results.get(0);
 	}
 
 	// 글 등록하기
 	@Transactional
-	public void add(final BoardCommand board) {
-		KeyHolder keyHolder = new GeneratedKeyHolder();
+	public void add(final Board board) {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement("insert into Board (writer, subject, content, file, "
-						+ "re_ref, re_lev, re_seq, regdate) values(?,?,?,?,0,0,0,now())", new String[] { "num" });
-				pstmt.setString(1, board.getWriter());
-				pstmt.setString(2, board.getSubject());
+				PreparedStatement pstmt = con
+						.prepareStatement("insert into board values(board_seq.nextval , ? , ? , ? , ? , ? , "
+								+ "sysdate , 0 , board_seq.currval , 0 , 0)");
+				pstmt.setString(1, board.getName());
+				pstmt.setString(2, board.getTitle());
 				pstmt.setString(3, board.getContent());
 				pstmt.setString(4, board.getFileName());
 				return pstmt;
 			}
-		}, keyHolder);
-		Number keyValue = keyHolder.getKey();
-		int num = keyValue.intValue();
-		jdbcTemplate.update("update board set re_ref=? where num=?", num, num);
+		});
 	}
 
-	/*// 댓글 등록하기
-	@Transactional
-	public int reply(final Board board) {
-
-		KeyHolder keyHolder = new GeneratedKeyHolder();
+	// comment입력
+	public void insertComment(final Comment comment) {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-
-				int re_ref = board.getRe_ref();
-				int re_lev = board.getRe_lev();
-				int re_seq = board.getRe_seq();
-
-				jdbcTemplate.update("update board set re_seq = re_seq+1 where re_ref=? and re_seq>? ", re_ref,
-						re_seq);
-
-				PreparedStatement pstmt = con.prepareStatement("insert into Board (writer, subject, content, file, "
-						+ "re_ref, re_lev, re_seq, regdate) " + "values(?,?,?,?,?,?,?,now())", new String[] { "num" });
-				pstmt.setString(1, board.getWriter());
-				pstmt.setString(2, board.getSubject());
-				pstmt.setString(3, board.getContent());
-				pstmt.setString(4, board.getFileName());
-				pstmt.setInt(5, board.getRe_ref());
-				pstmt.setInt(6, board.getRe_lev() + 1);
-				pstmt.setInt(7, board.getRe_seq() + 1);
-
+				PreparedStatement pstmt = con
+						.prepareStatement("insert into comment_t(seq, name, comm) values (?, ?, ?)");
+				pstmt.setInt(1, comment.getSeq());
+				pstmt.setString(2, comment.getName());
+				pstmt.setString(3, comment.getComment());
 				return pstmt;
 			}
-		}, keyHolder);
+		});
 
-		Number keyValue = keyHolder.getKey();
-		int num = keyValue.intValue();
-
-		return 0;
 	}
-*/
+	//commnet리스트
+	public Comment commentList(int seq){
+		List<Comment> results=jdbcTemplate.query("select * from comment_t where seq = ?  ", 
+				
+				new RowMapper<Comment>(){
+					@Override
+					public Comment mapRow(ResultSet rs, int seq) throws SQLException {
+						Comment comment=new Comment(rs.getString("name"),	rs.getString("comment"));
+						comment.setSeq(rs.getInt("int"));
+						return comment;
+					}				
+				},seq);
+		return results.isEmpty()?null:results.get(0);
+	}
+
+	//http://ojc.asia/bbs/board.php?bo_table=LecSpring&wr_id=252+663 참고
+	
+
 	// 조회수 업데이트
-	public void readCountUpdate(int num) {
-		jdbcTemplate.update("update board set readcount=readcount+1 where num=?", num);
+	public void readCountUpdate(int seq) {
+		jdbcTemplate.update("update board set readcount=readcount+1 where seq=?", seq);
 	}
 
 	// 페이지 수
@@ -141,47 +126,48 @@ public class BoardDao {
 		if (srch == null || srch.equals("")) {
 			count = jdbcTemplate.queryForObject("select count(*) from board ", Integer.class);
 		} else {
-			count = jdbcTemplate.queryForObject("select count(*) from board where "
-					+ "(subject like concat('%',?,'%') or "
-					+ "content like concat('%',?,'%') or " 
-					+ "writer like concat('%',?,'%') ) ", Integer.class, srch, srch, srch);
+			count = jdbcTemplate.queryForObject(
+					"select count(*) from board where "
+					+ "(title like '%?%' or content like '%?%' or name like '%?%')", 
+					Integer.class, srch, srch, srch);
 		}
-		System.out.println(count);
+		System.out.println("페이지 count "+count);
 		return count;
 	}
 
+	
 	// 페이징처리
 	public List<Board> selectPage(String srch, int startPage, int limit) {
-		List<Board> results;		
+		List<Board> results;
 		if (srch == null || srch.equals("")) {
-			results = jdbcTemplate.query(
-					"select num, " + "writer, subject, content, "
-							+ "file, re_ref, re_lev, re_seq, readcount, regdate from board order by re_ref desc,re_seq limit ?,? ",
+			results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
+					+ "content, filename, regdate, reply from "
+					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? " ,
 					boardRowMapper, startPage, limit);
 		} else {
-			results = jdbcTemplate.query("select num, writer, subject, content, "
-					+ "file, re_ref, re_lev, re_seq, readcount, regdate from board  where "
-					+ "(subject like concat('%',?,'%') or "
-					+ "content like concat('%',?,'%') or "
-					+ "writer like concat('%',?,'%') ) order by re_ref desc,re_seq limit ?,? ", boardRowMapper,
-					srch, srch, srch, startPage, limit);
+			results = jdbcTemplate.query(
+					"select * from (select rownum rnum, seq, name, title, "
+					+ "content, filename, regdate, reply from "
+					+ "(select * from board order by seq desc)) where "
+					+ "(title like '%?%' or content like '%?%' or name like '%?%') where rm>=? and rm<=? ",
+					boardRowMapper, srch, srch, srch, startPage, limit);
 		}
-		System.out.println(results);
+		System.out.println("페이징결과 result "+results);
 		return results;
 	}
-
+	
 	// 게시글삭제
-	public boolean delete(int num) {
+	public boolean delete(int seq) {
 		boolean result = false;
-		jdbcTemplate.update("delete from board where num = ?", num);
+		jdbcTemplate.update("delete from board where seq = ?", seq);
 
 		return result;
 	}
 
-/*	// 글 수정하기
+
+	 // 글 수정하기 
 	public void update(Board board) {
-		jdbcTemplate.update("update board set subject=?, content=? where num=?", board.getSubject(), board.getContent(),
-				board.getNum());
-	}*/
+	 jdbcTemplate.update("update board set title=?, content=? where seq=?",
+	 board.getTitle(), board.getContent(), board.getSeq()); }
 
 }

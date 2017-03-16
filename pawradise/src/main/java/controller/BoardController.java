@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import bean.AuthInfo;
 import bean.Board;
+import bean.Comment;
 import command.BoardCommand;
 import command.PageMaker;
 import dao.BoardDao;
@@ -48,7 +49,7 @@ public class BoardController {
 	// 수정하기POST
 	@RequestMapping(value = "/board/update/{num}", method = RequestMethod.POST)
 	public String submit(@PathVariable("num") int num, Board board) {
-//		boardDao.update(board);
+		boardDao.update(board);
 		return "redirect:/board/detail/{num}";
 	}
 
@@ -72,9 +73,10 @@ public class BoardController {
 
 	// 상세보기
 	@RequestMapping("/board/detail/{num}")
-	public String detail(@PathVariable("num") int num, Model model) {
-		Board board = boardDao.getDetail(num);
-		boardDao.readCountUpdate(num);
+	public String detail(@PathVariable("seq") int seq, Model model) {
+		Board board = boardDao.getDetail(seq);
+		boardDao.commentList(seq);
+		boardDao.readCountUpdate(seq);
 		model.addAttribute("board", board);
 		return "board/boardDetail";
 	}
@@ -87,53 +89,14 @@ public class BoardController {
 
 	// 글쓰기POST
 	@RequestMapping(value = "/boardWrite", method = RequestMethod.POST)
-	public String write(BoardCommand boardCommand, Errors errors, HttpSession session) {
+	public String write(Board board, Comment comment, Errors errors, HttpSession session) {
 
-		new BoardValidator().validate(boardCommand, errors);
+		new BoardValidator().validate(board, errors);
 		if (errors.hasErrors())
 			return "board/boardWrite";
 
 		AuthInfo authInfo = (AuthInfo) session.getAttribute("authInfo");
-		boardCommand.setWriter(authInfo.getName());
-
-		MultipartFile multi = boardCommand.getMultiFile();
-		String newFileName = "";
-		if (multi != null) {
-			String fileName = multi.getOriginalFilename();
-			// 파일명이 중복되지 않게 파일명에 시간추가
-			newFileName = System.currentTimeMillis() + "_" + fileName;
-			boardCommand.setFileName(newFileName);
-
-			String path = boardCommand.getUpDir() + newFileName;
-			try {
-				File file = new File(path);
-				multi.transferTo(file);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		boardDao.add(boardCommand);
-		return "redirect:/boardList";
-	}
-
-	// 댓글 페이지로이동
-	@RequestMapping("/board/reply/{num}")
-	public String replyGet(@PathVariable("num") int num, Model model) {
-		Board board = boardDao.getDetail(num);
-		model.addAttribute("board", board);
-		return "board/boardReply";
-	}
-
-	// 댓글 POST
-	@RequestMapping(value = "/board/reply/{num}", method = RequestMethod.POST)
-	public String replyPost(Board board, Errors errors, HttpSession session) {
-
-		new BoardValidator().validate(board, errors);
-		if (errors.hasErrors())
-			return "board/boardReply";
-
-		AuthInfo authInfo = (AuthInfo) session.getAttribute("authInfo");
-//		board.setWriter(authInfo.getName());
+		board.setName(authInfo.getName());
 
 		MultipartFile multi = board.getMultiFile();
 		String newFileName = "";
@@ -151,7 +114,8 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
-//		boardDao.reply(board);
+		boardDao.add(board);
+		boardDao.insertComment(comment);
 		return "redirect:/boardList";
 	}
 

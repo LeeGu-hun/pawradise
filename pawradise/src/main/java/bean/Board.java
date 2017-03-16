@@ -16,8 +16,7 @@ public class Board{
 	private Date regdate;
 	private int readCount;
 	private int reply;
-	private int reply_step;
-	private int reply_level;
+
 
 	private MultipartFile multiFile;
 	private List<MultipartFile> files;
@@ -27,8 +26,8 @@ public class Board{
 
 	
 
-	public Board(int seq, String name, String title, String content, String fileName, Date regdate, int readCount,
-			int reply, int reply_step, int reply_level) {
+	public Board(int seq, String name, String title, String content, String fileName, 
+			Date regdate, int readCount, int reply) {
 		this.seq = seq;
 		this.name = name;
 		this.title = title;
@@ -37,8 +36,7 @@ public class Board{
 		this.regdate = regdate;
 		this.readCount = readCount;
 		this.reply = reply;
-		this.reply_step = reply_step;
-		this.reply_level = reply_level;
+
 	}	
 
 
@@ -144,21 +142,6 @@ public class Board{
 	public void setReply(int reply) {
 	      this.reply = reply;
 	}
-
-	public int getReply_step() {
-	      return reply_step;
-	}
-
-	public void setReply_step(int reply_step) {
-	      this.reply_step = reply_step;
-	}
-
-	public int getReply_level() {
-	      return reply_level;
-	}
-
-	public void setReply_level(int reply_level) {
-	      this.reply_level = reply_level;
-	}     
+    
 
 	}
