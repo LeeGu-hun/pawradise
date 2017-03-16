@@ -17,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import bean.AuthInfo;
 import bean.Board;
 import bean.Comment;
-import command.BoardCommand;
 import command.PageMaker;
 import dao.BoardDao;
 import validator.BoardValidator;
@@ -83,7 +82,7 @@ public class BoardController {
 
 	// 글쓰기GET
 	@RequestMapping(value = "/boardWrite", method = RequestMethod.GET)
-	public String form(BoardCommand boardCommand) {
+	public String form(Board board) {
 		return "board/boardWrite";
 	}
 

@@ -9,8 +9,6 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 	<mvc:view-controller path="/main" view-name="main"/>
 	
-	
-	
 	<bean class="controller.RegisterController" >
 		<property name="memRegSvc" ref="memberRegSvc"></property>
 	</bean> 

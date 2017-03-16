@@ -4,13 +4,14 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import command.BoardCommand;
+import bean.Board;
+
 
 public class BoardValidator implements Validator{
 
 	@Override
 	public boolean supports(Class<?> arg0) {
-		return BoardCommand.class.isAssignableFrom(arg0);
+		return Board.class.isAssignableFrom(arg0);
 	}
 
 	@Override

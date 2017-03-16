@@ -20,7 +20,6 @@ import org.springframework.transaction.annotation.Transactional;
 import bean.Board;
 import bean.Comment;
 import bean.Member;
-import command.BoardCommand;
 import command.PageMaker;
 
 public class BoardDao {
@@ -149,7 +148,7 @@ public class BoardDao {
 					"select * from (select rownum rnum, seq, name, title, "
 					+ "content, filename, regdate, reply from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(title like '%?%' or content like '%?%' or name like '%?%') where rm>=? and rm<=? ",
+					+ "(title like '%?%' or content like '%?%' or name like '%?%') where rnum>=? and rnum<=? ",
 					boardRowMapper, srch, srch, srch, startPage, limit);
 		}
 		System.out.println("페이징결과 result "+results);
