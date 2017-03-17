@@ -69,15 +69,15 @@ function goDelete() {
 				</tr>
 				<tr>
 					<td>파일첨부</td>
-					<td><c:if test="${!empty board.file}">
-							<c:set var="ext" value="${fn:split(board.file, '.') }" />
+					<td><c:if test="${!empty board.files}">
+							<c:set var="ext" value="${fn:split(board.files, '.') }" />
 							<c:choose>
 								<c:when
 									test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
-									<img src='<c:url value="/" />uploads/${board.file}' width="200">
+									<img src='<c:url value="/" />uploads/${board.files}' width="200">
 								</c:when>
 							</c:choose>
-							<a href='<c:url value="/" />uploads/${board.file}'>${board.file}</a>
+							<a href='<c:url value="/" />uploads/${board.files}'>${board.files}</a>
 						</c:if></td>
 				</tr>
 				<tr align="center" valign="middle">

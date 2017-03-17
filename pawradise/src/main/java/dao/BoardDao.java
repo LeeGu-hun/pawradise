@@ -59,14 +59,15 @@ public class BoardDao {
 	}
 
 	// 글 등록하기
+	
 	@Transactional
 	public void add(final Board board) {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pstmt = con
-						.prepareStatement("insert into board values(max(seq) , ? , ? , ? , ? , ? , "
-								+ "sysdate , 0 , board_seq.currval , 0 , 0)");
+						.prepareStatement("insert into board (seq, name, passwd, title, content, readcount, reply) "
+								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0);");
 				pstmt.setString(1, board.getName());
 				pstmt.setString(2, board.getTitle());
 				pstmt.setString(3, board.getContent());
@@ -82,10 +83,9 @@ public class BoardDao {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pstmt = con
-						.prepareStatement("insert into comment_t(seq, name, comm) values (?, ?, ?)");
-				pstmt.setInt(1, comment.getSeq());
-				pstmt.setString(2, comment.getName());
-				pstmt.setString(3, comment.getComment());
+						.prepareStatement("insert into comment_t(c_seq, name, c_content) values (comment_seq.NEXTVAL, ?, ?)");
+				pstmt.setString(1, comment.getName());
+				pstmt.setString(2, comment.getC_content());
 				return pstmt;
 			}
 		});
@@ -93,13 +93,13 @@ public class BoardDao {
 	}
 	//commnet리스트
 	public Comment commentList(int seq){
-		List<Comment> results=jdbcTemplate.query("select * from comment_t where seq = ?  ", 
+		List<Comment> results=jdbcTemplate.query("select * from comment_t where c_seq = ?  ", 
 				
 				new RowMapper<Comment>(){
 					@Override
 					public Comment mapRow(ResultSet rs, int seq) throws SQLException {
-						Comment comment=new Comment(rs.getString("name"),	rs.getString("comment"));
-						comment.setSeq(rs.getInt("int"));
+						Comment comment=new Comment(rs.getString("name"), rs.getString("c_content"));
+						comment.setC_seq(rs.getInt("c_seq"));
 						return comment;
 					}				
 				},seq);

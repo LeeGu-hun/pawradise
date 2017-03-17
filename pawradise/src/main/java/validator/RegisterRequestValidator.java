@@ -38,7 +38,7 @@ public class RegisterRequestValidator implements Validator {
 		}
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", 
 				"required");
-		ValidationUtils.rejectIfEmpty(errors, "password", "required");
+		ValidationUtils.rejectIfEmpty(errors, "passwd", "required");
 		ValidationUtils.rejectIfEmpty(errors, "confirmPassword", 
 				"required");
 		if (!regReq.getPassword().isEmpty()) {

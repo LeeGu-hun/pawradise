@@ -26,7 +26,7 @@ public class MemberInfoPrinter {
 		if(mem == null){
 			throw new MemberNotFoundException();
 		}
-		printer.print(mem);
+//		printer.print(mem);
 		System.out.println();
 	}
 }

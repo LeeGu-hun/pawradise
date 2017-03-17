@@ -64,7 +64,7 @@ public class BoardController {
 		// 레코드 총 갯수 구함
 		pageMaker.setCount(count); // 페이지 계산
 		List<Board> boards = boardDao.selectPage(srch, point, limit);
-		System.out.println("리스트: " + srch);
+		System.out.println("리스트: " + count);
 		model.addAttribute("pageMaker", pageMaker);
 		model.addAttribute("boards", boards);
 		return "board/boardList";
