@@ -81,6 +81,7 @@ function goMemList(){
 						<tr>
 							<td>${board.seq}</td>
 							<td><a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
+							---${board.reply}							
 							</td>
 							<td><fmt:formatDate value="${board.regdate}"
 									pattern="yyyy-MM-dd" /></td>

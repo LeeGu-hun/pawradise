@@ -31,7 +31,6 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 		<mvc:interceptor>
 			<mvc:mapping path="/edit/**"/>
 			<mvc:mapping path="/member/**"/>
-			<mvc:mapping path="/board/**"/>
 			<bean class="interceptor.AuthCheckInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>

@@ -51,15 +51,15 @@ function goDelete() {
 			<table class="table">
 				<tr>
 					<td>글쓴이</td>
-					<td>${board.writer}</td>
+					<td>${board.name}</td>
 				</tr>
 				<tr>
 					<td>제목</td>
-					<td>${board.subject}</td>
+					<td>${board.title}</td>
 				</tr>
 				<tr>
 					<td>작성일자</td>
-					<td><fmt:formatDate value="${board.regDate}"
+					<td><fmt:formatDate value="${board.regdate}"
 							pattern="yyyy-MM-dd" /></td>
 				</tr>
 				<tr>
@@ -84,11 +84,11 @@ function goDelete() {
 					<td colspan="2"><input type="button"
 						onclick="location.href='<c:url value='/boardList'/>'" value="리스트">&nbsp;&nbsp;
 						<input type="button"
-						onclick="location.href='<c:url value='/board/reply/${num}' />' "
+						onclick="location.href='<c:url value='/board/reply/${seq}' />' "
 						value="답글달기">&nbsp;&nbsp; <input type="button"
-						onclick="location.href='<c:url value='/board/delete/${num}' />' "
+						onclick="location.href='<c:url value='/board/delete/${seq}' />' "
 						value="삭제하기">&nbsp;&nbsp; <input type="button"
-						onclick="location.href='<c:url value='/board/update/${num}' />' "
+						onclick="location.href='<c:url value='/board/update/${seq}' />' "
 						value="수정하기">
 				</tr>
 			</table>
