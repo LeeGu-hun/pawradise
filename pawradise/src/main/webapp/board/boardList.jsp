@@ -52,14 +52,11 @@ function goMemList(){
 		<div class="container">
 
             <div class="center-heading">
-                <h2>마이페이지</h2>
+                <h2>포토게시판</h2>
                 <span class="center-line"></span>
-            </div>   
+            </div>    
             
-            
-			<p>${authInfo.name}님이
-				로그인 중입니다. <input type="submit" value="회원목록" onclick="goMemList();">
-			</p>
+			
 			<form:form commandName="pageMaker" id="frm">
 				<p>
 				<input type="text" id="srch" name="srch" placeholder="검색" />
@@ -69,7 +66,7 @@ function goMemList(){
 			</form:form>
 			<p>
 
-				<input type="submit" value="글쓰기" onclick="goName();">
+				<input type="submit" value="글쓰기" onclick="goWriter();">
 			</p>
 			<c:if test="${!empty boards}">
 				<table class="table">
@@ -85,10 +82,10 @@ function goMemList(){
 							<td>${board.seq}</td>
 							<td><a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
 							</td>
-							<td><fmt:formatDate value="${board.regDate}"
+							<td><fmt:formatDate value="${board.regdate}"
 									pattern="yyyy-MM-dd" /></td>
 							<td>${board.name}</td>
-							<td>${board.readcount}</td>
+							<td>${board.readCount}</td>
 						</tr>
 					</c:forEach>
 					<tr>

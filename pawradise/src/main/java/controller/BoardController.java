@@ -71,7 +71,7 @@ public class BoardController {
 	}
 
 	// 상세보기
-	@RequestMapping("/board/detail/{num}")
+	@RequestMapping("/board/detail/{seq}")
 	public String detail(@PathVariable("seq") int seq, Model model) {
 		Board board = boardDao.getDetail(seq);
 		boardDao.commentList(seq);

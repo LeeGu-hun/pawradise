@@ -113,19 +113,13 @@ public class Board{
 	      this.fileName = fileName;
 	}
 
-
-
 	public Date getRegdate() {
 		return regdate;
 	}
 
-
-
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-
-
 
 	public int getReadCount() {
 	      return readCount;

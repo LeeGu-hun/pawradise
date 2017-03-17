@@ -13,14 +13,10 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
-import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.transaction.annotation.Transactional;
 
 import bean.Board;
 import bean.Comment;
-import bean.Member;
-import command.PageMaker;
 
 public class BoardDao {
 	private JdbcTemplate jdbcTemplate;
@@ -69,7 +65,7 @@ public class BoardDao {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pstmt = con
-						.prepareStatement("insert into board values(board_seq.nextval , ? , ? , ? , ? , ? , "
+						.prepareStatement("insert into board values(max(seq) , ? , ? , ? , ? , ? , "
 								+ "sysdate , 0 , board_seq.currval , 0 , 0)");
 				pstmt.setString(1, board.getName());
 				pstmt.setString(2, board.getTitle());
@@ -140,15 +136,16 @@ public class BoardDao {
 		List<Board> results;
 		if (srch == null || srch.equals("")) {
 			results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
-					+ "content, filename, regdate, reply from "
+					+ "content, filename, regdate, readcount, reply from "
 					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? " ,
 					boardRowMapper, startPage, limit);
 		} else {
 			results = jdbcTemplate.query(
 					"select * from (select rownum rnum, seq, name, title, "
-					+ "content, filename, regdate, reply from "
+					+ "content, filename, regdate, readcount, reply from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(title like '%?%' or content like '%?%' or name like '%?%') where rnum>=? and rnum<=? ",
+					+ "(title like '%"	+ "?" + "%' or content like '%"+ "?"+ "%' or name like '%"+ "?"	+ "%') "
+					+ "where rnum>=? and rnum<=? ",
 					boardRowMapper, srch, srch, srch, startPage, limit);
 		}
 		System.out.println("페이징결과 result "+results);
