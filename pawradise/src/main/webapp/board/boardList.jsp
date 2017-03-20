@@ -56,7 +56,7 @@ $(document).ready(function(){
                     <div class="col-sm-6 hidden-xs text-right">
                         <ol class="breadcrumb">
                             <li><a href="index.jsp">HOME</a></li>
-                            <li>냥냥멍멍귀여워</li>
+                            <li>냥냥멍멍귀</li>
                         </ol>
                     </div>
                 </div>
