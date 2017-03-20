@@ -51,7 +51,7 @@ $(document).ready(function(){
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h4>냥냥멍멍 귀여워 </h4>
+                        <h4>냥냥멍멍 귀여워m </h4>
                     </div>
                     <div class="col-sm-6 hidden-xs text-right">
                         <ol class="breadcrumb">
