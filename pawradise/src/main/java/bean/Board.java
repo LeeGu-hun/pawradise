@@ -9,7 +9,7 @@ public class Board{
 	
 	private int seq;
 	private String name;
-	private String passwd;
+	private String password;
 	private String title;
 	private String content;
 	private String fileName;
@@ -81,12 +81,12 @@ public class Board{
 	      this.name = name;
 	}
 
-	public String getPasswd() {
-	      return passwd;
+	public String getPassword() {
+	      return password;
 	}
 
-	public void setPasswd(String passwd) {
-	      this.passwd = passwd;
+	public void setPassword(String password) {
+	      this.password = password;
 	}
 
 	public String getTitle() {

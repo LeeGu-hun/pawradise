@@ -73,15 +73,7 @@ $(document).ready(function(){
         
         <div class="blog-masonary-wrapper"> 
           <div class="container mas-boxes">
-            <!--검색 -->
-           <form:form commandName="pageMaker" id="frm">
-				<p>
-				<input type="text" id="srch" name="srch" placeholder="검색" />
-				<input type="submit" value="조회">
-				<input type="text" name="page" id="page" hidden />
-				</p>
-		   </form:form>
-		  <!--검색 -->    
+             
           
             <!--컨텐츠들어가는부분 시작-->
            <c:forEach var="board" items="${boards}">
@@ -102,7 +94,7 @@ $(document).ready(function(){
                             <li><i class="fa fa-calendar"></i><fmt:formatDate value="${board.regdate}"
 											pattern="yyyy-MM-dd" /></li>                            
                         </ul>
-                        <p>${board.content}컨텐츠들어갈부분</p>
+                        <p>${board.content}</p>
                         <a href="<c:url value="/board/detail/${board.seq}"/>">...더보기</a>
                     </div>
                  </div>
@@ -114,7 +106,16 @@ $(document).ready(function(){
            
 		  <!--글쓰기버튼 -->
             <a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
-             <div class="divide10"></div>   
+             <div class="divide10"></div> 
+              <!--검색 -->
+           <form:form commandName="pageMaker" id="frm">
+				<p>
+				<input type="text" id="srch" name="srch" placeholder="검색" />
+				<input type="submit" value="조회">
+				<input type="text" name="page" id="page" hidden />
+				</p>
+		   </form:form>
+		  <!--검색 -->    
            <ul  class="pager">
 			<c:if test="${pageMaker.prev }">
 				<li class="previous"><input type="button" value="이전" onclick='pageGo(${pageMaker.page-1});' /></li>

@@ -66,8 +66,8 @@ public class BoardDao {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pstmt = con
-						.prepareStatement("insert into board (seq, name, passwd, title, content, readcount, reply) "
-								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0);");
+						.prepareStatement("insert into board (seq, name, title, content, filename, readcount, reply) "
+								+ "values (board_seq.NEXTVAL, ?, ?, ?, 0,0);");
 				pstmt.setString(1, board.getName());
 				pstmt.setString(2, board.getTitle());
 				pstmt.setString(3, board.getContent());

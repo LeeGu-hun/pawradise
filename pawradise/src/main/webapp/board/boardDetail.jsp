@@ -83,13 +83,9 @@ function goDelete() {
 				<tr align="center" valign="middle">
 					<td colspan="2"><input type="button"
 						onclick="location.href='<c:url value='/boardList'/>'" value="리스트">&nbsp;&nbsp;
-						<input type="button"
-						onclick="location.href='<c:url value='/board/reply/${seq}' />' "
-						value="답글달기">&nbsp;&nbsp; <input type="button"
-						onclick="location.href='<c:url value='/board/delete/${seq}' />' "
-						value="삭제하기">&nbsp;&nbsp; <input type="button"
-						onclick="location.href='<c:url value='/board/update/${seq}' />' "
-						value="수정하기">
+						<input type="button" onclick="location.href='<c:url value='/board/reply/${seq}' />' "  value="답글달기">&nbsp;&nbsp; 
+						<input type="button" onclick="location.href='<c:url value='/board/delete/${seq}' />' "	value="삭제하기">&nbsp;&nbsp; 
+						<input type="button" onclick="location.href='<c:url value='/board/update/${seq}' />' " value="수정하기">
 				</tr>
 			</table>
 		</div>	

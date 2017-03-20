@@ -43,7 +43,7 @@
 			<table class="joinform">
 				<tr id="btline">
 					<td id="tbname"><label id="jointext"><spring:message code="Id" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </label>
+					<td id="tbwrite"><form:input path="id" /> <form:errors path="id" /> </label>
 					</td>
 				</tr>
 				<tr id="btline">
