@@ -47,7 +47,7 @@ function goDelete() {
             </div>   
             
 		<div id="contentsBox">
-			<h2>게시글 보기</h2>
+			
 			<table class="table">
 				<tr>
 					<td>글쓴이</td>
@@ -63,13 +63,7 @@ function goDelete() {
 							pattern="yyyy-MM-dd" /></td>
 				</tr>
 				<tr>
-					<td>내용</td>
-					<td><textarea path="content" id="content" name="content"
-							cols="100" rows="15" class="form-control" readonly>${board.content}</textarea></td>
-				</tr>
-				<tr>
-					<td>파일첨부</td>
-					<td><c:if test="${!empty board.files}">
+					<td colspan="2""><c:if test="${!empty board.files}">
 							<c:set var="ext" value="${fn:split(board.files, '.') }" />
 							<c:choose>
 								<c:when
@@ -80,13 +74,41 @@ function goDelete() {
 							<a href='<c:url value="/" />uploads/${board.files}'>${board.files}</a>
 						</c:if></td>
 				</tr>
+				<tr>
+					<td>내용</td>
+					<td><textarea path="content" id="content" name="content"
+							cols="100" rows="15" class="form-control" readonly>${board.content}</textarea></td>
+				</tr>
+				
 				<tr align="center" valign="middle">
 					<td colspan="2"><input type="button"
 						onclick="location.href='<c:url value='/boardList'/>'" value="리스트">&nbsp;&nbsp;
-						<input type="button" onclick="location.href='<c:url value='/board/reply/${seq}' />' "  value="답글달기">&nbsp;&nbsp; 
 						<input type="button" onclick="location.href='<c:url value='/board/delete/${seq}' />' "	value="삭제하기">&nbsp;&nbsp; 
 						<input type="button" onclick="location.href='<c:url value='/board/update/${seq}' />' " value="수정하기">
 				</tr>
+			</table>
+			<br>
+			<!-- commnet 쓰기  -->
+			<form:form commandName="commnet" ">		
+			<table class="table">
+					<tr>
+						<td><input type="text" path="name" class="form-control" name="name"	size="10" 
+								maxlength="10" value="${sessionScope.authInfo.name}" readonly />
+						</td>
+						<td><form:input path="c_commnet" size="50" maxlength="50" class="form-control" /> <br>
+						<form:errors path="c_commnet" /></td>
+					</tr>					
+			</table>
+			</form:form>
+			<!-- commnet 쓰기  -->
+			<table class="table">
+			<c:forEach var="commnet" items="${commnet}">
+					<tr>
+						
+						<td>${commnet.name}</td>
+						<td>${commnet.c_content}</td>
+					</tr>
+			 </c:forEach>						
 			</table>
 		</div>	
 	</div>

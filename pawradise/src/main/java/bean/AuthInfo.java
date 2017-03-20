@@ -1,16 +1,16 @@
 package bean;
 
 public class AuthInfo {
-	private Long id;
+	private String id;
 	private String email;
 	private String name;
-	public AuthInfo(Long id, String email, String name) {
+	public AuthInfo(String id, String email, String name) {
 		super();
 		this.id = id;
 		this.email = email;
 		this.name = name;
 	}
-	public Long getId() {
+	public String getId() {
 		return id;
 	}
 	public String getEmail() {

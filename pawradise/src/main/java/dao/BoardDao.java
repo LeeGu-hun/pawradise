@@ -65,9 +65,8 @@ public class BoardDao {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con
-						.prepareStatement("insert into board (seq, name, title, content, filename, readcount, reply) "
-								+ "values (board_seq.NEXTVAL, ?, ?, ?, 0,0);");
+				PreparedStatement pstmt = con.prepareStatement("insert into board (seq, name, title, content, filename, readcount, reply) "
+								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0)");
 				pstmt.setString(1, board.getName());
 				pstmt.setString(2, board.getTitle());
 				pstmt.setString(3, board.getContent());
@@ -82,8 +81,8 @@ public class BoardDao {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con
-						.prepareStatement("insert into comment_t(c_seq, name, c_content) values (comment_seq.NEXTVAL, ?, ?)");
+				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(c_seq, name, c_content) "
+								+ "values (comment_seq.NEXTVAL, ?, ?)");
 				pstmt.setString(1, comment.getName());
 				pstmt.setString(2, comment.getC_content());
 				return pstmt;

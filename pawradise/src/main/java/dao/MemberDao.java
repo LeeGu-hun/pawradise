@@ -29,9 +29,9 @@ public class MemberDao {
 		@Override
 		public Member mapRow(ResultSet rs, int rowNum) 
 				throws SQLException {
-			Member member = new Member(rs.getString("id"), rs.getString("name"),rs.getString("passwd"),
-					rs.getString("email"), rs.getString("petName"), rs.getString("address"), rs.getDate("regdate"));
-			member.setUserno(rs.getInt("userNo"));
+			Member member = new Member(rs.getString("id"), rs.getString("name"),rs.getString("password"),
+					rs.getString("email"), rs.getString("petName"), rs.getString("Phone"), rs.getString("address"),rs.getDate("regdate"));
+			member.setUserNum(rs.getInt("userNum"));
 			return member;
 		}
 	};
@@ -61,7 +61,7 @@ public class MemberDao {
 
 	public Member selectByEmail(String email){
 		List<Member> results = jdbcTemplate.query(
-				"select * from member where userNum=? ", 
+				"select * from member where email=? ", 
 				memRowMapper, email);
 		return results.isEmpty()?null: results.get(0);
 	}
@@ -72,12 +72,15 @@ public class MemberDao {
 			public PreparedStatement createPreparedStatement(Connection con) 
 					throws SQLException {
 			PreparedStatement pstmt = con.prepareStatement(
-				"insert into Member (id, name, passwd, email, petname, address, regdate) " 
-						+ "values(?,?,?,?,?,?,?)", new String[] { "userNum" });
-			pstmt.setString(1, member.getEmail()); 
-			pstmt.setString(2, member.getPasswd());
-			pstmt.setString(3, member.getName());
-			pstmt.setTimestamp(4, new Timestamp(member.getRegdate().getTime()));
+				"insert into Member (userNum, id, name, password, email, petname, phone, address) " 
+						+ "values(member_seq.NEXTVAL,?,?,?,?,?,?,?)");			
+			pstmt.setString(1, member.getId());
+			pstmt.setString(2, member.getName());
+			pstmt.setString(3, member.getPassword()); 
+			pstmt.setString(4, member.getEmail());
+			pstmt.setString(5, member.getPetName());
+			pstmt.setString(6, member.getPhone());
+			pstmt.setString(7, member.getAddress());
 			return pstmt;
 			}
 		});
@@ -87,7 +90,7 @@ public class MemberDao {
 	public void update(Member member){
 		jdbcTemplate.update("update member set name=?, "
 				+ "password=? where email=?", member.getName(),
-				member.getPasswd(), member.getEmail());
+				member.getPassword(), member.getEmail());
 	}
 	
 	public List<Member> selectAll() {

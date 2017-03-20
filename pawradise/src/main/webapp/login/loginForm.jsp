@@ -42,7 +42,7 @@
 				
 				<table style="margin-left: auto; margin-right: auto;">
 					<tr>
-						<td><label><input id="email" name="email" placeholder="이메일" class="form-control" type="text" value="aa@a.aaa"/><br>
+						<td><label><input id="email" name="email" placeholder="이메일" class="form-control" type="text" /><br>
 							 </label></td>
 					</tr>
 					<tr>

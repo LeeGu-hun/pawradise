@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
+encoding//src/main/java=UTF-8
 encoding//src/main/java/bean/AuthInfo.java=UTF-8
+encoding//src/main/resources=UTF-8
 encoding//src/main/webapp=UTF-8
 encoding//src/main/webapp/board/boardDetail.jsp=UTF-8
 encoding//src/main/webapp/edit=UTF-8
@@ -16,3 +18,4 @@ encoding//src/main/webapp/member/invalidId.jsp=UTF-8
 encoding//src/main/webapp/member/memberDetail.jsp=UTF-8
 encoding//src/main/webapp/member/memberList.jsp=UTF-8
 encoding//src/main/webapp/member/noMember.jsp=UTF-8
+encoding/src=UTF-8

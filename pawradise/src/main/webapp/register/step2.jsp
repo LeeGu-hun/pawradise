@@ -43,7 +43,7 @@
 			<table class="joinform">
 				<tr id="btline">
 					<td id="tbname"><spring:message code="Id" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> 
+					<td id="tbwrite"><form:input path="id" /> <form:errors path="id" /> 
 					</td>
 				</tr>
 				<tr id="btline">
@@ -67,17 +67,17 @@
 							path="confirmPassword" /> </td>
 				<tr id="btline">
 					<td id="tbname"><spring:message code="phone" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </td>
+					<td id="tbwrite"><form:input path="phone" /></td>
 				</tr>
 				<tr id="btline">
 					<td id="tbname"><spring:message code="petname" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </td>
+					<td id="tbwrite"><form:input path="petName" /></td>
 				</tr>
 				<tr id="btline2">
 					<td id="tbname"><spring:message code="address" /></td>
-					<td id="tbwrite"><form:input path="name" style="width:120px;" /> <form:errors path="name" /> 
+					<td id="tbwrite"><form:input path="address" style="width:120px;" /> 
 					<input type="button" value="우편번호 검색" id="addsearch"/><br>
-					<form:input path="name" style="width:240px;"/> <form:errors path="name" /><span id="addadd">나머지 주소 입력</span>
+
 					</td>
 				</tr>			
 			</table>

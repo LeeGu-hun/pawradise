@@ -48,11 +48,11 @@
             
 		<div id="contentsBox">
 		
-			<form:form commandName="board" enctype="multipart/form-data"	id="frm">
+			<form:form commandName="board" enctype="multipart/form-data" id="frm">
 				<table class="table">
 					<tr>
 						<td>글쓴이</td>
-						<td><input type="text" class="form-control" name="name"	size="10" 
+						<td><input type="text" path="name" class="form-control" name="name"	size="10" 
 								maxlength="10" value="${sessionScope.authInfo.name}" readonly />
 						</td>
 					</tr>

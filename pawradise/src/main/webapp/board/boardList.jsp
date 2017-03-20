@@ -90,12 +90,14 @@ $(document).ready(function(){
                     <div class="mas-blog-inner">
                         <h3><a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a></h3>
                         <ul class="list-inline post-detail">
-                            <li>by  <a href="#">${board.name}</a>  님의 글</li>
+                            <li>by  <a href="#">${board.name}</a> 님의 글</li>
                             <li><i class="fa fa-calendar"></i><fmt:formatDate value="${board.regdate}"
 											pattern="yyyy-MM-dd" /></li>                            
                         </ul>
+                        <a href="<c:url value="/board/detail/${board.seq}"/>"> 
                         <p>${board.content}</p>
-                        <a href="<c:url value="/board/detail/${board.seq}"/>">...더보기</a>
+                        <img src="<%=request.getContextPath() %>/img/comment.png" width="15">  [${board.reply}]</a>
+                        
                     </div>
                  </div>
                    </c:forEach>

@@ -13,8 +13,8 @@ public class RegisterRequestValidator implements Validator {
 	private static final String emailRegExp = 
 			"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 			+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-	private Pattern pattern;
-
+	private Pattern pattern; 
+	
 	public RegisterRequestValidator() {
 		pattern = Pattern.compile(emailRegExp);
 	}
@@ -38,7 +38,7 @@ public class RegisterRequestValidator implements Validator {
 		}
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", 
 				"required");
-		ValidationUtils.rejectIfEmpty(errors, "passwd", "required");
+		ValidationUtils.rejectIfEmpty(errors, "password", "required");
 		ValidationUtils.rejectIfEmpty(errors, "confirmPassword", 
 				"required");
 		if (!regReq.getPassword().isEmpty()) {

@@ -72,11 +72,13 @@ public class BoardController {
 
 	// 상세보기
 	@RequestMapping("/board/detail/{seq}")
-	public String detail(@PathVariable("seq") int seq, Model model) {
-		Board board = boardDao.getDetail(seq);
+	public String detail(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
+		board = boardDao.getDetail(seq);
 		boardDao.commentList(seq);
 		boardDao.readCountUpdate(seq);
+		boardDao.insertComment(comment);
 		model.addAttribute("board", board);
+		model.addAttribute("commnet", comment);
 		return "board/boardDetail";
 	}
 
@@ -87,8 +89,8 @@ public class BoardController {
 	}
 
 	// 글쓰기POST
-	@RequestMapping(value = "/boardWrite", method = RequestMethod.POST)
-	public String write(Board board, Comment comment, Errors errors, HttpSession session) {
+	@RequestMapping(value = "/board/boardWrite")
+	public String write(Board board,  Errors errors, HttpSession session) {
 
 		new BoardValidator().validate(board, errors);
 		if (errors.hasErrors())
@@ -114,7 +116,6 @@ public class BoardController {
 			}
 		}
 		boardDao.add(board);
-		boardDao.insertComment(comment);
 		return "redirect:/boardList";
 	}
 
