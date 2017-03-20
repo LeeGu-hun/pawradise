@@ -71,42 +71,63 @@ $(document).ready(function(){
 			<span class="center-line"></span>
 		</div>
         
-        <div class="blog-masonary-wrapper">
-            <div class="container mas-boxes">
+        <div class="blog-masonary-wrapper"> 
+          <div class="container mas-boxes">
+            <!--검색 -->
+           <form:form commandName="pageMaker" id="frm">
+				<p>
+				<input type="text" id="srch" name="srch" placeholder="검색" />
+				<input type="submit" value="조회">
+				<input type="text" name="page" id="page" hidden />
+				</p>
+		   </form:form>
+		  <!--검색 -->    
+          
+            <!--컨텐츠들어가는부분 시작-->
+           <c:forEach var="board" items="${boards}">
                 <div class="mas-boxes-inner">
-                    <img src="img/showcase-1.jpg" alt="" class="img-responsive">
-                    <c:if test="${!empty board.filename}">
-							<c:set var="ext" value="${fn:split(board.filename, '.') }" />
+                   
+                    <c:if test="${!empty board.fileName}">
+							<img src="img/showcase-1.jpg" alt="" class="img-responsive">
 							<c:choose>
-								<c:when
-									test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
+								<c:when	test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
 									<img src='<c:url value="/" />uploads/${board.filename}' width="200">
 								</c:when>
 							</c:choose>
-							<a href='<c:url value="/" />uploads/${board.filename}'>${board.filename}</a>
 						</c:if>
                     <div class="mas-blog-inner">
-                        <h3><a href="#">${board.title}</a></h3>
+                        <h3><a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a></h3>
                         <ul class="list-inline post-detail">
-                            <li>by  <a href="#">${board.writer}글쓴이들어갈부분</a>  님의 글</li>
+                            <li>by  <a href="#">${board.name}</a>  님의 글</li>
                             <li><i class="fa fa-calendar"></i><fmt:formatDate value="${board.regdate}"
 											pattern="yyyy-MM-dd" /></li>                            
                         </ul>
                         <p>${board.content}컨텐츠들어갈부분</p>
-                        <a href="#">...더보기</a>
-                    </div><!--blog inner-->
+                        <a href="<c:url value="/board/detail/${board.seq}"/>">...더보기</a>
+                    </div>
+                 </div>
+                   </c:forEach>
+				<!--컨텐츠들어가는부분 끝-->
                 </div>
-                   
-                   <!--blog inner-->
-                </div>
-              </div>	
+              </div>
+           <div class="container">
            
-            <div class="container">
-                   
-                <ul class="pager">
-                <li class="previous"><a href="#">← Previous Page</a></li>
-                <li class="next"><a href="#">Next Page →</a></li>
-            </ul>
+		  <!--글쓰기버튼 -->
+            <a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
+             <div class="divide10"></div>   
+           <ul  class="pager">
+			<c:if test="${pageMaker.prev }">
+				<li class="previous"><input type="button" value="이전" onclick='pageGo(${pageMaker.page-1});' /></li>
+			</c:if>
+			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}" var="idx">
+				<li	class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+				<a href='#' onclick='pageGo(${idx});'>${idx}</a></li>
+			</c:forEach>
+			<c:if test="${pageMaker.next }">
+				<li class="next"><input type="button" value="다음" onclick='pageGo(${pageMaker.page+1});' /></li>
+			</c:if>
+		</ul>
+            
             </div>
         </div><!--masonary wrapper-->
         <div class="divide60"></div>
