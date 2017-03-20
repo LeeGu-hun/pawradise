@@ -33,6 +33,7 @@
 	<!--breadcrumbs-->
 	<div class="divide50"></div>
 	<div class="agreeform">
+	<form action="step2" method="post">	
 		<div class="agreeborder">
 			<h5>이용약관동의</h5>
 			<div class="agreecontents">제 1 조 (목적) 이 약관은 냥냥멍멍 주식회사 ("회사" 또는
@@ -168,11 +169,10 @@
 				관할법원은 민사소송법에 따라 정합니다. ③해외에 주소나 거소가 있는 '회원' 의 경우 '회사'와 '회원'간 발생한 분쟁에
 				관한 소송은 전항에도 불구하고 대한민국 서울중앙지방법원을 관할 법원으로 합니다. -출처:네이버</div>
 			<div class="divide10"></div>
-			<form action="step2" method="post">
-				<spring:message code="term.agree" />
+				<label for="agree">동의
 				<input type="checkBox" id="agree" name="agree" value="true">
-				<label for="agree"></label>
-			</form>
+				</label>
+			
 		</div>
 		<div class="divide10"></div>
 		<div class="agreeborder">
@@ -188,13 +188,13 @@
 				통계 ■ 개인정보의 보유 및 이용기간 회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이
 				파기합니다.</div>
 			<div class="divide10"></div>
-			<form action="step2" method="post">
-				개인정보 수집 및 이용에 동의하십니까? <input type="checkBox" id="agree" name="agree"
-					value="true"> <label for="agree"> </label><br>
+		
+				개인정보 수집 및 이용에 동의하십니까? <label for="agree">동의
+				<input type="checkBox" id="agree" name="agree" value="true">
+				</label><br>
 		</div>
 		<div class="divide10"></div>
-		<input type="submit" id="joinbutton"
-			value="<spring:message code="next.btn" />" />
+		<input type="submit" value="동의합니다" />
 		</form>
 	</div>
 	<div class="divide50"></div>

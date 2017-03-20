@@ -18,7 +18,7 @@ function pageGo(page) {
 }
 
 function goWriter(){
-	location.href="./boardWrite"
+	location.href="./board/boardWrite"
 }
 
 function goMemList(){

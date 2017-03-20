@@ -42,43 +42,42 @@
 		<form:form action="step3" commandName="registerRequest">
 			<table class="joinform">
 				<tr id="btline">
-					<td id="tbname"><label id="jointext"><spring:message code="Id" /></td>
-					<td id="tbwrite"><form:input path="id" /> <form:errors path="id" /> </label>
+					<td id="tbname"><spring:message code="Id" /></td>
+					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> 
 					</td>
 				</tr>
 				<tr id="btline">
-					<td id="tbname"><label id="jointext"><spring:message code="email" /></td>
+					<td id="tbname"><spring:message code="email" /></td>
 					<td id="tbwrite"><form:input path="email" /> <form:errors path="email" />
-						</label></td>
+						</td>
 				</tr>
 				<tr id="btline">
-					<td id="tbname"><label id="jointext"><spring:message code="name" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </label></td>
+					<td id="tbname"><spring:message code="name" /></td>
+					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </td>
 				</tr>
 				<tr id="btline">
-					<td id="tbname"><label id="jointext"><spring:message
+					<td id="tbname"><spring:message
 								code="password" /></td>
-					<td id="tbwrite"><form:password path="password" /> <form:errors
-							path="password" /> </label></td>
+					<td id="tbwrite"><form:password path="password" />
+				<form:errors path="password" /> </td>
 				</tr>
 				<tr id="btline">
-					<td id="tbname"><label id="jointext"><spring:message
-								code="password.confirm" /></td>
+					<td id="tbname"><spring:message	code="password.confirm" /></td>
 					<td id="tbwrite"><form:password path="confirmPassword" /> <form:errors
-							path="confirmPassword" /> </label></td>
+							path="confirmPassword" /> </td>
 				<tr id="btline">
-					<td id="tbname"><label id="jointext"><spring:message code="phone" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </label></td>
+					<td id="tbname"><spring:message code="phone" /></td>
+					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </td>
 				</tr>
 				<tr id="btline">
-					<td id="tbname"><label id="jointext"><spring:message code="petname" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </label></td>
+					<td id="tbname"><spring:message code="petname" /></td>
+					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </td>
 				</tr>
 				<tr id="btline2">
-					<td id="tbname"><label id="jointext-add"><spring:message code="address" /></td>
-					<td id="tbwrite"><form:input path="name" style="width:120px;" /> <form:errors path="name" /> </label>
+					<td id="tbname"><spring:message code="address" /></td>
+					<td id="tbwrite"><form:input path="name" style="width:120px;" /> <form:errors path="name" /> 
 					<input type="button" value="우편번호 검색" id="addsearch"/><br>
-					<label><form:input path="name" style="width:240px;"/> <form:errors path="name" /><span id="addadd">나머지 주소 입력</span></label>
+					<form:input path="name" style="width:240px;"/> <form:errors path="name" /><span id="addadd">나머지 주소 입력</span>
 					</td>
 				</tr>			
 			</table>
