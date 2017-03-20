@@ -8,6 +8,9 @@
 <!-- 헤더부분 -->
 <%@ include file="/include/header.jsp" %>
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+	type="text/javascript"></script>
 <script>
 function pageGo(page) {
 	document.getElementById("page").value = page;
@@ -32,8 +35,11 @@ $(document).ready(function(){
     });
 });
  
+ 
+ 
 
 </script>
+
 
 
 <body>
@@ -60,47 +66,49 @@ $(document).ready(function(){
 
 <!--breadcrumbs-->
         <div class="divide80"></div>
-        <div class="center-heading">
-                <h2>포토게시판</h2>
-                <span class="center-line"></span>
-            </div>    
+       	<div class="center-heading">
+			<h2>냥멍이의은밀한사생활</h2>
+			<span class="center-line"></span>
+		</div>
         
         <div class="blog-masonary-wrapper">
-        
             <div class="container mas-boxes">
-                        
-            <c:forEach var="board" items="${boards}">
                 <div class="mas-boxes-inner">
                     <img src="img/showcase-1.jpg" alt="" class="img-responsive">
-                    
+                    <c:if test="${!empty board.filename}">
+							<c:set var="ext" value="${fn:split(board.filename, '.') }" />
+							<c:choose>
+								<c:when
+									test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
+									<img src='<c:url value="/" />uploads/${board.filename}' width="200">
+								</c:when>
+							</c:choose>
+							<a href='<c:url value="/" />uploads/${board.filename}'>${board.filename}</a>
+						</c:if>
                     <div class="mas-blog-inner">
-                        <h3><a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}
-							&nbsp;&nbsp;&nbsp;<img id="comment" src="<%=request.getContextPath() %>/img/comment.png" width="15" height="15" alt="comment"> ${board.reply}	</a></h3>
+                        <h3><a href="#">${board.title}</a></h3>
                         <ul class="list-inline post-detail">
-                            <li>by <a href="#">assan</a></li>
-                            <li><i class="fa fa-calendar"></i> 31st july 2014</li>                            
+                            <li>by  <a href="#">${board.writer}글쓴이들어갈부분</a>  님의 글</li>
+                            <li><i class="fa fa-calendar"></i><fmt:formatDate value="${board.regdate}"
+											pattern="yyyy-MM-dd" /></li>                            
                         </ul>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.lley of type and scrambled it to make a type specimen book.
-                        </p>
-                        <a href="#">Continue reading</a>
+                        <p>${board.content}컨텐츠들어갈부분</p>
+                        <a href="#">...더보기</a>
                     </div><!--blog inner-->
-                    
                 </div>
-               </c:forEach> 
-                  
-                           
-             </div>
-             
-            <div class="container">                   
+                   
+                   <!--blog inner-->
+                </div>
+              </div>	
+           
+            <div class="container">
+                   
                 <ul class="pager">
                 <li class="previous"><a href="#">← Previous Page</a></li>
                 <li class="next"><a href="#">Next Page →</a></li>
             </ul>
             </div>
-            
         </div><!--masonary wrapper-->
-        
         <div class="divide60"></div>
 
 <!--하단 footer부분 인클루드시작 body태그안에들어감 -->	

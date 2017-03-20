@@ -82,7 +82,7 @@
         <!--easing plugin for smooth scroll-->
         <script src="<%=request.getContextPath() %>/js/jquery.easing.1.3.min.js" type="text/javascript"></script>
         <!--sticky header-->
-        <script type="text/javascript" src="<%=request.getContextPath() %>/js/jquery.sticky.js"></script>
+        <script type="<%=request.getContextPath() %>/text/javascript" src="js/jquery.sticky.js"></script>
         <!--flex slider plugin-->
         <script src="<%=request.getContextPath() %>/js/jquery.flexslider-min.js" type="text/javascript"></script>
         <!--parallax background plugin-->
@@ -101,16 +101,20 @@
         <script src="<%=request.getContextPath() %>/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
         <!--popup js-->
         <script src="<%=request.getContextPath() %>/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
-        
+        <!--masonary js-->
+        <script src="<%=request.getContextPath() %>/js/jquery.masonry.min.js" type="text/javascript"></script>
+       
                 
         <!--customizable plugin edit according to your needs-->
         <script src="<%=request.getContextPath() %>/js/custom.js" type="text/javascript"></script>
+ 		<script src="<%=request.getContextPath() %>/js/masonary-custom.js" type="text/javascript"></script>
 
         <!--revolution slider plugins-->
         <script src="<%=request.getContextPath() %>/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath() %>/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath() %>/js/revolution-custom.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath() %>/js/isotope-custom.js" type="text/javascript"></script>
+        
         <!--revolution slider plugins-->
         <script src="<%=request.getContextPath() %>/rs-plugin/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
         <script src="<%=request.getContextPath() %>/rs-plugin/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
