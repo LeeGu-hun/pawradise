@@ -50,7 +50,7 @@
                     <li>
                         <a href="#">PAWRADISE<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="cat1.html">오토레이져캣</a></li>
+                            <li><a href="<%=request.getContextPath() %>/runPaw/pawDown.jsp">PAWRADISE</a></li>
 
                         </ul> 
                     </li>
