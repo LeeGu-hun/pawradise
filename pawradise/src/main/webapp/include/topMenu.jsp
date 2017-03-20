@@ -63,8 +63,8 @@
                     <li>
                         <a href="#">About Us<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
+                            <li><a href="<%=request.getContextPath() %>/aboutUs/introduceUs.jsp">회사소개</a></li>
                             <li><a href="#">제품문의</a></li>
-                            <li><a href="#">제휴문의</a></li>
                         </ul>
                     </li>
                 </ul>
