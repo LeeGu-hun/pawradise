@@ -72,16 +72,42 @@ public class BoardController {
 
 	// 상세보기
 	@RequestMapping("/board/detail/{seq}")
-	public String detail(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
+	public String detail(@PathVariable("seq") int seq, Model model, Board board) {
+		board = boardDao.getDetail(seq);
+		model.addAttribute("board", board);
+		return "board/boardDetail";
+	}
+	
+	// 리스트 테스트용 
+	@RequestMapping("/boardList2")
+	public String boardListGetPost2(String srch, PageMaker pageMaker, Model model) {
+		int count = 0;
+		int limit = 9;
+		pageMaker.setPage(pageMaker.getPage());
+		int point = (pageMaker.getPage() - 1) * limit;
+		srch = pageMaker.getSrch();
+		count = boardDao.countPage(srch);
+		// 레코드 총 갯수 구함
+		pageMaker.setCount(count); // 페이지 계산
+		List<Board> boards = boardDao.selectPage(srch, point, limit);
+		System.out.println("리스트: " + count);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("boards", boards);
+		return "board/boardList2";
+	}
+		
+	// comment 테스트용
+	@RequestMapping("/board/detail2/{seq}")
+	public String detail2(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
 		board = boardDao.getDetail(seq);
 		boardDao.commentList(seq);
 		boardDao.readCountUpdate(seq);
 		boardDao.insertComment(comment);
+		boardDao.commnetUpdate(comment.getC_seq());
 		model.addAttribute("board", board);
-		model.addAttribute("commnet", comment);
-		return "board/boardDetail";
+		model.addAttribute("comment", comment);
+		return "board/boardDetail2";
 	}
-
 	// 글쓰기GET
 	@RequestMapping(value = "/board/boardWrite", method = RequestMethod.GET)
 	public String form(Board board) {
