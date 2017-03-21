@@ -30,24 +30,55 @@
 		</div>
 	</div>
 	<!--breadcrumbs-->
-	<div class="divide70"></div>
-	<div class="regdone">
-		<div class="donemsg">
-		<h2>
-			<spring:message code="register.btn" />
-		</h2>
-		<p>
-			<spring:message code="register.done"
-				arguments="${registerRequest.name},${word}" />
-		</p>
-		<p>저희 냥냥멍멍귀여워의 회원이 되신걸 축하드립니다</p>
-		<p>
-			<a href="<c:url value="/index.jsp"/>">[<spring:message code="go.main" />]
-			</a>
-		</p>
+	<div class="divide50"></div>
+	<div align="center">
+		<div class="center-heading">
+			<h2>MY PAGE</h2>
+			<span class="center-line"></span>
 		</div>
+		<div class="mptab">
+			| <a href="/pawradise/mypage/modify.jsp">MODIFY</a> | 			
+		</div>
+		<div class="divide20"></div>
+		<table class="mptb">
+			<tr class="mpbottom">
+				<td class="var">이름</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">${board.name}</td>
+			</tr>
+			<tr class="mpbottom">
+				<td class="var">아이디</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">ㄴㄴ</td>
+			</tr>
+			<tr class="mpbottom">
+				<td class="var">애완동물</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">ㄴㄴ</td>
+			</tr>
+			<tr class="mpbottom">
+				<td class="var">주소</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">ㄴㄴ</td>
+			</tr>
+			<tr class="mpbottom">
+				<td class="var">전화번호</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">ㄴㄴ</td>
+			</tr>
+			<tr class="mpbottom">
+				<td class="var">E-mail</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">ㄴㄴ</td>
+			</tr>
+
+		</table>
+		<div class="divide30"></div>
+		<input type="button"value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">
+		<button type="button"  id="loginbutton" onclick="location.href='/pawradise/index.jsp'">메인으로</button>
+
 	</div>
-	<div class="divide70"></div>
+	<div class="divide50"></div>
 	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
 	<%@ include file="/include/footer2.jsp"%>
 	<!--하단 footer부분 인클루드 끝 body태그안에들어감-->

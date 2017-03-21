@@ -30,24 +30,37 @@
 		</div>
 	</div>
 	<!--breadcrumbs-->
-	<div class="divide70"></div>
-	<div class="regdone">
-		<div class="donemsg">
-		<h2>
-			<spring:message code="register.btn" />
-		</h2>
-		<p>
-			<spring:message code="register.done"
-				arguments="${registerRequest.name},${word}" />
-		</p>
-		<p>저희 냥냥멍멍귀여워의 회원이 되신걸 축하드립니다</p>
-		<p>
-			<a href="<c:url value="/index.jsp"/>">[<spring:message code="go.main" />]
-			</a>
-		</p>
-		</div>
+	<div class="divide50"></div>
+
+	<div class="center-heading">
+		<h2>MEMBER OUT</h2>
+		<span class="center-line"></span>
 	</div>
-	<div class="divide70"></div>
+	<div class="outcon">
+		<table class="cause">
+			<td>저희 냥냥멍멍귀여워의 부족했던 점과 아쉬웠던 점을 적어주십시오. <br> 더 좋은 모습으로
+				발전하도록 최선을 다하겠습니다.<br> 앞으로 더 나은 모습으로 고객님을 다시 만날 수 있도록 노력하겠습니다.<br>
+				그동안 이용해주신 것을 진심으로 감사드립니다.
+			</td>
+			<td><img src="<%=request.getContextPath()%>/img/sadpuppy.jpg"
+				class="casueimg" /></td>
+		</table>
+		<div class="divide10"></div>
+		<table class="because">
+			<td id="outwrite">사유</td>
+			<td>
+				<div class="becauseof">
+					<textarea rows="10" cols="70" class="outtext"></textarea>
+				</div>
+			</td>
+			<td><input type="button" value="회원탈퇴" id="outbutton" onclick="location.href='/pawradise/mypage/mempassword.jsp'"><br>
+				<input type="button" value="취소" id="outback"
+				onclick="location.href='/pawradise/mypage/mypage.jsp'"></td>
+		</table>
+	</div>
+	</div>
+
+	<div class="divide50"></div>
 	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
 	<%@ include file="/include/footer2.jsp"%>
 	<!--하단 footer부분 인클루드 끝 body태그안에들어감-->

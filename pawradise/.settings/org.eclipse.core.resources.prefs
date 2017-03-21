@@ -1,5 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/bean/AuthInfo.java=UTF-8
+encoding//src/main/resources/message/label.properties=UTF-8
 encoding//src/main/webapp=UTF-8
 encoding//src/main/webapp/board/boardDetail.jsp=UTF-8
 encoding//src/main/webapp/edit=UTF-8
