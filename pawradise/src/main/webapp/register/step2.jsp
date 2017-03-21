@@ -82,8 +82,7 @@
 				</tr>			
 			</table>
 			<div class="divide20"></div>
-			<input type="submit" value="<spring:message code="register.btn" />"
-				id="joinbutton" />
+			<input type="submit" value="<spring:message code="register.btn" />"	id="joinbutton" />
 		</form:form>
 	</div>
 	<div class="divide50"></div>
