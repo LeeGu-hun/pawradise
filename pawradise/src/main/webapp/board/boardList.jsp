@@ -27,21 +27,6 @@ function goMemList(){
 </script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){
-     $("a[name='title']").on("click", function(e){ //제목
-        e.preventDefault();
-        fn_openBoardDetail($(this));
-    });
-});
- 
- 
- 
-
-</script>
-
-
-
 <body>
 <!--항상 같이 다니는 메뉴  -->
 <%@ include file="/include/topMenu.jsp" %>
@@ -118,18 +103,20 @@ $(document).ready(function(){
 				</p>
 		   </form:form>
 		  <!--검색 -->    
-           <ul  class="pager">
-			<c:if test="${pageMaker.prev }">
-				<li class="previous"><input type="button" value="이전" onclick='pageGo(${pageMaker.page-1});' /></li>
-			</c:if>
-			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}" var="idx">
-				<li	class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
-				<a href='#' onclick='pageGo(${idx});'>${idx}</a></li>
-			</c:forEach>
-			<c:if test="${pageMaker.next }">
-				<li class="next"><input type="button" value="다음" onclick='pageGo(${pageMaker.page+1});' /></li>
-			</c:if>
-		</ul>
+           <ul class="pager">
+								<c:if test="${pageMaker.prev }">
+									<li class="previous"><a href='#' onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
+								</c:if>
+								<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}" var="idx">
+									<li	class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+										<a href='#' onclick='pageGo(${idx});'>${idx}</a>
+									</li>
+								</c:forEach>
+								<c:if test="${pageMaker.next }">
+									<li class="next"><a href='#' onclick='pageGo(${pageMaker.page+1});'>
+									Next Page →</a></li>
+								</c:if>
+							</ul>
             
             </div>
         </div><!--masonary wrapper-->

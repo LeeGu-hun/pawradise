@@ -48,12 +48,13 @@
 		    <artifactId>aopalliance</artifactId>
 		    <version>1.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.googlecode.ibaguice/ibaguice-core -->
+		<!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
 		<dependency>
-		    <groupId>com.googlecode.ibaguice</groupId>
-		    <artifactId>ibaguice-core</artifactId>
-		    <version>1.0</version>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.2</version>
 		</dependency>
+
 		
 		
 

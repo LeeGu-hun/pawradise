@@ -38,8 +38,8 @@
                 <span class="center-line"></span>
             </div>   
             <div>
-			<form id="loginCommand" action="/pawradise/login" method="post">
-				
+			<form:form commandName="loginCommand">
+				<form:errors />
 				<table style="margin-left: auto; margin-right: auto;">
 					<tr>
 						<td><label><input id="email" name="email" placeholder="이메일" class="form-control" type="text" /><br>
@@ -62,7 +62,7 @@
 							value="회원가입"></td>
 					</tr>
 				</table>
-			</form> 
+			</form:form>
 			</div>
 		</div>
 <div class="divide50"></div>
