@@ -87,29 +87,7 @@ function goDelete() {
 						<input type="button" onclick="location.href='<c:url value='/board/update/${seq}' />' " value="수정하기">
 				</tr>
 			</table>
-			<br>
-			<!-- commnet 쓰기  -->
-			<form:form commandName="commnet" ">		
-			<table class="table">
-					<tr>
-						<td><input type="text" path="name" class="form-control" name="name"	size="10" 
-								maxlength="10" value="${sessionScope.authInfo.name}" readonly />
-						</td>
-						<td><form:input path="c_commnet" size="50" maxlength="50" class="form-control" /> <br>
-						<form:errors path="c_commnet" /></td>
-					</tr>					
-			</table>
-			</form:form>
-			<!-- commnet 쓰기  -->
-			<table class="table">
-			<c:forEach var="commnet" items="${commnet}">
-					<tr>
-						
-						<td>${commnet.name}</td>
-						<td>${commnet.c_content}</td>
-					</tr>
-			 </c:forEach>						
-			</table>
+
 		</div>	
 	</div>
 <!--하단 footer부분 인클루드시작 body태그안에들어감 -->	
