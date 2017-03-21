@@ -143,7 +143,7 @@ public class BoardDao {
 					"select * from (select rownum rnum, seq, name, title, "
 					+ "content, filename, regdate, readcount, reply from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(title like '%"	+ "?" + "%' or content like '%"+ "?"+ "%' or name like '%"+ "?"	+ "%') "
+					+ "(title like ? or content like ? or name like ?) "
 					+ "where rnum>=? and rnum<=? ",
 					boardRowMapper, srch, srch, srch, startPage, limit);
 		}

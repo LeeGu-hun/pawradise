@@ -30,26 +30,26 @@ public class BoardController {
 	}
 
 	// 게시글삭제
-	@RequestMapping("/board/delete/{num}")
-	public String delete(@PathVariable("num") int num) {
-		boolean board = boardDao.delete(num);
+	@RequestMapping("/board/delete/{seq}")
+	public String delete(@PathVariable("seq") int seq) {
+		boolean board = boardDao.delete(seq);
 		System.out.println(board);
 		return "redirect:/boardList";
 	}
 
 	// 수정하기 페이지로이동
-	@RequestMapping("/board/update/{num}")
-	public String update(@PathVariable("num") int num, Model model) {
-		Board board = boardDao.getDetail(num);
+	@RequestMapping("/board/update/{seq}")
+	public String update(@PathVariable("seq") int seq, Model model) {
+		Board board = boardDao.getDetail(seq);
 		model.addAttribute("board", board);
 		return "board/boardUpdate";
 	}
 
 	// 수정하기POST
-	@RequestMapping(value = "/board/update/{num}", method = RequestMethod.POST)
-	public String submit(@PathVariable("num") int num, Board board) {
+	@RequestMapping(value = "/board/update/{seq}", method = RequestMethod.POST)
+	public String submit(@PathVariable("seq") int num, Board board) {
 		boardDao.update(board);
-		return "redirect:/board/detail/{num}";
+		return "redirect:/board/detail/{seq}";
 	}
 
 	// 리스트

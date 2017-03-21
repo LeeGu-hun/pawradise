@@ -75,7 +75,7 @@ function updateOk(){
 			<td colspan="2" >
 
 			 <input type="submit" onclick="updateOk();" value="수정하기">
-			<input type="button" value="취소" onclick="location.href='<c:url value='/board/detail/${num}'/>'" /></td>
+			<input type="button" value="취소" onclick="location.href='<c:url value='/board/detail/${seq}'/>'" /></td>
 			</tr>
 		</table>
 	</form:form>
