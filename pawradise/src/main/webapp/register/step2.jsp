@@ -43,42 +43,39 @@
 			<table class="joinform">
 				<tr id="btline">
 					<td id="tbname"><spring:message code="Id" /></td>
-					<td id="tbwrite"><form:input path="id" /> <form:errors path="id" /> 
+					<td id="tbwrite"><form:input path="id" id="tbfom"/> <form:errors path="id" /> 
 					</td>
 				</tr>
 				<tr id="btline">
 					<td id="tbname"><spring:message code="email" /></td>
-					<td id="tbwrite"><form:input path="email" /> <form:errors path="email" />
+					<td id="tbwrite"><form:input path="email" id="tbfom"/> <form:errors path="email" />
 						</td>
 				</tr>
 				<tr id="btline">
 					<td id="tbname"><spring:message code="name" /></td>
-					<td id="tbwrite"><form:input path="name" /> <form:errors path="name" /> </td>
+					<td id="tbwrite"><form:input path="name" id="tbfom"/> <form:errors path="name" /> </td>
 				</tr>
 				<tr id="btline">
 					<td id="tbname"><spring:message
 								code="password" /></td>
-					<td id="tbwrite"><form:password path="password" />
+					<td id="tbwrite"><form:password path="password" id="tbfom"/>
 				<form:errors path="password" /> </td>
 				</tr>
 				<tr id="btline">
 					<td id="tbname"><spring:message	code="password.confirm" /></td>
-					<td id="tbwrite"><form:password path="confirmPassword" /> <form:errors
+					<td id="tbwrite"><form:password path="confirmPassword" id="tbfom"/> <form:errors
 							path="confirmPassword" /> </td>
 				<tr id="btline">
 					<td id="tbname"><spring:message code="phone" /></td>
-					<td id="tbwrite"><form:input path="phone" /></td>
+					<td id="tbwrite"><form:input path="phone" id="tbfom"/></td>
 				</tr>
 				<tr id="btline">
-					<td id="tbname"><spring:message code="petname" /></td>
-					<td id="tbwrite"><form:input path="petName" /></td>
+					<td id="tbname">애완동물이름</td>
+					<td id="tbwrite"><form:input path="petName" id="tbfom"/></td>
 				</tr>
-				<tr id="btline2">
+				<tr id="btline">
 					<td id="tbname"><spring:message code="address" /></td>
-					<td id="tbwrite"><form:input path="address" style="width:120px;" /> 
-					<input type="button" value="우편번호 검색" id="addsearch"/><br>
-
-					</td>
+					<td id="tbwrite"><form:input path="address" id="tbfom"/></td>
 				</tr>			
 			</table>
 			<div class="divide20"></div>

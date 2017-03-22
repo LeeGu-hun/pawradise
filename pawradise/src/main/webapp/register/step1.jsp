@@ -194,7 +194,7 @@
 				</label><br>
 		</div>
 		<div class="divide10"></div>
-		<input type="submit" value="동의합니다" />
+		<input type="submit" value="동의합니다" id="joinbutton"/>
 		</form>
 	</div>
 	<div class="divide50"></div>

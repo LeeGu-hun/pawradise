@@ -30,24 +30,29 @@
 		</div>
 	</div>
 	<!--breadcrumbs-->
-	<div class="divide70"></div>
-	<div class="regdone">
-		<div class="donemsg">
-		<h2>
-			<spring:message code="register.btn" />
-		</h2>
-		<p>
-			<spring:message code="register.done"
-				arguments="${registerRequest.name},${word}" />
-		</p>
-		<p>저희 냥냥멍멍귀여워의 회원이 되신걸 축하드립니다</p>
-		<p>
-			<a href="<c:url value="/index.jsp"/>">[<spring:message code="go.main" />]
-			</a>
-		</p>
+	<div class="divide50"></div>
+	<div class="passconf">
+
+		<div class="center-heading">
+			<h2>탈퇴</h2>
+			<span class="center-line"></span>
 		</div>
+		<h5>※ 탈퇴할 경우 회원관련 데이터가 복구되지 않습니다. 정말로 탈퇴하시겠습니까?</h5>
+		<div class="divide20"></div>
+		<table class="passconf2">
+			<tr id="">
+				<td id="">비밀번호</td>
+				<td><input type="password"></td>
+			</tr>
+			<tr id="">
+				<td id="">비밀번호 확인</td>
+				<td><input type="password"></td><br>
+				<td><input type="button" value="탈퇴완료" id="byebutton" onclick="location.href='/pawradise/login'"></td>
+			</tr>
+			
+		</table>
 	</div>
-	<div class="divide70"></div>
+	<div class="divide50"></div>
 	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
 	<%@ include file="/include/footer2.jsp"%>
 	<!--하단 footer부분 인클루드 끝 body태그안에들어감-->

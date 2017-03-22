@@ -57,7 +57,7 @@
                     <li>
                         <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="<c:url value="/member/detail/${members.id}"/>">마이페이지</a></li>
+                            <li><a href="<c:url value="/mypage/mydetail/${members.email}"/>">마이페이지</a></li>
                         </ul> 
                     </li>
                     <li>
