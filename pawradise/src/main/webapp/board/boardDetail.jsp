@@ -17,7 +17,8 @@
 	}
 
 	function addComment() {
-		document.getElementById("comment").submit();
+		document.getElementById("frm").submit();
+		document.selection.clear();
 	}
 </script>
 <body>
@@ -87,10 +88,10 @@
 
 				<!-- comments list -->
 				<div class="comment-post">
-					<h3>${board.reply} Comments</h3>
+					<h3>[${board.reply}]개의 Comments가 있습니다</h3>
 					<c:forEach var="comments" items="${comments}">
 						<div class="comment-list">
-							<h4>by ${comments.name}</h4>
+							<h4>${comments.name} 님의 comment </h4>
 							<p>${comments.c_content}</p>
 						</div>
 					</c:forEach>
@@ -100,21 +101,23 @@
 				<div class="divide30"></div>
 				<div class="comment-form">
 					<div class="form-contact">
-						<form:form commandName="comment" id="comment">
+						<form:form commandName="comment" id="frm">
 							<div class="form-group">
 								<label for="name">Name</label> 
 								<input type="text" name="name" class="form-control" value="${sessionScope.authInfo.name}"	readonly />
 							</div>
 							<div class="form-group">
 								<label for="message">Comment</label>
-								<textarea path="c_content" class="form-control" rows="7" id="c_content" ></textarea>
+								<form:input path="c_content" size="50" maxlength="100" class="form-control" />
+								<!-- <textarea path="c_content" class="form-control" rows="7" id="c_content" ></textarea> -->
 							</div>							
 							<button type="submit" onclick="addComment();" class="btn btn-theme-bg btn-lg pull-right">댓글등록</button>
 						</form:form>
 					</div>
-				</div>
-			</div>
+				</div>			
 			<!--댓글등록 끝-->
+			
+			</div>
 		</div>
 	</div>
 

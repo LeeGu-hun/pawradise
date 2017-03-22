@@ -86,7 +86,8 @@ public class BoardController {
 		}
 		List<Comment> comments = boardDao.commentList(seq);
 		model.addAttribute("comments", comments);
-		model.addAttribute("board", board);			
+		model.addAttribute("board", board);	
+		
 		return "board/boardDetail";
 	}
 	// 글쓰기GET

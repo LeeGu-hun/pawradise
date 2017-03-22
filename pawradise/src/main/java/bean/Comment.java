@@ -1,22 +1,33 @@
 package bean;
 
-public class Comment {
+import java.util.Date;
 
+public class Comment {
+	
+	public int seq;
 	public int c_seq; // 게시글 번호
 	public String name; // 이름
 	public String c_content;// 커멘트
+	public Date regdate;
 
 	public Comment() {
-	}
-	
-	
+	}	
 
-	public Comment(String name, String c_content) {
+	public Comment(int c_seq, String name, String c_content, Date regdate) {
+		super();
+		this.c_seq = c_seq;
 		this.name = name;
 		this.c_content = c_content;
+		this.regdate = regdate;
 	}
-
-
+	
+	public int getSeq() {
+		return seq;
+	}
+	
+	public int setSeq() {
+		return seq;
+	}
 
 	public int getC_seq() {
 		return c_seq;
@@ -42,4 +53,13 @@ public class Comment {
 		this.c_content = c_content;
 	}
 
+	public Date getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+	
+	
 }

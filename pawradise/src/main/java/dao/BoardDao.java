@@ -100,10 +100,11 @@ public class BoardDao {
 				new RowMapper<Comment>(){
 					@Override
 					public Comment mapRow(ResultSet rs, int seq) throws SQLException {
-						Comment comment=new Comment(rs.getString("name"), rs.getString("c_content"));
+						Comment comment=new Comment(seq, rs.getString("name"), rs.getString("c_content"),  rs.getDate("regdate"));
 						return comment;
 					}				
 				},seq);
+		
 		return results;
 	}
 
@@ -111,17 +112,25 @@ public class BoardDao {
 	
 	//commnet 갯수
 	public int getListComment(int seq) {
-		Integer listCount = jdbcTemplate.queryForObject("select count(*) from comment_t where seq = ? ", Integer.class, seq);
-		return listCount;
+		Integer commentCount = jdbcTemplate.queryForObject("select count(*) from comment_t where seq = ? ", Integer.class, seq);
+		return commentCount;
 	}
 	
-	// comment 삭제
-		public boolean commnetDelete(int seq) {
-			boolean result = false;
-			jdbcTemplate.update("delete from comment_t where seq = ?", seq);
+	// 게시글 삭제시 comment 삭제
+	public boolean commnet1Delete(int c_seq) {
+		boolean result = false;
+		jdbcTemplate.update("delete from comment_t where c_seq = ?", c_seq);
 
-			return result;
-		}
+		return result;
+	}
+	
+	// 게시글 삭제시 comment 삭제
+	public boolean commnetDelete(int seq) {
+		boolean result = false;
+		jdbcTemplate.update("delete from comment_t where seq = ?", seq);
+
+		return result;
+	}
 
 	// 페이지 수
 	public int countPage(String srch) {
