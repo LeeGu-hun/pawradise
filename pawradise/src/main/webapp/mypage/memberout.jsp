@@ -55,7 +55,7 @@
 			</td>
 			<td><input type="button" value="회원탈퇴" id="outbutton" onclick="location.href='/pawradise/mypage/mempassword.jsp'"><br>
 				<input type="button" value="취소" id="outback"
-				onclick="location.href='/pawradise/mypage/mypage.jsp'"></td>
+				onclick="location.href='/pawradise/mypage/mydetail.jsp'"></td>
 		</table>
 	</div>
 	</div>

@@ -81,7 +81,7 @@
 		</table>
 		<div class="divide30"></div>
 		<input type="button"value="수정완료" id="loginbutton">
-		<button type="button"  id="loginbutton" onclick="location.href='./mypage.jsp'">뒤로가기</button>
+		<button type="button"  id="loginbutton" onclick="location.href='./mydetail.jsp'">뒤로가기</button>
 		</div>
 	<div class="divide50"></div>
 	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
