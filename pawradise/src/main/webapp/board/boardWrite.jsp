@@ -70,7 +70,7 @@
 					<tr>
 						<td>파일첨부</td>
 						<td><form:hidden path="upDir"
-								value='<%=request.getRealPath("/uploads/")%>' /> <input
+								value='<%=request.getRealPath("/resources/uploads/")%>' /> <input
 							type="file" id="multiFile" name="multiFile" /></td>
 					<tr align="center" valign="middle">
 						<td colspan="2">
