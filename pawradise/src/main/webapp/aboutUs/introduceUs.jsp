@@ -53,6 +53,7 @@ function goDelete() {
 			<img src="<%=request.getContextPath() %>/img/banner.png" />
 			
 			<h3>PAWRADISE : 사람의 사랑에 의한 반려동물을 위한 새로운 테크놀로지!</h3>
+
 			
 			<div class="divide60"></div> 
 			<div>

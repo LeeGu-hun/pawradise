@@ -57,6 +57,8 @@ public class BoardDao {
 		List<Board> results = jdbcTemplate.query("select * from board where seq=? ", boardRowMapper, seq);
 		return results.isEmpty() ? null : results.get(0);
 	}
+	
+	
 
 	// 글 등록하기
 	
@@ -107,11 +109,10 @@ public class BoardDao {
 
 	//http://ojc.asia/bbs/board.php?bo_table=LecSpring&wr_id=252+663 참고
 	
-
-	// 조회수 업데이트
-	public void readCountUpdate(int seq) {
-		jdbcTemplate.update("update board set readcount=readcount+1 where seq=?", seq);
-	}
+	//commnet 갯수 추가
+	public void commnetUpdate(int c_seq) {
+		jdbcTemplate.update("update board set reply=reply+1 where seq=?", c_seq);
+	}	
 
 	// 페이지 수
 	public int countPage(String srch) {
@@ -159,10 +160,14 @@ public class BoardDao {
 		return result;
 	}
 
-
 	 // 글 수정하기 
 	public void update(Board board) {
 	 jdbcTemplate.update("update board set title=?, content=? where seq=?",
 	 board.getTitle(), board.getContent(), board.getSeq()); }
+
+	// 조회수 업데이트
+	public void readCountUpdate(int seq) {
+		jdbcTemplate.update("update board set readcount=readcount+1 where seq=?", seq);
+	}
 
 }

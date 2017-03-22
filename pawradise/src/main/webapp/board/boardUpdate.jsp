@@ -11,6 +11,7 @@
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
 <title>포토게시판 - 글수정</title>
 <script>
+
 function updateOk(){
 	if(sessionScope.authInfo.id){
 	document.getElementById("frm").submit();
@@ -70,7 +71,7 @@ function updateOk(){
 			</tr>	
 			<tr>
 			<td>파일첨부</td>
-			<td>${board.file}</td>	
+			<td>${board.fileName}</td>	
 			<tr align="center" valign="middle">
 			<td colspan="2" >
 
