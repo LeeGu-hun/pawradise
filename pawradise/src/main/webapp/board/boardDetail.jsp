@@ -18,13 +18,22 @@
 
 	function addComment() {
 		document.getElementById("frm").submit();
-		window.location.reload();
+		window.location.reload(true);
+		
 	}
 	
 	function delComment() {
 		document.getElementById("delComment").submit();
-		window.location.reload();
+		window.location.reload(true);
 	}
+	
+	function clearText(field){
+		 if(field.defaultValue==field.value)
+		 field.value="";
+	 }
+
+
+	
 </script>
 <body>
 	<!--항상 같이 다니는 메뉴  -->
@@ -63,13 +72,9 @@
 
 					<c:if test="${!empty board.files}">
 						<c:set var="ext" value="${fn:split(board.files, '.') }" />
-						<c:choose>
-							<c:when
-								test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
+						<c:when test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
 								<img src='<c:url value="/" />uploads/${board.files}' width="200">
-							</c:when>
-
-						</c:choose>
+						</c:when>
 					</c:if>
 					<div class="item-img-overlay">
 						<span></span>
@@ -98,8 +103,8 @@
 							<h4>${comments.name} 님의 comment </h4>
 							<p>${comments.c_content} &nbsp;&nbsp;
 							<form:form commandName="comment" id="delComment">
-							<input name="c_seq"  value="${comments.c_seq}"  class="form-control" hidden/>
-							<button type="submit" onclick="delComment();" class="btn btn-theme-dark btn-sm">댓글삭제</button>
+							<input name="c_seq"  value="${comments.c_seq}" hidden/>
+							<button type="submit" onclick="delComment();" class="btn btn-theme-dark btn-xs">댓글삭제</button>
 							</form:form>
 							</p>
 						</div>
@@ -117,7 +122,7 @@
 							</div>
 							<div class="form-group">
 								<label for="message">Comment</label>
-								<form:input path="c_content" size="50" id="c_content" maxlength="100" class="form-control" />
+								<form:input path="c_content" size="50" id="c_content" maxlength="100" class="form-control" onfocus="clearText(this)"/>
 								<!-- <textarea path="c_content" class="form-control" rows="7" id="c_content" ></textarea> -->
 							</div>							
 							<button type="submit" onclick="addComment();" class="btn btn-theme-bg btn-lg pull-right">댓글등록</button>
