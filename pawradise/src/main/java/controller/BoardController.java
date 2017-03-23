@@ -80,8 +80,10 @@ public class BoardController {
 	@RequestMapping("/board/detail/{seq}")
 	public String detail2(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
 		board = boardDao.getDetail(seq);
-		boardDao.readCountUpdate(seq);
-		
+		System.out.println("board.getFileName"+board.getFileName());
+		System.out.println("board.getFiles"+board.getFiles());
+		System.out.println("board.getMultiFile"+board.getMultiFile());
+		boardDao.readCountUpdate(seq);		
 		System.out.println(comment.getC_seq());
 		if(!(comment.getName()==null) && !(comment.getC_content()==null)){
 			boardDao.insertComment(comment, seq);				
@@ -90,6 +92,7 @@ public class BoardController {
 		model.addAttribute("comments", comments);
 		model.addAttribute("board", board);
 		boardDao.commnet1Delete(comment.getC_seq());
+		
 		return "board/boardDetail";
 	}
 		
@@ -125,6 +128,9 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("board.getFileName"+board.getFileName());
+		System.out.println("board.getFiles"+board.getFiles());
+		System.out.println("board.getMultiFile"+board.getMultiFile());
 		boardDao.add(board);
 		return "redirect:/boardList";
 	}

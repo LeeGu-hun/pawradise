@@ -10,8 +10,7 @@
 <%@ include file="/include/header.jsp"%>
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
 <script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
-	type="text/javascript"></script>
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script>
 function pageGo(page) {
 	document.getElementById("page").value = page;
@@ -78,17 +77,13 @@ $(document).ready(function(){
 			<!--컨텐츠들어가는부분 시작-->
 			<c:forEach var="board" items="${boards}">
 				<div class="mas-boxes-inner">
-
-					<c:if test="${!empty board.fileName}">
-						<img src="img/showcase-1.jpg" alt="" class="img-responsive">
-						<c:choose>
-							<c:when
-								test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
-								<img src='<c:url value="/" />uploads/${board.filename}'
-									width="200">
+						<c:choose>						
+							<c:when	test="${!empty board.fileName}">
+								<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" class="img-responsive">
 							</c:when>
 						</c:choose>
-					</c:if>
+
+						
 					<div class="mas-blog-inner">
 						<h3>
 							<a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
@@ -119,9 +114,9 @@ $(document).ready(function(){
 		<!--검색 -->
 		<form:form commandName="pageMaker" id="frm">
 			<p>
-				<input type="text" id="srch" name="srch" placeholder="검색" /> <input
-					type="submit" value="조회"> <input type="text" name="page"
-					id="page" hidden />
+				<input type="text" id="srch" name="srch" placeholder="검색" /> 
+				<input	type="submit" value="조회"> 
+				<input type="text" name="page" id="page" hidden />
 			</p>
 		</form:form>
 		<!--검색 -->

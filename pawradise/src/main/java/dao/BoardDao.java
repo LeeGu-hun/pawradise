@@ -63,6 +63,7 @@ public class BoardDao {
 	// 글 등록하기	
 	@Transactional
 	public void add(final Board board) {
+		
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {

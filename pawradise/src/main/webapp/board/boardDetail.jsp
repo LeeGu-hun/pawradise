@@ -69,22 +69,14 @@
 			<!-- 상세보기 -->
 			<div class="container mas-boxes">
 				<div class="blog-post">
-
-					<c:if test="${!empty board.files}">
-						<c:set var="ext" value="${fn:split(board.files, '.') }" />
-						<c:when test="${ext[1] eq 'jpg' || ext[1] eq 'gif' ||ext[1] eq 'png'}">
-								<img src='<c:url value="/" />uploads/${board.files}' width="200">
-						</c:when>
-					</c:if>
-					<div class="item-img-overlay">
-						<span></span>
-					</div>
-
-					<!--work link-->
+				<!-- 이미지 -->					
+					<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="1200">
+					
+					<!-- 상세보기 -->
 					<ul class="list-inline post-detail">
 						<li>by ${board.name}</li>
-						<li><i class="fa fa-calendar"></i> <fmt:formatDate
-								value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
+						<li><i class="fa fa-calendar"></i>
+						<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
 						<li><i class="fa fa-comment"></i>${board.reply} Comments</li>
 					</ul>
 					<p>${board.content}</p>
