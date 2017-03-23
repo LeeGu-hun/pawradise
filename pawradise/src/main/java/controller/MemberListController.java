@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bean.Member;
-import bean.Mypage;
+
 import command.PageMaker;
 import dao.MemberDao;
 import exception.MemberNotFoundException;
@@ -88,12 +88,12 @@ public class MemberListController {
 	public String typeMismatchException(){
 		return "member/invalidId";
 	}
-	@RequestMapping(value="/mypage/mydetail/{email}")
-	public String detail2(
-			@PathVariable("email") String email, Model model, Mypage mypage){
-		Member member = memberDao.selectByEmail(email);
-		if(member == null) throw new MemberNotFoundException();
-		model.addAttribute("member", member);
-		return "mypage/mydetail";
-	}
+//	@RequestMapping(value="/mypage/mydetail/{email}")
+//	public String detail2(
+//			@PathVariable("email") String email, Model model, Mypage mypage){
+//		Member member = memberDao.selectByEmail(email);
+//		if(member == null) throw new MemberNotFoundException();
+//		model.addAttribute("member", member);
+//		return "mypage/mydetail";
+//	}
 }

@@ -1,7 +1,7 @@
 <!-- 모든페이지 상단 공통 인클루드 시작-->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -26,20 +26,15 @@ function goMemList(){
 }
 </script>
 
-
 <script type="text/javascript">
 $(document).ready(function(){
      $("a[name='title']").on("click", function(e){ //제목
         e.preventDefault();
         fn_openBoardDetail($(this));
     });
-});
- 
- 
- 
+}); 
 
 </script>
-
 
 
 <body>
@@ -93,18 +88,29 @@ $(document).ready(function(){
 						<h3>
 							<a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
 						</h3>
+
 						<ul class="list-inline post-detail">
-							<li>${board.name} 님의 글
-							</li>
-							<li><i class="fa fa-calendar"></i>
-							<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
+							<li>${board.name}님의글</li>
+							<li><i class="fa fa-calendar"></i> <fmt:formatDate
+									value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
 						</ul>
+
 						<p>
-							<a href="<c:url value="/board/detail/${board.seq}"/>">${board.content}</a>
+							<c:forEach items="${board.content}" var="data" varStatus="status">
+								<c:choose>
+									<c:when test="${fn:length(board.content) > 14}">
+										<c:out value="${fn:substring(board.content,0,13)}" />
+										<a href="<c:url value="/board/detail/${board.seq}"/>">     ···   더보기</a>
+									</c:when>
+									<c:otherwise>
+										<a href="<c:url value="/board/detail/${board.seq}"/>"><c:out
+												value="${board.content}" /></a>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 						</p>
 						<img src="<%=request.getContextPath()%>/img/comment.png"
 							width="15"> [${board.reply}]</a>
-
 					</div>
 				</div>
 			</c:forEach>
