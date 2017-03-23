@@ -82,7 +82,7 @@
         <!--easing plugin for smooth scroll-->
         <script src="<%=request.getContextPath() %>/js/jquery.easing.1.3.min.js" type="text/javascript"></script>
         <!--sticky header-->
-        <script type="<%=request.getContextPath() %>/text/javascript" src="js/jquery.sticky.js"></script>
+        <script src="<%=request.getContextPath() %>/js/jquery.sticky.js" type="text/javascript" ></script>
         <!--flex slider plugin-->
         <script src="<%=request.getContextPath() %>/js/jquery.flexslider-min.js" type="text/javascript"></script>
         <!--parallax background plugin-->
