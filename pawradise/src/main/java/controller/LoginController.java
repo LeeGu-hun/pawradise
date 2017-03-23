@@ -17,6 +17,7 @@ import svcMember.AuthService;
 import validator.LoginCommandValidator;
 
 @Controller
+
 public class LoginController {
 	private AuthService authService;
 

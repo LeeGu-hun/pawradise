@@ -49,6 +49,7 @@
 					<tr>
 						<td><label><input id="password" name="password" placeholder="비밀번호" class="form-control" type="password" value=""/><br>
 							 </label></td>
+							 
 					</tr>
 					<tr align="center">
 						<td><p>이메일 저장
