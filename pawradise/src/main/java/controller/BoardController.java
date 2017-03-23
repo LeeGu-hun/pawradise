@@ -24,15 +24,21 @@ import validator.BoardValidator;
 @Controller
 public class BoardController {
 	private BoardDao boardDao;
+	private Comment comment;
 
 	public void setBoardDao(BoardDao boardDao) {
 		this.boardDao = boardDao;
+	}
+
+	public void setComment(Comment comment) {
+		this.comment = comment;
 	}
 
 	// 게시글삭제
 	@RequestMapping("/board/delete/{seq}")
 	public String delete(@PathVariable("seq") int seq) {
 		boolean board = boardDao.delete(seq);
+		boolean comment = boardDao.commnetDelete(seq);
 		System.out.println(board);
 		return "redirect:/boardList";
 	}
@@ -47,7 +53,7 @@ public class BoardController {
 
 	// 수정하기POST
 	@RequestMapping(value = "/board/update/{seq}", method = RequestMethod.POST)
-	public String submit(@PathVariable("seq") int num, Board board) {
+	public String submit(@PathVariable("seq") int seq, Board board) {
 		boardDao.update(board);
 		return "redirect:/board/detail/{seq}";
 	}
@@ -58,7 +64,7 @@ public class BoardController {
 		int count = 0;
 		int limit = 9;
 		pageMaker.setPage(pageMaker.getPage());
-		int point = (pageMaker.getPage() - 1) * limit;
+		int point = (pageMaker.getPage() - 1) * 9;
 		srch = pageMaker.getSrch();
 		count = boardDao.countPage(srch);
 		// 레코드 총 갯수 구함
@@ -72,42 +78,24 @@ public class BoardController {
 
 	// 상세보기
 	@RequestMapping("/board/detail/{seq}")
-	public String detail(@PathVariable("seq") int seq, Model model, Board board) {
-		board = boardDao.getDetail(seq);
-		model.addAttribute("board", board);
-		return "board/boardDetail";
-	}
-	
-	// 리스트 테스트용 
-	@RequestMapping("/boardList2")
-	public String boardListGetPost2(String srch, PageMaker pageMaker, Model model) {
-		int count = 0;
-		int limit = 9;
-		pageMaker.setPage(pageMaker.getPage());
-		int point = (pageMaker.getPage() - 1) * limit;
-		srch = pageMaker.getSrch();
-		count = boardDao.countPage(srch);
-		// 레코드 총 갯수 구함
-		pageMaker.setCount(count); // 페이지 계산
-		List<Board> boards = boardDao.selectPage(srch, point, limit);
-		System.out.println("리스트: " + count);
-		model.addAttribute("pageMaker", pageMaker);
-		model.addAttribute("boards", boards);
-		return "board/boardList2";
-	}
-		
-	// comment 테스트용
-	@RequestMapping("/board/detail2/{seq}")
 	public String detail2(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
 		board = boardDao.getDetail(seq);
-		boardDao.commentList(seq);
-		boardDao.readCountUpdate(seq);
-		boardDao.insertComment(comment);
-		boardDao.commnetUpdate(comment.getC_seq());
+		System.out.println("board.getFileName"+board.getFileName());
+		System.out.println("board.getFiles"+board.getFiles());
+		System.out.println("board.getMultiFile"+board.getMultiFile());
+		boardDao.readCountUpdate(seq);		
+		System.out.println(comment.getC_seq());
+		if(!(comment.getName()==null) && !(comment.getC_content()==null)){
+			boardDao.insertComment(comment, seq);				
+		}
+		List<Comment> comments = boardDao.commentList(seq);		
+		model.addAttribute("comments", comments);
 		model.addAttribute("board", board);
-		model.addAttribute("comment", comment);
-		return "board/boardDetail2";
+		boardDao.commnet1Delete(comment.getC_seq());
+		
+		return "board/boardDetail";
 	}
+		
 	// 글쓰기GET
 	@RequestMapping(value = "/board/boardWrite", method = RequestMethod.GET)
 	public String form(Board board) {
@@ -132,7 +120,6 @@ public class BoardController {
 			// 파일명이 중복되지 않게 파일명에 시간추가
 			newFileName = System.currentTimeMillis() + "_" + fileName;
 			board.setFileName(newFileName);
-
 			String path = board.getUpDir() + newFileName;
 			try {
 				File file = new File(path);
@@ -141,6 +128,9 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
+		System.out.println("board.getFileName"+board.getFileName());
+		System.out.println("board.getFiles"+board.getFiles());
+		System.out.println("board.getMultiFile"+board.getMultiFile());
 		boardDao.add(board);
 		return "redirect:/boardList";
 	}

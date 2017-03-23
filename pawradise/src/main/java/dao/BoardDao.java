@@ -60,10 +60,10 @@ public class BoardDao {
 	
 	
 
-	// 글 등록하기
-	
+	// 글 등록하기	
 	@Transactional
 	public void add(final Board board) {
+		
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
@@ -79,40 +79,59 @@ public class BoardDao {
 	}
 
 	// comment입력
-	public void insertComment(final Comment comment) {
+	public void insertComment(final Comment comment,final int seq) {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(c_seq, name, c_content) "
-								+ "values (comment_seq.NEXTVAL, ?, ?)");
-				pstmt.setString(1, comment.getName());
-				pstmt.setString(2, comment.getC_content());
+				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(seq, c_seq, name, c_content) "
+								+ "values (?, comment_seq.NEXTVAL, ?, ?)");
+				pstmt.setInt(1, seq);
+				pstmt.setString(2, comment.getName());
+				pstmt.setString(3, comment.getC_content());
 				return pstmt;
 			}
 		});
 
 	}
 	//commnet리스트
-	public Comment commentList(int seq){
-		List<Comment> results=jdbcTemplate.query("select * from comment_t where c_seq = ?  ", 
+	public List<Comment> commentList(int seq){
+		
+		List<Comment> results=jdbcTemplate.query("select * from comment_t where seq = ?  ", 
 				
 				new RowMapper<Comment>(){
 					@Override
-					public Comment mapRow(ResultSet rs, int seq) throws SQLException {
-						Comment comment=new Comment(rs.getString("name"), rs.getString("c_content"));
-						comment.setC_seq(rs.getInt("c_seq"));
+					public Comment mapRow(ResultSet rs, int c_seq) throws SQLException {
+						Comment comment=new Comment(rs.getInt("c_seq"), rs.getString("name"), rs.getString("c_content"),  rs.getDate("regdate"));
 						return comment;
 					}				
 				},seq);
-		return results.isEmpty()?null:results.get(0);
+		
+		return results;
 	}
 
 	//http://ojc.asia/bbs/board.php?bo_table=LecSpring&wr_id=252+663 참고
 	
-	//commnet 갯수 추가
-	public void commnetUpdate(int c_seq) {
-		jdbcTemplate.update("update board set reply=reply+1 where seq=?", c_seq);
-	}	
+	//commnet 갯수
+	public int getListComment(int seq) {
+		Integer commentCount = jdbcTemplate.queryForObject("select count(*) from comment_t where seq = ? ", Integer.class, seq);
+		return commentCount;
+	}
+	
+	// 게시글 삭제시 comment 1개만 삭제
+	public boolean commnet1Delete(int c_seq) {
+		boolean result = false;
+		jdbcTemplate.update("delete from comment_t where c_seq = ?", c_seq);
+
+		return result;
+	}
+	
+	// 게시글 삭제시 comment 삭제
+	public boolean commnetDelete(int seq) {
+		boolean result = false;
+		jdbcTemplate.update("delete from comment_t where seq = ?", seq);
+
+		return result;
+	}
 
 	// 페이지 수
 	public int countPage(String srch) {
@@ -123,7 +142,7 @@ public class BoardDao {
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(title like '%?%' or content like '%?%' or name like '%?%')", 
+					+ "(title like ? or content like ? or name like ?)", 
 					Integer.class, srch, srch, srch);
 		}
 		System.out.println("페이지 count "+count);
@@ -148,6 +167,7 @@ public class BoardDao {
 					+ "where rnum>=? and rnum<=? ",
 					boardRowMapper, srch, srch, srch, startPage, limit);
 		}
+		System.out.println("srch "+srch);
 		System.out.println("페이징결과 result "+results);
 		return results;
 	}
@@ -169,5 +189,6 @@ public class BoardDao {
 	public void readCountUpdate(int seq) {
 		jdbcTemplate.update("update board set readcount=readcount+1 where seq=?", seq);
 	}
+
 
 }
