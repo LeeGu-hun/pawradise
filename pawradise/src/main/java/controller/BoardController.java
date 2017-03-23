@@ -53,7 +53,7 @@ public class BoardController {
 
 	// 수정하기POST
 	@RequestMapping(value = "/board/update/{seq}", method = RequestMethod.POST)
-	public String submit(@PathVariable("seq") int num, Board board) {
+	public String submit(@PathVariable("seq") int seq, Board board) {
 		boardDao.update(board);
 		return "redirect:/board/detail/{seq}";
 	}
@@ -64,7 +64,7 @@ public class BoardController {
 		int count = 0;
 		int limit = 9;
 		pageMaker.setPage(pageMaker.getPage());
-		int point = (pageMaker.getPage() - 1) * limit;
+		int point = (pageMaker.getPage() - 1) * 9;
 		srch = pageMaker.getSrch();
 		count = boardDao.countPage(srch);
 		// 레코드 총 갯수 구함
@@ -81,15 +81,18 @@ public class BoardController {
 	public String detail2(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
 		board = boardDao.getDetail(seq);
 		boardDao.readCountUpdate(seq);
+		
+		System.out.println(comment.getC_seq());
 		if(!(comment.getName()==null) && !(comment.getC_content()==null)){
 			boardDao.insertComment(comment, seq);				
 		}
-		List<Comment> comments = boardDao.commentList(seq);
+		List<Comment> comments = boardDao.commentList(seq);		
 		model.addAttribute("comments", comments);
-		model.addAttribute("board", board);	
-		
+		model.addAttribute("board", board);
+		boardDao.commnet1Delete(comment.getC_seq());
 		return "board/boardDetail";
 	}
+		
 	// 글쓰기GET
 	@RequestMapping(value = "/board/boardWrite", method = RequestMethod.GET)
 	public String form(Board board) {
@@ -114,7 +117,6 @@ public class BoardController {
 			// 파일명이 중복되지 않게 파일명에 시간추가
 			newFileName = System.currentTimeMillis() + "_" + fileName;
 			board.setFileName(newFileName);
-
 			String path = board.getUpDir() + newFileName;
 			try {
 				File file = new File(path);

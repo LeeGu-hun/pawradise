@@ -18,7 +18,12 @@
 
 	function addComment() {
 		document.getElementById("frm").submit();
-		document.selection.clear();
+		window.location.reload();
+	}
+	
+	function delComment() {
+		document.getElementById("delComment").submit();
+		window.location.reload();
 	}
 </script>
 <body>
@@ -79,22 +84,26 @@
 					</ul>
 					<p>${board.content}</p>
 				</div>
-				<p>		
+				<p align="center">		
 					<a href="<c:url value='/boardList'/>" class="btn btn-theme-dark btn-lg">리스트</a> 
 					<a href="<c:url value='/board/delete/${seq}' />" class="btn btn-theme-dark btn-lg">삭제하기</a> 
 					<a href="<c:url value='/board/update/${seq}' />" class="btn btn-theme-dark btn-lg">수정하기</a>
 				</p>
-
-
 				<!-- comments list -->
 				<div class="comment-post">
 					<h3>[${board.reply}]개의 Comments가 있습니다</h3>
+					
 					<c:forEach var="comments" items="${comments}">
 						<div class="comment-list">
 							<h4>${comments.name} 님의 comment </h4>
-							<p>${comments.c_content}</p>
+							<p>${comments.c_content} &nbsp;&nbsp;
+							<form:form commandName="comment" id="delComment">
+							<input name="c_seq"  value="${comments.c_seq}"  class="form-control" hidden/>
+							<button type="submit" onclick="delComment();" class="btn btn-theme-dark btn-sm">댓글삭제</button>
+							</form:form>
+							</p>
 						</div>
-					</c:forEach>
+						</c:forEach>
 				</div>
 
 				<!--댓글등록 시작-->
@@ -108,7 +117,7 @@
 							</div>
 							<div class="form-group">
 								<label for="message">Comment</label>
-								<form:input path="c_content" size="50" maxlength="100" class="form-control" />
+								<form:input path="c_content" size="50" id="c_content" maxlength="100" class="form-control" />
 								<!-- <textarea path="c_content" class="form-control" rows="7" id="c_content" ></textarea> -->
 							</div>							
 							<button type="submit" onclick="addComment();" class="btn btn-theme-bg btn-lg pull-right">댓글등록</button>

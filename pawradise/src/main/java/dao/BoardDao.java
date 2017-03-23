@@ -82,7 +82,7 @@ public class BoardDao {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(seq,c_seq, name, c_content) "
+				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(seq, c_seq, name, c_content) "
 								+ "values (?, comment_seq.NEXTVAL, ?, ?)");
 				pstmt.setInt(1, seq);
 				pstmt.setString(2, comment.getName());
@@ -99,8 +99,8 @@ public class BoardDao {
 				
 				new RowMapper<Comment>(){
 					@Override
-					public Comment mapRow(ResultSet rs, int seq) throws SQLException {
-						Comment comment=new Comment(seq, rs.getString("name"), rs.getString("c_content"),  rs.getDate("regdate"));
+					public Comment mapRow(ResultSet rs, int c_seq) throws SQLException {
+						Comment comment=new Comment(rs.getInt("c_seq"), rs.getString("name"), rs.getString("c_content"),  rs.getDate("regdate"));
 						return comment;
 					}				
 				},seq);
@@ -116,7 +116,7 @@ public class BoardDao {
 		return commentCount;
 	}
 	
-	// 게시글 삭제시 comment 삭제
+	// 게시글 삭제시 comment 1개만 삭제
 	public boolean commnet1Delete(int c_seq) {
 		boolean result = false;
 		jdbcTemplate.update("delete from comment_t where c_seq = ?", c_seq);
@@ -141,7 +141,7 @@ public class BoardDao {
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(title like '%?%' or content like '%?%' or name like '%?%')", 
+					+ "(title like ? or content like ? or name like ?)", 
 					Integer.class, srch, srch, srch);
 		}
 		System.out.println("페이지 count "+count);
@@ -166,6 +166,7 @@ public class BoardDao {
 					+ "where rnum>=? and rnum<=? ",
 					boardRowMapper, srch, srch, srch, startPage, limit);
 		}
+		System.out.println("srch "+srch);
 		System.out.println("페이징결과 result "+results);
 		return results;
 	}
