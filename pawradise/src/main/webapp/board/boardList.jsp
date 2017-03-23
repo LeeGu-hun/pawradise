@@ -128,23 +128,19 @@ $(document).ready(function(){
 		<!--검색 -->
 		<ul class="pager">
 			<c:if test="${pageMaker.prev }">
-				<li class="previous"><input type="button" value="이전"
-					onclick='pageGo(${pageMaker.page-1});' /></li>
+			<li class="previous"><a href='#' onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
 			</c:if>
-			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
-				var="idx">
-				<li class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
-					<a href='#' onclick='pageGo(${idx});'>${idx}</a>
-				</li>
+			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}" var="idx">
+			<li	>
+			<a href='#' onclick='pageGo(${idx});'>${idx}</a>
+			</li>
 			</c:forEach>
 			<c:if test="${pageMaker.next }">
-				<li class="next"><input type="button" value="다음"
-					onclick='pageGo(${pageMaker.page+1});' /></li>
+			<li class="next"><a href='#' onclick='pageGo(${pageMaker.page+1});'>Next Page →</a></li>
 			</c:if>
-		</ul>
+		  </ul>
+	</div>
 
-	</div>
-	</div>
 	<!--masonary wrapper-->
 	<div class="divide60"></div>
 
