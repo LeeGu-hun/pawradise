@@ -59,9 +59,7 @@
 
                     </div>
                                         
-                </div>         
-  
-		
+                </div>   		
 		
 		<div class="divide20"></div>
 
@@ -74,27 +72,27 @@
 			<tr class="mpbottom">
 				<td class="var">아이디</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.id}</td>
 			</tr>
 			<tr class="mpbottom">
 				<td class="var">애완동물</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
-			</tr>
-			<tr class="mpbottom">
-				<td class="var">주소</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.petName}</td>
 			</tr>
 			<tr class="mpbottom">
 				<td class="var">전화번호</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.phone}</td>
 			</tr>
+			<tr class="mpbottom">
+				<td class="var">주소</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">${member.address}</td>
+			</tr>			
 			<tr class="mpbottom">
 				<td class="var">E-mail</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.email}</td>
 			</tr>
 		</table>
 		<div class="mptab" align="center">

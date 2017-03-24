@@ -90,7 +90,7 @@ public class MemberListController {
 		System.out.println(userNum);
 		if(member == null) throw new MemberNotFoundException();
 		model.addAttribute("member", member);
-		return "member/memberDetail";
+		return "mypage/mypage";
 	}
 	
 	@ExceptionHandler(MemberNotFoundException.class)

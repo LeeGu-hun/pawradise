@@ -62,9 +62,10 @@ public class BoardController {
 	@RequestMapping("/boardList")
 	public String boardListGetPost(String srch, PageMaker pageMaker, Model model) {
 		int count = 0;
-		int limit = 9;
+		int limit = 8;
 		pageMaker.setPage(pageMaker.getPage());
 		int point = (pageMaker.getPage() - 1) * 10;
+		if(point>=0&&point<=8)point=point+1;
 		srch = pageMaker.getSrch();
 		count = boardDao.countPage(srch);
 		// 레코드 총 갯수 구함

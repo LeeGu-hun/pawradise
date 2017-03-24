@@ -128,7 +128,7 @@ public class MemberDao {
 		return results;
 	}
 	public Member selectByUserNum(int userNum) {
-		List<Member> results = jdbcTemplate.query("select * from member where id=? ", memRowMapper, userNum);
+		List<Member> results = jdbcTemplate.query("select * from member where usernum=? ", memRowMapper, userNum);
 		return results.isEmpty()?null: results.get(0);
 	}
 }
