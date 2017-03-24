@@ -87,9 +87,10 @@ $(document).ready(function(){
 						<ul class="list-inline post-detail">
 							<li>${board.name}님의글</li>
 							<li><i class="fa fa-calendar"></i> <fmt:formatDate
-									value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
+									value="${board.regdate}" pattern="yyyy-MM-dd" /> </li>
+							<li>글번호:${board.seq} </li>
 						</ul>
-
+						
 						<p>
 							<c:forEach items="${board.content}" var="data" varStatus="status">
 								<c:choose>
