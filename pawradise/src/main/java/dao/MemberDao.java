@@ -127,10 +127,8 @@ public class MemberDao {
 			memRowMapper, from, to);
 		return results;
 	}
-	public Member selectById(Long id) {
-		List<Member> results = jdbcTemplate.query(
-				"select * from member where id=? ", 
-				memRowMapper, id);
+	public Member selectByUserNum(int userNum) {
+		List<Member> results = jdbcTemplate.query("select * from member where id=? ", memRowMapper, userNum);
 		return results.isEmpty()?null: results.get(0);
 	}
 }

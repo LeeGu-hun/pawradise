@@ -142,7 +142,7 @@ public class BoardDao {
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(title like ? or content like ? or name like ?)", 
+					+ "(name like ? or title like ? or content like ?)", 
 					Integer.class, srch, srch, srch);
 		}
 		System.out.println("페이지 count "+count);
@@ -157,17 +157,15 @@ public class BoardDao {
 			results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
 					+ "content, filename, regdate, readcount, reply from "
 					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? " ,
-					boardRowMapper, startPage, limit);
+					boardRowMapper, startPage, (startPage+limit));
 		} else {
 			results = jdbcTemplate.query(
-					"select * from (select rownum rnum, seq, name, title, "
-					+ "content, filename, regdate, readcount, reply from "
+					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(title like ? or content like ? or name like ?) "
-					+ "where rnum>=? and rnum<=? ",
-					boardRowMapper, srch, srch, srch, startPage, limit);
+					+ "(name like ? or title like ? or content like ?) and rnum>=? and rnum<=? ",
+					boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
 		}
-		System.out.println("srch "+srch);
+		System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
 		System.out.println("페이징결과 result "+results);
 		return results;
 	}

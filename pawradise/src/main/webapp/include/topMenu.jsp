@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page session="true" %>
  <header class="side-panel clearfix">
             <div class="container">
                 <div class="pull-left">
@@ -35,7 +36,12 @@
                                 <li><a href="#"><i class="pe-7s-power"></i>로그아웃</a></li>
                             </ul>
                         </div>
-                     </c:if>   
+                     </c:if> 
+						<div class="nav-header"> <p align="center">
+                            <a href="#" onclick="location.href='<%=request.getContextPath() %>/login'" class="btn border-theme btn-sm">로그인</a>
+                            <a href="<%=request.getContextPath() %>/register/step1" class="btn btn-theme-dark btn-sm">회원가입</a>
+                            </p>
+                        </div>
                     </li>
 				
                     <li>
@@ -57,7 +63,7 @@
                     <li>
                         <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="<c:url value="/mypage/mydetail/${members.email}"/>">마이페이지</a></li>
+                            <li><a href="<c:url value="/member/detail/${member.userNum}"/>">마이페이지</a></li>
                         </ul> 
                     </li>
                     <li>
