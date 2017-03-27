@@ -1,5 +1,6 @@
 <!-- 모든페이지 상단 공통 인클루드 시작-->
-<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
@@ -10,10 +11,10 @@
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <body class="side-panel-page">
-<!--항상 같이 다니는 메뉴 로고포함 시작 -->
-<%@ include file="/include/topMenu.jsp" %>
-<!--항상 같이 다니는 메뉴 로고포함  시작 -->
-<!--메인배너시작 -->
+	<!--항상 같이 다니는 메뉴 로고포함 시작 -->
+	<%@ include file="/include/topMenu.jsp"%>
+	<!--항상 같이 다니는 메뉴 로고포함  시작 -->
+	<!--메인배너시작 -->
 	<article>
 		<div>
 			<div class="tp-banner-vertical">
@@ -105,153 +106,66 @@
 			</div>
 		</div>
 	</article>
-<!--메인배너 끝-->
-	<div class="divide80"></div><!-- 80px 공간이 필요하면 이 태그를 쓰세요 -->
-	
-<!-- 게시판 불러오기 시작  -->	
+	<!--메인배너 끝-->
+	<div class="divide80"></div>
+	<!-- 80px 공간이 필요하면 이 태그를 쓰세요 -->
+
+<!-- 게시판 사진 타이틀  -->
 	<div class="full-width">
 		<div class="cotnainer">
 			<div class="center-heading">
-				<h2>So CUTE</h2>
+				<h2>WITH YOUR LOVE</h2>
 				<span class="center-line"></span>
 			</div>
 		</div>
-		<ul class="filter list-inline">
-			<li><a class="active" href="#" data-filter="*">Show All</a></li>
-			<li><a href="#" data-filter=".photography">마이펫의사생활</a></li>
-			<li><a href="#" data-filter=".illustration">도와줘요 펫</a></li>
-		</ul>
 
+<!-- 게시판 사진 불러오기 -->
 		<div class="portfolio-box iso-call col-4-no-space">
 
-			<div class="project-post photography branding">
-				<div class="img-icon">
-					<img src="img/img-1.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-1.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
-				</div>
-				<!--img-icon-->
+			<c:forEach var="mainGalary" items="${mainGalary}">
+				<div class="mas-boxes-inner">
+					<c:choose>
+						<c:when test="${!empty mainGalary.fileName}">
+							<div class="project-post photography branding">
 
-			</div>
-			<!--project post-->
-			<div class="project-post illustration web-design">
-				<div class="img-icon">
-					<img src="img/img-2.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-2.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
+								<div class="img-icon">
+									<img
+										src="<%=request.getContextPath() %>/uploads/${mainGalary.fileName}"
+										class="img-responsive" alt="">
+									<div class="img-icon-overlay">
+										<p>
+											<a
+												href="<%=request.getContextPath() %>/uploads/${mainGalary.fileName}"
+												class="show-image"><i class="fa fa-eye"></i></a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</c:when>
+					</c:choose>
 				</div>
-				<!--img-icon-->
-			</div>
-			<!--project post-->
+			</c:forEach>
 
-			<div class="project-post illustration web-design">
-				<div class="img-icon">
-					<img src="img/img-3.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-3.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
-				</div>
-				<!--img-icon-->
-			</div>
-			<!--project post-->
-			<div class="project-post photography web-design">
-				<div class="img-icon">
-					<img src="img/img-4.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-4.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
-				</div>
-				<!--img-icon-->
-			</div>
-			<!--project post-->
-
-			<div class="project-post branding">
-				<div class="img-icon">
-					<img src="img/img-5.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-5.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
-				</div>
-				<!--img-icon-->
-			</div>
-			<!--project post-->
-			<div class="project-post  illustration">
-				<div class="img-icon">
-					<img src="img/img-6.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-6.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
-				</div>
-				<!--img-icon-->
-			</div>
-			<!--project post-->
-
-			<div class="project-post  branding">
-				<div class="img-icon">
-					<img src="img/img-7.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-7.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
-				</div>
-				<!--img-icon-->
-			</div>
-			<!--project post-->
-
-
-			<div class="project-post   web-design">
-				<div class="img-icon">
-					<img src="img/img-8.jpg" class="img-responsive" alt="">
-					<div class="img-icon-overlay">
-						<p>
-							<a href="img/img-8.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
-						</p>
-					</div>
-				</div>
-				<!--img-icon-->
-			</div>
-			<!--project post-->
 
 		</div>
 	</div>
-<!-- 게시판 불러오기 끝 -->
+	<!-- 게시판 불러오기 끝 -->
 
-	<div class="divide50"></div><!-- 50px 공간이 필요하면 이 태그를 쓰세요 -->
+	<div class="divide50"></div>
+	<!-- 50px 공간이 필요하면 이 태그를 쓰세요 -->
 
-<!-- 게시판 바로가기 링크시작 -->		
+	<!-- 게시판 바로가기 링크시작 -->
 	<div class="text-center">
 		<a href="boardList" class="btn btn-lg border-black">커뮤니티 전체보기</a>
 	</div>
-<!-- 게시판 바로가기 링크 끝-->		
+	<!-- 게시판 바로가기 링크 끝-->
 
-	<div class="divide60"></div><!-- 60px 공간이 필요하면 이 태그를 쓰세요 -->
-	
+	<div class="divide60"></div>
+	<!-- 60px 공간이 필요하면 이 태그를 쓰세요 -->
+
 	<!-- 가운데 정렬은 <div class="container"><div class="row"> 이 안에 작업파일 넣으면 다 정렬됩니다 </div></div> -->
-	<div class="container"> 	
-		<div class="row">			
+	<div class="container">
+		<div class="row">
 			<div class="col-sm-8 col-sm-offset-2">
 				<div class="center-heading">
 					<h2>냥냥 멍멍 귀여워</h2>
@@ -264,8 +178,9 @@
 		</div>
 
 
-		<div class="divide50"></div><!-- 50px 공간이 필요하면 이 태그를 쓰세요 -->
-		<!-- 제품설명 부분 -->		
+		<div class="divide50"></div>
+		<!-- 50px 공간이 필요하면 이 태그를 쓰세요 -->
+		<!-- 제품설명 부분 -->
 		<div class="row">
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed green">
@@ -302,11 +217,11 @@
 					<p>제품 로그기록을 웹과 모바일을 통해서 보실 수 있습니다.</p>
 				</div>
 			</div>
-		<!--세로 설명4-->
+			<!--세로 설명4-->
 		</div>
-	</div>	
+	</div>
 	<!--제품설명부분 끝-->
-	
+
 	<!--고객상품평 시작-->
 	<div class="testimonials-v-2 wow animated fadeInUp"
 		data-wow-duration="700ms" data-wow-delay="100ms">
@@ -406,8 +321,8 @@
 	</div>
 	<!--고객상품평 끝-->
 
-<!--하단 footer부분 인클루드시작 body태그안에들어감 -->	
-	<%@ include file="/include/footer.jsp" %>
-<!--하단 footer부분 인클루드 끝 body태그안에들어감-->	
+	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
+	<%@ include file="/include/footer.jsp"%>
+	<!--하단 footer부분 인클루드 끝 body태그안에들어감-->
 </body>
 </html>
