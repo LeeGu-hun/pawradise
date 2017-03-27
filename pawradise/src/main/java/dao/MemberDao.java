@@ -105,8 +105,7 @@ public class MemberDao {
 				from, to);
 		return count;
 	}
-	public List<Member> selectPage(Date from, Date to, 
-			int startPage, int limit) {
+	public List<Member> selectPage(Date from, Date to, int startPage, int limit) {
 		List<Member> results = jdbcTemplate.query(
 				"select * from member "
 				+ "where REGDATE between ? and ? "

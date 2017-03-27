@@ -18,17 +18,17 @@
                 <div class="logo-side-nav">
                     <a href="<%=request.getContextPath() %>/index.jsp"><img id="logo" src="<%=request.getContextPath() %>/img/logo.png" alt="iDea"></a>
                 </div>
-                <input type="text" name="members" id="members" hidden />
+                <input type="text" name="member" id="member" hidden />
                 
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
-                    <c:if test="${! empty members}">
+                    <!--  <c:if test="${!empty member}">-->
                         <div class="dropdown profile-element"> <span>
                                 <img alt="image" class="img-circle" src="<%=request.getContextPath() %>/img/customer-1.jpg" width="60">
                             </span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="<%=request.getContextPath() %>/mypage/mypage">
                                 <span class="clearfix"> <span class="text-center" style="display: block;">
-								<strong>냥냥멍멍귀여워<i class="fa fa-angle-down"></i></strong>
+								<strong>${member.name }<i class="fa fa-angle-down"></i></strong>
                                     </span></span> </a>
                             <ul class="dropdown-menu animated fadeInUp">
                                 <li><a href="#"><i class="pe-7s-user"></i>개인정보수정</a></li>
@@ -36,7 +36,7 @@
                                 <li><a href="#"><i class="pe-7s-power"></i>로그아웃</a></li>
                             </ul>
                         </div>
-                     </c:if> 
+                     <!-- </c:if>  --> 
 						<div class="nav-header"> <p align="center">
                             <a href="#" onclick="location.href='<%=request.getContextPath() %>/login'" class="btn border-theme btn-sm">로그인</a>
                             <a href="<%=request.getContextPath() %>/register/step1" class="btn btn-theme-dark btn-sm">회원가입</a>
@@ -63,7 +63,7 @@
                     <li>
                         <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="<c:url value="/member/detail/${member.userNum}"/>">마이페이지</a></li>
+                            <li><a href="<c:url value="/mypage/mypage/${member.userNum}"/>">마이페이지</a></li>
                         </ul> 
                     </li>
                     <li>

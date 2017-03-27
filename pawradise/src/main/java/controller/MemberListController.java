@@ -83,7 +83,7 @@ public class MemberListController {
 		return date;
 	}
 
-	@RequestMapping(value="/member/detail/{userNum}")
+	@RequestMapping(value="/mypage/mypage/{userNum}")
 	public String detail(@PathVariable("userNum") int userNum, Model model, HttpSession session){
 		Member member = memberDao.selectByUserNum(userNum);
 		System.out.println("마이페이지");

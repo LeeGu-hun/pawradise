@@ -43,7 +43,7 @@
 		<p>저희 냥냥멍멍귀여워의 회원이 되신걸 축하드립니다</p>
 		<p>
 			<a href="<c:url value="/index.jsp"/>">[<spring:message code="go.main" />]&nbsp;&nbsp;
-			<a href="<c:url value="/mapage/mypage"/>">[<spring:message code="go.main" />]
+			<a href="<c:url value="/mapage/mypage"/>">[마이페이지로]
 			</a>
 		</p>
 		</div>
