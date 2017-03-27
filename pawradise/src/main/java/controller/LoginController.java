@@ -17,6 +17,7 @@ import svcMember.AuthService;
 import validator.LoginCommandValidator;
 
 @Controller
+
 public class LoginController {
 	private AuthService authService;
 
@@ -46,7 +47,7 @@ public class LoginController {
 					loginCommand.getEmail());
 			rememberCookie.setPath("/");
 			if(loginCommand.isRememberEmail()){
-				rememberCookie.setMaxAge(60*60*24*30);
+				rememberCookie.setMaxAge(66*60*24*30);
 			} else {
 				rememberCookie.setMaxAge(0);
 			}

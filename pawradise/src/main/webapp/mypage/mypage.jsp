@@ -29,55 +29,83 @@
 			</div>
 		</div>
 	</div>
-	<!--breadcrumbs-->
-	<div class="divide50"></div>
-	<div align="center">
-		<div class="center-heading">
-			<h2>MY PAGE</h2>
-			<span class="center-line"></span>
-		</div>
-		<div class="mptab">
-			| <a href="/pawradise/mypage/modify.jsp">MODIFY</a> | 			
-		</div>
+	<!-- 마이페이지  -->
+<div class="divide80"></div>
+    <div class="container">
+     <div class="center-heading">
+                <h2>마이페이지</h2>
+                <span class="center-line"></span>
+            </div> 
+     <div class="row">
+            <!--개인정보 메뉴부분 -->
+                <div class="col-sm-3">
+                
+                    <div class="sidebar-box margin40">
+                        <h4>개인정보</h4>
+                         <ul class="list-unstyled cat-list">
+                            <li><a href="#">개인정보내역</a></li>
+                            <li><a href="#">구매내역</a></li>
+                            <li><a href="#">문의내역</a></li>
+                        </ul>
+
+                    </div>
+                    
+                     <div class="sidebar-box margin40">
+                        <h4> 제품 로그</h4>
+                         <ul class="list-unstyled cat-list">
+                            <li><a href="#">놀이로그</a></li>
+                            <li><a href="#">먹이로그</a></li>
+                        </ul>                   
+
+                    </div>
+                                        
+                </div>   		
+		
 		<div class="divide20"></div>
-		<table class="mptb">
+
+		<table class="mptb" align="center">
 			<tr class="mpbottom">
 				<td class="var">이름</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">${board.name}</td>
+				<td class="mpinfo">${member.name}</td>
 			</tr>
 			<tr class="mpbottom">
 				<td class="var">아이디</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.id}</td>
 			</tr>
 			<tr class="mpbottom">
 				<td class="var">애완동물</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
-			</tr>
-			<tr class="mpbottom">
-				<td class="var">주소</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.petName}</td>
 			</tr>
 			<tr class="mpbottom">
 				<td class="var">전화번호</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.phone}</td>
 			</tr>
+			<tr class="mpbottom">
+				<td class="var">주소</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo">${member.address}</td>
+			</tr>			
 			<tr class="mpbottom">
 				<td class="var">E-mail</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">ㄴㄴ</td>
+				<td class="mpinfo">${member.email}</td>
 			</tr>
-
 		</table>
+		<div class="mptab" align="center">
+			| <a href="/pawradise/mypage/modify.jsp">MODIFY</a> | 			
+		
+
 		<div class="divide30"></div>
 		<input type="button"value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">
 		<button type="button"  id="loginbutton" onclick="location.href='/pawradise/index.jsp'">메인으로</button>
+		</div>
 
 	</div>
+</div>	
 	<div class="divide50"></div>
 	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
 	<%@ include file="/include/footer2.jsp"%>

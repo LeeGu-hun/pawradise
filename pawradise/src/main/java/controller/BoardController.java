@@ -62,9 +62,10 @@ public class BoardController {
 	@RequestMapping("/boardList")
 	public String boardListGetPost(String srch, PageMaker pageMaker, Model model) {
 		int count = 0;
-		int limit = 9;
+		int limit = 8;
 		pageMaker.setPage(pageMaker.getPage());
 		int point = (pageMaker.getPage() - 1) * 9;
+		if(point>=0)point=point+1;
 		srch = pageMaker.getSrch();
 		count = boardDao.countPage(srch);
 		// 레코드 총 갯수 구함
@@ -80,11 +81,7 @@ public class BoardController {
 	@RequestMapping("/board/detail/{seq}")
 	public String detail2(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
 		board = boardDao.getDetail(seq);
-		System.out.println("board.getFileName"+board.getFileName());
-		System.out.println("board.getFiles"+board.getFiles());
-		System.out.println("board.getMultiFile"+board.getMultiFile());
 		boardDao.readCountUpdate(seq);		
-		System.out.println(comment.getC_seq());
 		if(!(comment.getName()==null) && !(comment.getC_content()==null)){
 			boardDao.insertComment(comment, seq);				
 		}
@@ -92,6 +89,7 @@ public class BoardController {
 		model.addAttribute("comments", comments);
 		model.addAttribute("board", board);
 		boardDao.commnet1Delete(comment.getC_seq());
+		boardDao.getCountComment(seq);
 		
 		return "board/boardDetail";
 	}

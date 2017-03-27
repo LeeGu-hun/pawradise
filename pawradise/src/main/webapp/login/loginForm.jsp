@@ -42,24 +42,24 @@
 				<form:errors />
 				<table style="margin-left: auto; margin-right: auto;">
 					<tr>
-						<td><label><input id="email" name="email" placeholder="이메일" class="form-control" type="text" /><br>
+						<td><label><form:input path="email" id="email" name="email" placeholder="이메일" class="form-control" type="text" /><br>
 							 </label></td>
 					</tr>
+					
 					<tr>
 						<td><label><input id="password" name="password" placeholder="비밀번호" class="form-control" type="password" value=""/><br>
 							 </label></td>
+							 
 					</tr>
 					<tr align="center">
 						<td><p>이메일 저장
-								<input id="chkid" name="rememberEmail" type="checkbox" value="true" checked="checked"/><input type="hidden" name="_rememberEmail" value="on"/>
+								<input id="chkid" name="rememberEmail" type="checkbox" value="true" checked="checked"/><input type="hidden" name="rememberEmail" value="on"/>
 								 </p></td>
 					</tr>
 					<tr align="center">
 						<td>
 						<input id="loginbutton" type="submit" value="로그인">
-							<input id="loginbutton" type="button"
-							onclick="location.href='/pawradise/register/step1' "
-							value="회원가입"></td>
+						<input id="loginbutton" type="button" onclick="location.href='/pawradise/register/step1' " value="회원가입"></td>
 					</tr>
 				</table>
 			</form:form>

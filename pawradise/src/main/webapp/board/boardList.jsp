@@ -87,9 +87,10 @@ $(document).ready(function(){
 						<ul class="list-inline post-detail">
 							<li>${board.name}님의글</li>
 							<li><i class="fa fa-calendar"></i> <fmt:formatDate
-									value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
+									value="${board.regdate}" pattern="yyyy-MM-dd" /> </li>
+							<li>글번호:${board.seq} </li>
 						</ul>
-
+						
 						<p>
 							<c:forEach items="${board.content}" var="data" varStatus="status">
 								<c:choose>
@@ -131,14 +132,14 @@ $(document).ready(function(){
 			<li class="previous"><a href='#' onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
 			</c:if>
 			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}" var="idx">
-			<li	>
-			<a href='#' onclick='pageGo(${idx});'>${idx}</a>
-			</li>
+				<li class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+					<a href='#' onclick='pageGo(${idx});'>${idx}</a>
+				</li>
 			</c:forEach>
 			<c:if test="${pageMaker.next }">
 			<li class="next"><a href='#' onclick='pageGo(${pageMaker.page+1});'>Next Page →</a></li>
 			</c:if>
-		  </ul>
+		</ul>
 	</div>
 
 	<!--masonary wrapper-->

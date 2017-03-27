@@ -4,6 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,15 +18,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import bean.AuthInfo;
 import bean.Member;
-
+import command.LoginCommand;
 import command.PageMaker;
 import dao.MemberDao;
 import exception.MemberNotFoundException;
+import svcMember.AuthService;
 import validator.ListCommandValidator;
 
 @Controller
-public class MemberListController {
+public class MemberListController {	
+	private AuthService authService;
+
+	public void setAuthService(AuthService authService) {
+		this.authService = authService;
+	}
+	
 	private MemberDao memberDao;
 	public void setMemberDao(MemberDao memberDao){
 		this.memberDao = memberDao;
@@ -36,10 +47,10 @@ public class MemberListController {
 	public String list(
 			@RequestParam(value="from", required=false) String strFrom,
 			@RequestParam(value="to", required=false) String strTo,
-			PageMaker pageMaker, Model model){
+			PageMaker pageMaker, Model model, Errors errors){
 		
-//		new ListCommandValidator().validate(pageMaker, errors);
-//		if(errors.hasErrors()) return "member/memberList";
+		new ListCommandValidator().validate(pageMaker, errors);
+		if(errors.hasErrors()) return "member/memberList";
 		Date from = transDate(strFrom, " 00:00:00");
 		Date to   = transDate(strTo, " 23:59:59");		
 		int count = 0;
@@ -72,14 +83,16 @@ public class MemberListController {
 		return date;
 	}
 
-	@RequestMapping(value="/member/detail/{id}")
-	public String detail(
-			@PathVariable("id") Long id, Model model){
-		Member member = memberDao.selectById(id);
+	@RequestMapping(value="/mypage/mypage/{userNum}")
+	public String detail(@PathVariable("userNum") int userNum, Model model, HttpSession session){
+		Member member = memberDao.selectByUserNum(userNum);
+		System.out.println("마이페이지");
+		System.out.println(userNum);
 		if(member == null) throw new MemberNotFoundException();
 		model.addAttribute("member", member);
-		return "member/memberDetail";
+		return "mypage/mypage";
 	}
+	
 	@ExceptionHandler(MemberNotFoundException.class)
 	public String handNotFoundException(){
 		return "member/noMember";
@@ -88,12 +101,5 @@ public class MemberListController {
 	public String typeMismatchException(){
 		return "member/invalidId";
 	}
-//	@RequestMapping(value="/mypage/mydetail/{email}")
-//	public String detail2(
-//			@PathVariable("email") String email, Model model, Mypage mypage){
-//		Member member = memberDao.selectByEmail(email);
-//		if(member == null) throw new MemberNotFoundException();
-//		model.addAttribute("member", member);
-//		return "mypage/mydetail";
-//	}
+
 }

@@ -109,13 +109,12 @@ public class BoardDao {
 		return results;
 	}
 
-	//http://ojc.asia/bbs/board.php?bo_table=LecSpring&wr_id=252+663 참고
 	
 	//commnet 갯수
-	public int getListComment(int seq) {
-		Integer commentCount = jdbcTemplate.queryForObject("select count(*) from comment_t where seq = ? ", Integer.class, seq);
-		return commentCount;
-	}
+		public void getCountComment(int seq) {
+			jdbcTemplate.update("update board set reply=(select count(*) from comment_t where seq = ?) where seq=?",seq, seq);
+		}
+
 	
 	// 게시글 삭제시 comment 1개만 삭제
 	public boolean commnet1Delete(int c_seq) {
@@ -142,7 +141,7 @@ public class BoardDao {
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(title like ? or content like ? or name like ?)", 
+					+ "(name like ? or title like ? or content like ?)", 
 					Integer.class, srch, srch, srch);
 		}
 		System.out.println("페이지 count "+count);
@@ -157,17 +156,15 @@ public class BoardDao {
 			results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
 					+ "content, filename, regdate, readcount, reply from "
 					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? " ,
-					boardRowMapper, startPage, limit);
+					boardRowMapper, startPage, (startPage+limit));
 		} else {
 			results = jdbcTemplate.query(
-					"select * from (select rownum rnum, seq, name, title, "
-					+ "content, filename, regdate, readcount, reply from "
+					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(title like ? or content like ? or name like ?) "
-					+ "where rnum>=? and rnum<=? ",
-					boardRowMapper, srch, srch, srch, startPage, limit);
+					+ "(name like ? or title like ? or content like ?) and rnum>=? and rnum<=? ",
+					boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
 		}
-		System.out.println("srch "+srch);
+		System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
 		System.out.println("페이징결과 result "+results);
 		return results;
 	}
