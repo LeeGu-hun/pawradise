@@ -109,13 +109,12 @@ public class BoardDao {
 		return results;
 	}
 
-	//http://ojc.asia/bbs/board.php?bo_table=LecSpring&wr_id=252+663 참고
 	
 	//commnet 갯수
-	public int getListComment(int seq) {
-		Integer commentCount = jdbcTemplate.queryForObject("select count(*) from comment_t where seq = ? ", Integer.class, seq);
-		return commentCount;
-	}
+		public void getCountComment(int seq) {
+			jdbcTemplate.update("update board set reply=(select count(*) from comment_t where seq = ?) where seq=?",seq, seq);
+		}
+
 	
 	// 게시글 삭제시 comment 1개만 삭제
 	public boolean commnet1Delete(int c_seq) {
