@@ -13,6 +13,7 @@
 <title>게시판상세</title>
 <script>
 	function goDelete() {
+		
 		location.href = "../delete/"
 	}
 
@@ -82,8 +83,13 @@
 					<p>${board.content}</p>
 				</div>
 				<p align="center">		
-					<a href="<c:url value='/boardList'/>" class="btn btn-theme-dark btn-lg">리스트</a> 
-					<a href="<c:url value='/board/delete/${seq}' />" class="btn btn-theme-dark btn-lg">삭제하기</a> 
+					<a href="<c:url value='/boardList'/>" class="btn btn-theme-dark btn-lg">리스트</a>
+					<c:choose>					
+					    <c:when test="${sessionScope.authInfo.name eq board.name}">
+					        <a href="<c:url value='/board/delete/${seq}' />" class="btn btn-theme-dark btn-lg">삭제하기</a>
+					    </c:when>															
+					</c:choose>
+					
 					<a href="<c:url value='/board/update/${seq}' />" class="btn btn-theme-dark btn-lg">수정하기</a>
 				</p>
 				<!-- comments list -->
@@ -92,12 +98,18 @@
 					
 					<c:forEach var="comments" items="${comments}">
 						<div class="comment-list">
-							<h4>${comments.name} 님의 comment </h4>
-							<p>${comments.c_content} &nbsp;&nbsp;
-							<form:form commandName="comment" id="delComment">
+							<h6>${comments.name} 님의 comment &nbsp;&nbsp; ${comments.regdate} </h6>
+							<p>${comments.c_content} &nbsp;&nbsp;							
+							<c:choose>					
+					    	<c:when test="${sessionScope.authInfo.name eq comment.name}">
+					    	<form:form commandName="comment" id="delComment">
 							<input name="c_seq"  value="${comments.c_seq}" hidden/>
-							<button type="submit" onclick="delComment();" class="btn btn-theme-dark btn-xs">댓글삭제</button>
-							</form:form>
+					        <button type="submit" onclick="delComment();" class="btn btn-theme-dark btn-xs">댓글삭제</button>
+					        </form:form>
+					   		</c:when>															
+							</c:choose>
+							
+							
 							</p>
 						</div>
 						</c:forEach>
