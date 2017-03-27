@@ -5,7 +5,7 @@ public class AuthInfo {
 	private String id;
 	private String email;
 	private String name;
-	
+	 
 	
 	public AuthInfo(int userNum, String id, String email, String name) {
 		super();

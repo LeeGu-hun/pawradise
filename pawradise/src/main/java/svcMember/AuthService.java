@@ -17,7 +17,7 @@ public class AuthService {
 		
 		if(!member.matchPassword(password)) 
 			throw new IdPasswordNotMatchingException();
-		return new AuthInfo(member.getId(), member.getEmail(),
+		return new AuthInfo(member.getUserNum(), member.getId(), member.getEmail(),
 				member.getName());
 	}
 

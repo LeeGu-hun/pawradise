@@ -25,7 +25,7 @@
                     <c:if test="${!empty sessionScope.authInfo.userNum}">
                         <div class="dropdown profile-element" align="center">
  							<strong>${sessionScope.authInfo.name }님 안녕하세요</strong><br><br>
- 							<a href="#" onclick="location.href='<%=request.getContextPath() %>/logout'" 
+ 							<a href="#" onclick="location.href='<%=request.getContextPath() %>/logout'"  
  							class="btn border-theme btn-sm">로그아웃</a>                      
                           
                         </div>
