@@ -22,26 +22,21 @@
                 
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
-                    <!--  <c:if test="${!empty member}">-->
-                        <div class="dropdown profile-element"> <span>
-                                <img alt="image" class="img-circle" src="<%=request.getContextPath() %>/img/customer-1.jpg" width="60">
-                            </span>
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="<%=request.getContextPath() %>/mypage/mypage">
-                                <span class="clearfix"> <span class="text-center" style="display: block;">
-								<strong>${member.name }<i class="fa fa-angle-down"></i></strong>
-                                    </span></span> </a>
-                            <ul class="dropdown-menu animated fadeInUp">
-                                <li><a href="#"><i class="pe-7s-user"></i>개인정보수정</a></li>
-                                <li><a href="#"><i class="pe-7s-settings"></i>나의게시물</a></li>                          
-                                <li><a href="#"><i class="pe-7s-power"></i>로그아웃</a></li>
-                            </ul>
+                    <c:if test="${!empty sessionScope.authInfo.userNum}">
+                        <div class="dropdown profile-element" align="center">
+ 							<strong>${sessionScope.authInfo.name }님 안녕하세요</strong><br><br>
+ 							<a href="#" onclick="location.href='<%=request.getContextPath() %>/logout'" 
+ 							class="btn border-theme btn-sm">로그아웃</a>                      
+                          
                         </div>
-                     <!-- </c:if>  --> 
+                     </c:if>
+                      <c:if test="${empty sessionScope.authInfo.userNum}">
 						<div class="nav-header"> <p align="center">
                             <a href="#" onclick="location.href='<%=request.getContextPath() %>/login'" class="btn border-theme btn-sm">로그인</a>
                             <a href="<%=request.getContextPath() %>/register/step1" class="btn btn-theme-dark btn-sm">회원가입</a>
                             </p>
                         </div>
+                       </c:if> 
                     </li>
 				
                     <li>
@@ -63,7 +58,7 @@
                     <li>
                         <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="<c:url value="/mypage/mypage/${member.userNum}"/>">마이페이지</a></li>
+                            <li><a href="<c:url value="/mypage/mypage/${sessionScope.authInfo.userNum}"/>">마이페이지</a></li>
                         </ul> 
                     </li>
                     <li>

@@ -1,6 +1,7 @@
 package controller;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -26,7 +27,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
-	public String form(LoginCommand loginCommand, 
+	public String form(LoginCommand loginCommand,
 			@CookieValue(value="REMEMBER", required=false)Cookie rCookie){
 		if(rCookie != null){
 			loginCommand.setEmail(rCookie.getValue());
@@ -43,8 +44,7 @@ public class LoginController {
 			AuthInfo authInfo = authService.authenticate(
 					loginCommand.getEmail(), loginCommand.getPassword());
 			session.setAttribute("authInfo", authInfo);
-			Cookie rememberCookie = new Cookie("REMEMBER", 
-					loginCommand.getEmail());
+			Cookie rememberCookie = new Cookie("REMEMBER", loginCommand.getEmail());
 			rememberCookie.setPath("/");
 			if(loginCommand.isRememberEmail()){
 				rememberCookie.setMaxAge(66*60*24*30);
