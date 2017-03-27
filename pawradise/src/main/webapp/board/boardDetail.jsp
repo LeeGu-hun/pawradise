@@ -102,7 +102,7 @@
 							<h6>${comments.name} 님의 comment &nbsp;&nbsp; ${comments.regdate} </h6>
 							<p>${comments.c_content} &nbsp;&nbsp;							
 							<c:choose>					
-					    	<c:when test="${sessionScope.authInfo.name eq comment.name}">
+					    	<c:when test="${sessionScope.authInfo.name eq comments.name}">
 					    	<form:form commandName="comment" id="delComment">
 							<input name="c_seq"  value="${comments.c_seq}" hidden/>
 					        <button type="submit" onclick="delComment();" class="btn btn-theme-dark btn-xs">댓글삭제</button>
