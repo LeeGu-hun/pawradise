@@ -87,10 +87,11 @@
 					<c:choose>					
 					    <c:when test="${sessionScope.authInfo.name eq board.name}">
 					        <a href="<c:url value='/board/delete/${seq}' />" class="btn btn-theme-dark btn-lg">삭제하기</a>
+					        <a href="<c:url value='/board/update/${seq}' />" class="btn btn-theme-dark btn-lg">수정하기</a>
 					    </c:when>															
 					</c:choose>
 					
-					<a href="<c:url value='/board/update/${seq}' />" class="btn btn-theme-dark btn-lg">수정하기</a>
+					
 				</p>
 				<!-- comments list -->
 				<div class="comment-post">
