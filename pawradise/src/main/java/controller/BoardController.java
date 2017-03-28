@@ -77,22 +77,31 @@ public class BoardController {
 		return "board/boardList";
 	}
 
-	// 상세보기
-	@RequestMapping("/board/detail/{seq}")
+	// 상세보기 Get
+	@RequestMapping(value = "/board/detail/{seq}", method = RequestMethod.GET)
 	public String detail2(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
 		board = boardDao.getDetail(seq);
 		boardDao.readCountUpdate(seq);		
-		if(!(comment.getName()==null) && !(comment.getC_content()==null)){
-			boardDao.insertComment(comment, seq);				
-		}
 		List<Comment> comments = boardDao.commentList(seq);		
 		model.addAttribute("comments", comments);
 		model.addAttribute("board", board);
-		boardDao.commnet1Delete(comment.getC_seq());
+		
 		boardDao.getCountComment(seq);
 		
 		return "board/boardDetail";
 	}
+	
+	// 상세보기 Post
+	@RequestMapping(value = "/board/detail/{seq}", method = RequestMethod.POST)
+	public String comment(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {				
+		if(!(comment.getName()==null) && !(comment.getC_content()==null)){			
+			boardDao.insertComment(comment, seq);
+			comment=new Comment();
+		}
+		boardDao.commnet1Delete(comment.getC_seq());
+		return "redirect:/board/detail/"+ seq;
+	}
+		
 		
 	// 글쓰기GET
 	@RequestMapping(value = "/board/boardWrite", method = RequestMethod.GET)
@@ -126,9 +135,6 @@ public class BoardController {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("board.getFileName"+board.getFileName());
-		System.out.println("board.getFiles"+board.getFiles());
-		System.out.println("board.getMultiFile"+board.getMultiFile());
 		boardDao.add(board);
 		return "redirect:/boardList";
 	}
