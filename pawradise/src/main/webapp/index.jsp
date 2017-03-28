@@ -128,7 +128,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-1.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -142,7 +142,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-2.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -156,7 +156,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-3.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -169,7 +169,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-4.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -183,7 +183,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-5.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -196,7 +196,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-6.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -210,7 +210,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-7.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -225,7 +225,7 @@
 					<div class="img-icon-overlay">
 						<p>
 							<a href="img/img-8.jpg" class="show-image"><i
-								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+								class="fa fa-eye"></i></a> 
 						</p>
 					</div>
 				</div>
@@ -297,7 +297,7 @@
 			<!--세로 설명3-->
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed red">
-					<i class="fa fa-sliders"></i>
+					
 					<h3>웹사이트 연동</h3>
 					<span class="center-line"></span>
 					<p>제품 로그기록을 웹과 모바일을 통해서 보실 수 있습니다.</p>
