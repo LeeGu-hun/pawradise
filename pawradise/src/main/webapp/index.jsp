@@ -110,7 +110,8 @@
 	<div class="divide80"></div>
 	<!-- 80px 공간이 필요하면 이 태그를 쓰세요 -->
 
-<!-- 게시판 사진 타이틀  -->
+	<!-- 게시판 사진 타이틀  -->
+
 	<div class="full-width">
 		<div class="cotnainer">
 			<div class="center-heading">
@@ -119,37 +120,122 @@
 			</div>
 		</div>
 
-<!-- 게시판 사진 불러오기 -->
 		<div class="portfolio-box iso-call col-4-no-space">
 
-			<c:forEach var="mainGalary" items="${mainGalary}">
-				<div class="mas-boxes-inner">
-					<c:choose>
-						<c:when test="${!empty mainGalary.fileName}">
-							<div class="project-post photography branding">
-
-								<div class="img-icon">
-									<img
-										src="<%=request.getContextPath() %>/uploads/${mainGalary.fileName}"
-										class="img-responsive" alt="">
-									<div class="img-icon-overlay">
-										<p>
-											<a
-												href="<%=request.getContextPath() %>/uploads/${mainGalary.fileName}"
-												class="show-image"><i class="fa fa-eye"></i></a>
-										</p>
-									</div>
-								</div>
-							</div>
-						</c:when>
-					</c:choose>
+			<div class="project-post photography branding">
+				<div class="img-icon">
+					<img src="img/img-1.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-1.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
 				</div>
-			</c:forEach>
+				<!--img-icon-->
 
+			</div>
+			<!--project post-->
+			<div class="project-post illustration web-design">
+				<div class="img-icon">
+					<img src="img/img-2.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-2.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
+				</div>
+				<!--img-icon-->
+			</div>
+			<!--project post-->
+
+			<div class="project-post illustration web-design">
+				<div class="img-icon">
+					<img src="img/img-3.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-3.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
+				</div>
+				<!--img-icon-->
+			</div>
+			<!--project post-->
+			<div class="project-post photography web-design">
+				<div class="img-icon">
+					<img src="img/img-4.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-4.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
+				</div>
+				<!--img-icon-->
+			</div>
+			<!--project post-->
+
+			<div class="project-post branding">
+				<div class="img-icon">
+					<img src="img/img-5.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-5.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
+				</div>
+				<!--img-icon-->
+			</div>
+			<!--project post-->
+			<div class="project-post  illustration">
+				<div class="img-icon">
+					<img src="img/img-6.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-6.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
+				</div>
+				<!--img-icon-->
+			</div>
+			<!--project post-->
+
+			<div class="project-post  branding">
+				<div class="img-icon">
+					<img src="img/img-7.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-7.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
+				</div>
+				<!--img-icon-->
+			</div>
+			<!--project post-->
+
+
+			<div class="project-post   web-design">
+				<div class="img-icon">
+					<img src="img/img-8.jpg" class="img-responsive" alt="">
+					<div class="img-icon-overlay">
+						<p>
+							<a href="img/img-8.jpg" class="show-image"><i
+								class="fa fa-eye"></i></a> <a href="#"><i class="fa fa-sliders"></i></a>
+						</p>
+					</div>
+				</div>
+				<!--img-icon-->
+			</div>
+			<!--project post-->
 
 		</div>
 	</div>
-	<!-- 게시판 불러오기 끝 -->
+	<!--full width-->
 
 	<div class="divide50"></div>
 	<!-- 50px 공간이 필요하면 이 태그를 쓰세요 -->
