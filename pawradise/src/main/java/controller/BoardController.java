@@ -77,21 +77,21 @@ public class BoardController {
 		return "board/boardList";
 	}
 
-	// 상세보기 Get
+	// 상세보기GET
 	@RequestMapping(value = "/board/detail/{seq}", method = RequestMethod.GET)
 	public String detail2(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {
+		boardDao.getCountComment(seq);
 		board = boardDao.getDetail(seq);
 		boardDao.readCountUpdate(seq);		
 		List<Comment> comments = boardDao.commentList(seq);		
 		model.addAttribute("comments", comments);
-		model.addAttribute("board", board);
+		model.addAttribute("board", board);		
 		
-		boardDao.getCountComment(seq);
 		
 		return "board/boardDetail";
 	}
 	
-	// 상세보기 Post
+	// 상세보기POST
 	@RequestMapping(value = "/board/detail/{seq}", method = RequestMethod.POST)
 	public String comment(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {				
 		if(!(comment.getName()==null) && !(comment.getC_content()==null)){			
@@ -99,6 +99,7 @@ public class BoardController {
 			comment=new Comment();
 		}
 		boardDao.commnet1Delete(comment.getC_seq());
+		
 		return "redirect:/board/detail/"+ seq;
 	}
 		
