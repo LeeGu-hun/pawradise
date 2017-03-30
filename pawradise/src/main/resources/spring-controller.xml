@@ -26,6 +26,10 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 		<property name="boardDao" ref="boardDao" />  
 	</bean>	
 	
+	<bean class="controller.MainController">
+		<property name="boardDao" ref="boardDao" />  
+	</bean>	
+	
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/edit/**"/>

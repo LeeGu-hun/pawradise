@@ -66,7 +66,8 @@ public class PageMaker {
 		this.start = tempEnd - 9;
 		if (tempEnd * 10 > this.count) {
 			// 가상으로 계산한 tempEnd크기가 실제 count보다 많을경우
-			this.end = (int) Math.ceil(this.count / 10.0);
+			this.end = (int) Math.ceil(this.count / 9.0);
+			//(this.count / 9.0) 9.0은 한페이지의 게시물 수 소수점 지우면 안됨
 			this.prev = (this.page == 1) ? false : true;
 			this.next = (this.page >= this.end) ? false : true;
 		} else {
