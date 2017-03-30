@@ -70,7 +70,7 @@
 				<td class="mpinfo">${member.name}</td>
 			</tr>
 			<tr class="mpbottom">
-				<td class="var">아이디</td>
+				<td class="var">닉네임</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.id}</td>
 			</tr>
@@ -96,7 +96,7 @@
 			</tr>
 		</table>
 		<div class="mptab" align="center">
-			| <a href="/pawradise/mypage/modify.jsp">MODIFY</a> | 			
+			| <a href="<c:url value="/mypage/modify/${member.userNum}"/>">MODIFY</a> | 			
 		
 
 		<div class="divide30"></div>
