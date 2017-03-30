@@ -33,8 +33,8 @@
 							data-splitout="none" data-elementdelay="0.01"
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
-							style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">마이펫의
-							사생활</div> <!-- LAYER NR. 2 -->
+							style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">이젠 더이상 외롭지 않아요!
+							</div> <!-- LAYER NR. 2 -->
 						<div class="tp-caption vertical-caption lfb ltt tp-resizeme"
 							data-x="left" data-hoffset="100" data-y="center"
 							data-voffset="20" data-speed="600" data-start="900"
@@ -43,7 +43,7 @@
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
 							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
-							집에 혼자 둔 강아지는 외로움을 느낍니다.<br> 혼자 있어도 외롭지 않도록 스마트한 펫토이.
+							집에 홀로 남겨진 우리 강아지, <br> 혼자 있어도 외롭지 않도록 PAWRADISE!
 						</div>
 					</li>
 					<!-- SLIDE  -->
@@ -60,8 +60,9 @@
 							data-splitout="none" data-elementdelay="0.01"
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
-							style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">냥냥
-							멍멍 귀여워!</div> <!-- LAYER NR. 2 -->
+							style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">
+							엄마 아빠, 빨리 와서 놀아주세요!
+							</div> <!-- LAYER NR. 2 -->
 						<div class="tp-caption vertical-caption lfb ltt tp-resizeme"
 							data-x="left" data-hoffset="100" data-y="center"
 							data-voffset="20" data-speed="600" data-start="900"
@@ -70,7 +71,7 @@
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
 							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
-							내가 없을때 우리 강아지는 뭘 하고 있을까? <br>귀여운 냥이 멍이들을 위한 스마트한 장난감.
+							내가 없을 때 우리 강아지는 뭘 하고 있을까? <br>귀여운 냥이 멍이들을 위한 스마트한 장난감, PAWRADISE!
 						</div>
 					</li>
 					<!-- SLIDE  -->
@@ -97,7 +98,7 @@
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
 							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
-							내가 없을때 우리 강아지는 뭘 하고 있을까? <br>귀여운 냥이 멍이들을 위한 스마트한 장난감.
+							귀여운 냥이 멍이들을 위한 작은 파라다이스! <br> PAWRADISE로 만들어 주세요!
 						</div>
 					</li>
 
@@ -106,6 +107,9 @@
 			</div>
 		</div>
 	</article>
+	
+<!-- 수정 끝 민정 -->
+
 	<!--메인배너 끝-->
 	<div class="divide80"></div>
 	<!-- 80px 공간이 필요하면 이 태그를 쓰세요 -->
@@ -242,7 +246,7 @@
 
 	<!-- 게시판 바로가기 링크시작 -->
 	<div class="text-center">
-		<a href="boardList" class="btn btn-lg border-black">커뮤니티 전체보기</a>
+		<a href="boardList" class="btn btn-lg border-black">커뮤니티 바로가기</a>
 	</div>
 	<!-- 게시판 바로가기 링크 끝-->
 
@@ -256,12 +260,13 @@
 				<div class="center-heading">
 					<h2>냥냥 멍멍 귀여워</h2>
 					<span class="center-line"></span>
-					<p class="sub-text margin40">집에 혼자 있는 우리 냥이 멍이를 위한 모바일연동 장난감
-						"냥냥멍멍 귀여워" 당신이 있을때도 없을때에도 우리의 귀여운 냥이 멍이들이 외롭지 않게 배고프지 않도록 저희는 사랑으로
+					<p class="sub-text margin40">집에 혼자 있는 우리 냥이 멍이를 위한 모바일연동 장난감, PAWRADISE!
+						<br>당신이 있을 때나 없을 때나, 우리의 귀여운 냥이 멍이들이 외롭지 않고 배고프지 않도록 저희는 사랑으로
 						모든 제품을 제작합니다.</p>
 				</div>
 			</div>
 		</div>
+
 
 
 		<div class="divide50"></div>
@@ -270,10 +275,10 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed green">
-					<i class="fa fa-cogs"></i>
+					<i class="fa fa-home"></i>
 					<h3>자동모드로 스마트한 장난감</h3>
 					<span class="center-line"></span>
-					<p>피곤할땐 놀아주기도 힘들어요! 혼자서도 잘 노는 똑똑한 장난감 지금 경험 해 보세요!</p>
+					<p>PAWRADISE와 함께라면,<br> 혼자서도 잘 놀 수 있어요!</p>
 				</div>
 			</div>
 			<!--세로 설명 1-->
@@ -282,27 +287,30 @@
 					<i class="fa fa-tablet"></i>
 					<h3>모바일앱과 연동</h3>
 					<span class="center-line"></span>
-					<p>집에 없을때에도 함께 노는듯한 기분을 느낄 수 있도록 모바일과 연동되어 있습니다.</p>
+					<p>반려인이 없는 시간에도 함께 하는 듯!<br>앱 제어가 가능한 스마트 펫토이!</p>
 				</div>
 			</div>
+			
 			<!--세로 설명 2-->
 			<div class="col-md-3 col-sm-6 margin30">
-				<div class="colored-boxed blue">
+				<div class="colored-boxed red">
 					<i class="fa fa-heart"></i>
 					<h3>냥이와 멍이의 기분</h3>
 					<span class="center-line"></span>
-					<p>냥이와 멍이의 기분만을 생각합니다. 사랑으로 함께 하세요!</p>
+					<p>냥이와 멍이의 행복만을 고민합니다. <br> 언제 어디서나 사랑으로 함께 하세요!</p>
 				</div>
 			</div>
+			
 			<!--세로 설명3-->
+			
 			<div class="col-md-3 col-sm-6 margin30">
-				<div class="colored-boxed red">
-					
-					<h3>웹사이트 연동</h3>
+				<div class="colored-boxed blue">
+					<i class="fa fa-thumbs-up"></i>
+					<h3>최고의 고객 만족도</h3>
 					<span class="center-line"></span>
-					<p>제품 로그기록을 웹과 모바일을 통해서 보실 수 있습니다.</p>
+					<p>고객님들께서 모두 만족 하실 수 있는<br> 서비스를 위해 최선을 다합니다.</p>
 				</div>
-			</div>
+			</div> 
 			<!--세로 설명4-->
 		</div>
 	</div>
@@ -315,7 +323,7 @@
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2">
 					<div class="center-heading">
-						<h2>고객 상품평</h2>
+						<h2>생생한 이용 후기</h2>
 						<span class="center-line"></span>
 
 					</div>
@@ -330,24 +338,24 @@
 						<ul class="slides">
 							<li><img src="img/customer-1.jpg" alt="">
 								<p>
-									<i class="ion-quote"></i> 처음 사용해 봤는데 냥이가 너무 좋아해요! 외출했을때도 안심되고
+									<i class="ion-quote"></i> 처음 사용해 봤는데 루이가 너무 좋아해요! 외출했을때도 안심되고
 									요즘엔 같이 놀아달라고 매달리지 않아요 같이 놀아주기 모드도 있어서 집에서 놀아주기도 좋아요.
 								</p>
-								<h4 class="test-author">냥이당</h4></li>
+								<h4 class="test-author">루이맘 님</h4></li>
 							<!--testi item-->
 							<li><img src="img/customer-2.jpg" alt="">
 								<p>
-									<i class="ion-quote"></i> 처음 사용해 봤는데 멍이가 너무 좋아해요! 외출했을때도 안심되고
-									요즘엔 같이 놀아달라고 매달리지 않아요 같이 놀아주기 모드도 있어서 집에서 놀아주기도 좋아요.
+									<i class="ion-quote"></i> 깨발랄 캣초딩 키우는 초보집사예요. 낮에 집을 비우니 잠만 자서 그런지
+									밤마다 우다다를 해서 잠을 제대로 못자서 구입하게 되었어요. 이제는 밤에도 잘 자서 너무 좋아요~! 최고예요!!
 								</p>
-								<h4 class="test-author">멍멍네</h4></li>
+								<h4 class="test-author">두부LOVE 님</h4></li>
 							<!--testi item-->
 							<li><img src="img/customer-3.jpg" alt="">
 								<p>
-									<i class="ion-quote"></i> 처음 사용해 봤는데 멍이가 너무 좋아해요! 외출했을때도 안심되고
-									요즘엔 같이 놀아달라고 매달리지 않아요 같이 놀아주기 모드도 있어서 집에서 놀아주기도 좋아요.
+									<i class="ion-quote"></i> 오랜시간 집을 비울때 너무 미안했는데, PAWRADISE로 그 미안함을 덜었어요.
+									초코가 원하는 시간에 밥을 먹을 수 있고 집 밖에서도 놀아 줄 수도 있어서 정말 만족해요!
 								</p>
-								<h4 class="test-author">멍멍네</h4></li>
+								<h4 class="test-author">초코대디 님</h4></li>
 							<!--testi item-->
 						</ul>
 					</div>
@@ -360,45 +368,45 @@
 				<div class="col-md-4 margin-btm-20">
 					<div class="quote dark">
 						<blockquote>
-							<p>처음 사용해 봤는데 냥이가 너무 좋아해요! 외출했을때도 안심되고 요즘엔 같이 놀아달라고 매달리지 않아요
-								같이 놀아주기 모드도 있어서 집에서 놀아주기도 좋아요.</p>
+							<p> 처음 사용해 봤는데 루이가 너무 좋아해요! 외출했을때도 안심되고
+									요즘엔 같이 놀아달라고 매달리지 않아요 같이 놀아주기 모드도 있어서 집에서 놀아주기도 좋아요.</p>
 						</blockquote>
 					</div>
 					<div class="quote-footer text-right">
 						<div class="quote-author-img">
 							<img src="img/customer-1.jpg" alt="">
 						</div>
-						<h4>헤헤헤</h4>
+						<h4>루이맘 님</h4>
 					</div>
 				</div>
 				<!--colored quote box col-->
 				<div class="col-md-4 margin-btm-20">
 					<div class="quote green">
 						<blockquote>
-							<p>처음 사용해 봤는데 냥이가 너무 좋아해요! 외출했을때도 안심되고 요즘엔 같이 놀아달라고 매달리지 않아요
-								같이 놀아주기 모드도 있어서 집에서 놀아주기도 좋아요.</p>
+							<p>깨발랄 캣초딩 키우는 초보집사예요. 낮에 집을 비우니 잠만 자서 그런지
+									밤마다 우다다를 해서 잠을 제대로 못자서 구입하게 되었어요. 이제는 밤에도 잘 자서 너무 좋아요~! 최고예요!!</p>
 						</blockquote>
 					</div>
 					<div class="quote-footer text-right">
 						<div class="quote-author-img">
 							<img src="img/customer-2.jpg" alt="">
 						</div>
-						<h4>읍읍</h4>
+						<h4>두부LOVE 님</h4>
 					</div>
 				</div>
 				<!--colored quote box col-->
 				<div class="col-md-4 margin-btm-20">
 					<div class="quote dark">
 						<blockquote>
-							<p>처음 사용해 봤는데 냥이가 너무 좋아해요! 외출했을때도 안심되고 요즘엔 같이 놀아달라고 매달리지 않아요
-								같이 놀아주기 모드도 있어서 집에서 놀아주기도 좋아요.</p>
+							<p>오랜시간 집을 비울때 너무 미안했는데, PAWRADISE로 그 미안함을 덜었어요.
+									초코가 원하는 시간에 밥을 먹을 수 있고 집 밖에서도 놀아 줄 수도 있어서 정말 만족해요!</p>
 						</blockquote>
 					</div>
 					<div class="quote-footer text-right">
 						<div class="quote-author-img">
 							<img src="img/customer-3.jpg" alt="">
 						</div>
-						<h4>글쎄염</h4>
+						<h4>초코대디 님</h4>
 					</div>
 				</div>
 				<!--colored quote box col-->

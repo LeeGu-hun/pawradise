@@ -50,7 +50,9 @@ function goDelete() {
 			<h4>반려동물을 사랑하는 마음에서 시작된 PAWRADISE! </h4>
 			<h4>오랜 외출로 항상 미안했던 마음,  PAWRADISE가 덜어드립니다.</h4>
 			<br>
-			<img src="<%=request.getContextPath() %>/img/banner.png" />
+			<div>
+				<img src="<%=request.getContextPath() %>/img/banner.png" />
+			</div>
 			
 			<h3>PAWRADISE : 사람의 사랑에 의한 반려동물을 위한 새로운 테크놀로지!</h3>
 
