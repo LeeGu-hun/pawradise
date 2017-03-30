@@ -87,7 +87,7 @@
 			<tr class="mpbottom">
 				<td class="var">주소</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">${member.address}</td>
+				<td class="mpinfo">${member.address}</td> 
 			</tr>			
 			<tr class="mpbottom">
 				<td class="var">E-mail</td>

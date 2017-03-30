@@ -93,7 +93,7 @@
 				<td class="var">E-mail</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.email}</td>
-			</tr>
+			</tr>  
 		</table>
 		<div class="mptab" align="center">
 			| <a href="<c:url value="/mypage/modify/${member.userNum}"/>">MODIFY</a> | 			
