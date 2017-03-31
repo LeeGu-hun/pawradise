@@ -40,57 +40,57 @@
     
                 
 <form:form >
-		<table class="mptb" align="center">
-			<tr class="mpbottom">
+		<table class="memmodi" align="center">
+			<tr class="moditop">
 				<td class="var">이름</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.name}</td>
 			</tr>
-			<tr class="mpbottom">
-				<td class="var">현재 비밀번호</td>
-				<td id="mp\">|<td>
+			<tr class="modibottom">
+				<td class="var2">현재 비밀번호</td>
+				<td id="mp\"><td>
 				<td class="mpinfo"><input type="password" path="currentPassword" name="currentPassword" value="${pwdCmd.currentPassword}" size="50" /></td>
 			</tr>
-			<tr class="mpbottom">
-				<td class="var">변경할 비밀번호</td>
-				<td id="mp\">|<td>
+			<tr class="modibottom">
+				<td class="var2">변경할 비밀번호*</td>
+				<td id="mp\"><td>
 				<td class="mpinfo"><input type="password" path="newPassword" name="newPassword" value="${pwdCmd.newPassword}" size="50" /></td>
 			</tr>
-			<tr class="mpbottom">
+			<tr class="modibottom">
 				<td class="var">닉네임</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.id}</td>
 			</tr>
-			<tr class="mpbottom">
+			<tr class="modibottom">
 				<td class="var">애완동물</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.petName}</td>
 			</tr>
-			<tr class="mpbottom">
+			<tr class="modibottom">
 				<td class="var">전화번호</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.phone}</td>
 			</tr>
 			
 			
-			<tr class="mpbottom">
+			<tr class="modibottom">
 				<td class="var">주소</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.address}</td> 
 			</tr>			
-			<tr class="mpbottom">
+			<tr class="modibottom2">
 				<td class="var">E-mail</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.email}</td>
 			</tr>
 		</table>
 		<div class="mptab" align="center">
-		<input type="submit" value="변경하기"  onclick="changePass();">
+		<div class="divide30"></div>
+		<input type="submit" value="변경하기" id="loginbutton" onclick="changePass();">
 </form:form>		
 
 		<div class="divide30"></div>
-		<input type="button"value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">
-		<button type="button"  id="loginbutton" onclick="location.href='/pawradise/index.jsp'">메인으로</button>
+		
 		</div>
 
 	</div>

@@ -31,7 +31,7 @@ body {
   box-sizing: border-box;
 }
 
-/* ¹Ì°æ ¼öÁ¤ºÎºÐ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .agreeform{
 	margin:0 auto;
 	valign:center;
@@ -146,7 +146,7 @@ body {
 }
 .mpbottom{
 	border-bottom: 1px solid white;
-	height:32px;
+	height:40px;
 }
 .var{	
 	width:200px;
@@ -163,7 +163,7 @@ body {
 	text-align:center;
 }
 .mpinfo{
-	width:300px;
+	width:400px;
 	text-align:center;
 }
 .mdmain{
@@ -304,7 +304,33 @@ body {
 	text-align:center;
 	aligh:center;
 }
-/* ¹Ì°æ ¼öÁ¤ºÎºÐ ¿©±â±îÁö!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+.memmodi{
+	background-color:white;
+}
+.modibottom{
+	border-bottom: 1px solid #ddd;
+	height:40px;
+}
+.modibottom2{
+	border-bottom: 2px solid #ddd;
+	height:40px;
+}
+.moditop{
+	height:40px;
+	border-bottom: 1px solid #ddd;
+	border-top: 2px solid #ddd;
+}
+.var2{
+	background-color:#FAE0D4;
+	height:40px;
+	width:200px;
+	text-align:center;
+	valign:middle;
+	font-weight: bold;
+	color:black;
+	
+}
+/* ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 :focus {
   outline: 0 !important;
