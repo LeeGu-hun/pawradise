@@ -33,41 +33,28 @@
 <div class="divide80"></div>
     <div class="container">
      <div class="center-heading">
-                <h2>마이페이지</h2>
+                <h2>수정하기</h2>
                 <span class="center-line"></span>
             </div> 
      <div class="row">
-            <!--개인정보 메뉴부분 -->
-                <div class="col-sm-3">
+    
                 
-                    <div class="sidebar-box margin40">
-                        <h4>개인정보</h4>
-                         <ul class="list-unstyled cat-list">
-                            <li><a href="#">개인정보내역</a></li>
-                            <li><a href="#">구매내역</a></li>
-                            <li><a href="#">문의내역</a></li>
-                        </ul>
-
-                    </div>
-                    
-                     <div class="sidebar-box margin40">
-                        <h4> 제품 로그</h4>
-                         <ul class="list-unstyled cat-list">
-                            <li><a href="#">놀이로그</a></li>
-                            <li><a href="#">먹이로그</a></li>
-                        </ul>                   
-
-                    </div>
-                                        
-                </div>   		
-		
-		<div class="divide20"></div>
-
+<form:form >
 		<table class="mptb" align="center">
 			<tr class="mpbottom">
 				<td class="var">이름</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.name}</td>
+			</tr>
+			<tr class="mpbottom">
+				<td class="var">현재 비밀번호</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo"><input type="password" path="currentPassword" name="currentPassword" value="${pwdCmd.currentPassword}" size="50" /></td>
+			</tr>
+			<tr class="mpbottom">
+				<td class="var">변경할 비밀번호</td>
+				<td id="mp\">|<td>
+				<td class="mpinfo"><input type="password" path="newPassword" name="newPassword" value="${pwdCmd.newPassword}" size="50" /></td>
 			</tr>
 			<tr class="mpbottom">
 				<td class="var">닉네임</td>
@@ -84,6 +71,8 @@
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.phone}</td>
 			</tr>
+			
+			
 			<tr class="mpbottom">
 				<td class="var">주소</td>
 				<td id="mp\">|<td>
@@ -96,8 +85,8 @@
 			</tr>
 		</table>
 		<div class="mptab" align="center">
-			| <a href="/pawradise/mypage/modify.jsp">MODIFY</a> | 			
-		
+		<input type="submit" value="변경하기"  onclick="changePass();">
+</form:form>		
 
 		<div class="divide30"></div>
 		<input type="button"value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">

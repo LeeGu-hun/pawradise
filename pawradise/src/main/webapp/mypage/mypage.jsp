@@ -37,31 +37,7 @@
                 <span class="center-line"></span>
             </div> 
      <div class="row">
-            <!--개인정보 메뉴부분 -->
-                <div class="col-sm-3">
-                
-                    <div class="sidebar-box margin40">
-                        <h4>개인정보</h4>
-                         <ul class="list-unstyled cat-list">
-                            <li><a href="#">개인정보내역</a></li>
-                            <li><a href="#">구매내역</a></li>
-                            <li><a href="#">문의내역</a></li>
-                        </ul>
-
-                    </div>
-                    
-                     <div class="sidebar-box margin40">
-                        <h4> 제품 로그</h4>
-                         <ul class="list-unstyled cat-list">
-                            <li><a href="#">놀이로그</a></li>
-                            <li><a href="#">먹이로그</a></li>
-                        </ul>                   
-
-                    </div>
-                                        
-                </div>   		
-		
-		<div class="divide20"></div>
+           
 
 		<table class="mptb" align="center">
 			<tr class="mpbottom">
