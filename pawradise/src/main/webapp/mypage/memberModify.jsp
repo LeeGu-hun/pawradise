@@ -33,75 +33,64 @@
 <div class="divide80"></div>
     <div class="container">
      <div class="center-heading">
-                <h2>마이페이지</h2>
+                <h2>수정하기</h2>
                 <span class="center-line"></span>
             </div> 
      <div class="row">
-            <!--개인정보 메뉴부분 -->
-                <div class="col-sm-3">
+    
                 
-                    <div class="sidebar-box margin40">
-                        <h4>개인정보</h4>
-                         <ul class="list-unstyled cat-list">
-                            <li><a href="#">개인정보내역</a></li>
-                            <li><a href="#">구매내역</a></li>
-                            <li><a href="#">문의내역</a></li>
-                        </ul>
-
-                    </div>
-                    
-                     <div class="sidebar-box margin40">
-                        <h4> 제품 로그</h4>
-                         <ul class="list-unstyled cat-list">
-                            <li><a href="#">놀이로그</a></li>
-                            <li><a href="#">먹이로그</a></li>
-                        </ul>                   
-
-                    </div>
-                                        
-                </div>   		
-		
-		<div class="divide20"></div>
-
-		<table class="mptb" align="center">
-			<tr class="mpbottom">
+<form:form >
+		<table class="memmodi" align="center">
+			<tr class="moditop">
 				<td class="var">이름</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.name}</td>
 			</tr>
-			<tr class="mpbottom">
+			<tr class="modibottom">
+				<td class="var2">현재 비밀번호</td>
+				<td id="mp\"><td>
+				<td class="mpinfo"><input type="password" path="currentPassword" name="currentPassword" value="${pwdCmd.currentPassword}" size="50" /></td>
+			</tr>
+			<tr class="modibottom">
+				<td class="var2">변경할 비밀번호*</td>
+				<td id="mp\"><td>
+				<td class="mpinfo"><input type="password" path="newPassword" name="newPassword" value="${pwdCmd.newPassword}" size="50" /></td>
+			</tr>
+			<tr class="modibottom">
 				<td class="var">닉네임</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.id}</td>
 			</tr>
-			<tr class="mpbottom">
+			<tr class="modibottom">
 				<td class="var">애완동물</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.petName}</td>
 			</tr>
-			<tr class="mpbottom">
+			<tr class="modibottom">
 				<td class="var">전화번호</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.phone}</td>
 			</tr>
-			<tr class="mpbottom">
+			
+			
+			<tr class="modibottom">
 				<td class="var">주소</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.address}</td> 
 			</tr>			
-			<tr class="mpbottom">
+			<tr class="modibottom2">
 				<td class="var">E-mail</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.email}</td>
 			</tr>
 		</table>
 		<div class="mptab" align="center">
-			| <a href="/pawradise/mypage/modify.jsp">MODIFY</a> | 			
-		
+		<div class="divide30"></div>
+		<input type="submit" value="변경하기" id="loginbutton" onclick="changePass();">
+</form:form>		
 
 		<div class="divide30"></div>
-		<input type="button"value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">
-		<button type="button"  id="loginbutton" onclick="location.href='/pawradise/index.jsp'">메인으로</button>
+		
 		</div>
 
 	</div>

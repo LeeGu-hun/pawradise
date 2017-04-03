@@ -20,16 +20,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import bean.AuthInfo;
 import bean.Member;
+import command.ChangePwdCommand;
 import command.LoginCommand;
 import command.PageMaker;
 import dao.MemberDao;
+import exception.IdPasswordNotMatchingException;
 import exception.MemberNotFoundException;
 import svcMember.AuthService;
+import svcMember.ChangePasswordService;
+import validator.ChangePwdCommandValidator;
 import validator.ListCommandValidator;
 
 @Controller
 public class MemberListController {	
 	private AuthService authService;
+	
+	private ChangePasswordService changePasswordService;
+
+	public void setChangePasswordService(ChangePasswordService changePasswordService) {
+		this.changePasswordService = changePasswordService;
+	}
 
 	public void setAuthService(AuthService authService) {
 		this.authService = authService;
@@ -39,10 +49,12 @@ public class MemberListController {
 	public void setMemberDao(MemberDao memberDao){
 		this.memberDao = memberDao;
 	}
+	
 	@RequestMapping(value="/member/list", method = RequestMethod.GET)
 	public String form(PageMaker pageMaker){
 		return "member/memberList";
 	}
+	
 	@RequestMapping(value="/member/list", method = RequestMethod.POST)
 	public String list(
 			@RequestParam(value="from", required=false) String strFrom,
@@ -71,6 +83,32 @@ public class MemberListController {
 		}
 		return "member/memberList";
 	}
+	
+	@RequestMapping(value="/mypage/modify/{userNum}")
+	public String detail(@PathVariable("userNum") int userNum, Model model, HttpSession session,
+			ChangePwdCommand pwdCmd, Errors errors){
+		Member member = memberDao.selectByUserNum(userNum);
+		System.out.println("수정페이지");
+		System.out.println(userNum);
+		if(member == null) throw new MemberNotFoundException();
+		model.addAttribute("member", member);
+		new ChangePwdCommandValidator().validate(pwdCmd, errors);
+		if (errors.hasErrors()) {
+			return "mypage/memberModify";
+		}
+
+		try {
+			changePasswordService.changePassword(member.getEmail(), 
+					pwdCmd.getCurrentPassword(),
+					pwdCmd.getNewPassword());
+			return "mypage/memberModifyDone";
+		} catch (IdPasswordNotMatchingException e) {
+			errors.rejectValue("currentPassword", "notMatching");
+			return "mypage/memberModify";
+		}
+	}
+	
+	
 
 	public Date transDate(String d, String times){
 		Date date = null;

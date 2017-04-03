@@ -31,8 +31,9 @@ body {
   box-sizing: border-box;
 }
 
-/* ¹Ì°æ ¼öÁ¤ºÎºÐ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .agreeform{
+	height:
 	margin:0 auto;
 	valign:center;
 	text-align:center;
@@ -40,28 +41,27 @@ body {
 }
 .agreeborder{
 	border:1px solid #d9d9d9;
-	width:1000px;
 	margin:0 auto;
+	padding:10px 5px 20px 5px;
 	valign:center;
 	text-align:center;
 	aligh:center;
 }
 .agreecontents{
 	margin:0 auto;
-	valign:center;
-	text-align:center;
-	aligh:center;
+	padding:10px 10px 10px 10px;
+	text-align:left;
 	width:800px;
-	height:200px;
+	height:500px;
 	border: 1px solid black;
 	overflow-y:scroll;
-	scrollbar-base-color: #d9d9d9;
-    scrollbar-3dlight-color: #d9d9d9;
-    scrollbar-darkshadow-color: #d9d9d9;
-    scrollbar-face-color: #d9d9d9;
-    scrollbar-highlight-color: #d9d9d9;
-    scrollbar-shadow-color: #d9d9d9;
-    scrollbar-track-color: #f2f2f2;
+	scrollbar-base-color: #ff8080;
+    scrollbar-3dlight-color: #ff8080;
+    scrollbar-darkshadow-color: #ff8080;
+    scrollbar-face-color: #ff8080;
+    scrollbar-highlight-color: #ff8080;
+    scrollbar-shadow-color: #ff8080;
+    scrollbar-track-color: #ff8080;
 }
 #loginbutton{
 	border:0;
@@ -304,7 +304,7 @@ body {
 	text-align:center;
 	aligh:center;
 }
-/* ¹Ì°æ ¼öÁ¤ºÎºÐ ¿©±â±îÁö!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 :focus {
   outline: 0 !important;
