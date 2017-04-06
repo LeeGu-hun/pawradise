@@ -55,12 +55,11 @@ public class Board{
 	
 
 
-	public Board(int seq, String name, String password, String title, String content, String fileName, Date regdate,
+	public Board(int seq, String name, String title, String content, String fileName, Date regdate,
 			int readCount, int reply, boolean pub, int userNum) {
 		super();
 		this.seq = seq;
 		this.name = name;
-		this.password = password;
 		this.title = title;
 		this.content = content;
 		this.fileName = fileName;

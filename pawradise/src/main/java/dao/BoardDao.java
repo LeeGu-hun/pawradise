@@ -35,7 +35,7 @@ public class BoardDao {
 		public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Board board = new Board(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
 					rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"), rs.getInt("readCount"),
-					rs.getInt("reply"));
+					rs.getInt("reply"),rs.getBoolean("pub"),rs.getInt("userNum"));
 			return board;
 		}
 	};
@@ -102,7 +102,8 @@ public class BoardDao {
 				new RowMapper<Comment>(){
 					@Override
 					public Comment mapRow(ResultSet rs, int c_seq) throws SQLException {
-						Comment comment=new Comment(rs.getInt("c_seq"), rs.getString("name"), rs.getString("c_content"),  rs.getDate("regdate"));
+						Comment comment=new Comment(rs.getInt("c_seq"), rs.getString("name"), 
+								rs.getString("c_content"),  rs.getDate("regdate"), rs.getInt("userNum"));
 						return comment;
 					}				
 				},seq);
@@ -155,12 +156,12 @@ public class BoardDao {
 		List<Board> results;
 		if (srch == null || srch.equals("")) {
 			results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
-					+ "content, filename, regdate, readcount, reply from "
+					+ "content, filename, regdate, readcount, reply, pub, userNum from "
 					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? " ,
 					boardRowMapper, startPage, (startPage+limit));
 		} else {
 			results = jdbcTemplate.query(
-					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply from "
+					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
 					+ "(select * from board order by seq desc)) where "
 					+ "(name like ? or title like ? or content like ?) and rnum>=? and rnum<=? ",
 					boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
