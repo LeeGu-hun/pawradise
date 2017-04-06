@@ -16,7 +16,7 @@ public class Board{
 	private Date regdate;
 	private int readCount;
 	private int reply;
-	private boolean pub;
+	private int pub;
 	private int userNum;
 
 	
@@ -32,7 +32,7 @@ public class Board{
 	
 
 	public Board(int seq, String name, String password, String title, String content, String fileName, Date regdate,
-			int readCount, int reply, boolean pub, int userNum, MultipartFile multiFile, List<MultipartFile> files,
+			int readCount, int reply, int pub, int userNum, MultipartFile multiFile, List<MultipartFile> files,
 			String upDir) {
 		super();
 		this.seq = seq;
@@ -56,7 +56,7 @@ public class Board{
 
 
 	public Board(int seq, String name, String title, String content, String fileName, Date regdate,
-			int readCount, int reply, boolean pub, int userNum) {
+			int readCount, int reply, int pub, int userNum) {
 		super();
 		this.seq = seq;
 		this.name = name;
@@ -75,7 +75,7 @@ public class Board{
 
 
 	public Board(int seq, String name, String password, String title, String content, String fileName, Date regdate,
-			int readCount, int reply, boolean pub, int userNum, List<MultipartFile> files) {
+			int readCount, int reply, int pub, int userNum, List<MultipartFile> files) {
 		super();
 		this.seq = seq;
 		this.name = name;
@@ -206,11 +206,11 @@ public class Board{
 	      this.reply = reply;
 	}
 	
-	public boolean isPub() {
+	public int isPub() {
 		return pub;
 	}
 
-	public void setPub(boolean pub) {
+	public void setPub(int pub) {
 		this.pub = pub;
 	}
 

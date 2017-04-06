@@ -90,11 +90,11 @@
 					<tr>
 						<td><label class="item">공개설정</label></td>
 						<td>																
-									<input type="radio" name="pub" value="0" id="all_open"
-										title="전체공개">										
+									<input type="radio" name="pub" value="<%=1%>" id="all_open" checked
+										title="전체공개">									
 									<label for="all_open" class="item_align">전체공개</label>									
-									<input type="radio" name="pub" value="1" id="no_open"
-										checked title="나만보기">
+									<input type="radio" name="pub" value="<%=2%>" id="no_open"
+										 title="나만보기">
 										
 									<label for="no_open" class="item_align">나만보기</label></td>					
 						
