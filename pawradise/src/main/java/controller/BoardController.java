@@ -105,7 +105,7 @@ public class BoardController {
 		
 		
 	// 글쓰기GET
-	@RequestMapping(value = "/board/boardWrite", method = RequestMethod.GET)
+	@RequestMapping(value = "/board/boardWrite", method = RequestMethod.GET) 
 	public String form(Board board) {
 		return "board/boardWrite";
 	}

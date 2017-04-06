@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class Board{
+public class Board{ 
 	
 	private int seq;
 	private String name;

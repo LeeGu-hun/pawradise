@@ -85,7 +85,7 @@ public class MemberDao {
 			}
 		});
 
-	}
+	} 
 	
 	public void update(Member member){
 		jdbcTemplate.update("update member set name=?, "
