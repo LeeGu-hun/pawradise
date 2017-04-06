@@ -84,8 +84,8 @@
 				</div>
 				<p align="center">		
 					<a href="<c:url value='/boardList'/>" class="btn btn-theme-dark btn-lg">리스트</a>
-					<c:choose>					
-					    <c:when test="${sessionScope.authInfo.name eq board.name}">
+					<c:choose>										
+					    <c:when test="${sessionScope.authInfo.userNum eq board.userNum}">
 					        <a href="<c:url value='/board/delete/${seq}' />" class="btn btn-theme-dark btn-lg">삭제하기</a>
 					        <a href="<c:url value='/board/update/${seq}' />" class="btn btn-theme-dark btn-lg">수정하기</a>
 					    </c:when>															
@@ -102,7 +102,7 @@
 							<h6>${comments.name} 님의 comment &nbsp;&nbsp; ${comments.regdate} </h6>
 							<p>${comments.c_content} &nbsp;&nbsp;							
 							<c:choose>					
-					    	<c:when test="${sessionScope.authInfo.name eq comments.name}">
+					    	<c:when test="${sessionScope.authInfo.userNum eq comments.userNum}">
 					    	<form:form commandName="comment" id="delComment">
 							<input name="c_seq"  value="${comments.c_seq}" hidden/>
 					        <button type="submit" onclick="delComment();" class="btn btn-theme-dark btn-xs">댓글삭제</button>
@@ -124,6 +124,7 @@
 							<div class="form-group">
 								<label for="name">Name</label> 
 								<input type="text" name="name" class="form-control" value="${sessionScope.authInfo.name}"	readonly />
+								<form:hidden path="userNum" value="${sessionScope.authInfo.userNum}" /> 
 							</div>
 							<div class="form-group">
 								<label for="message">Comment</label>
