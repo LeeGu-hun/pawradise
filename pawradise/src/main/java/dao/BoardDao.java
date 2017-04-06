@@ -163,7 +163,7 @@ public class BoardDao {
 			results = jdbcTemplate.query(
 					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(name like ? or title like ? or content like ?) and rnum>=? and rnum<=? ",
+					+ "(name like '%?%' or title like '%?%' or content like '%?%') and rnum>= ? and rnum<= ? ",
 					boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
 		}
 		System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
