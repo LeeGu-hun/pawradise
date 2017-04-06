@@ -59,7 +59,6 @@ public class BoardDao {
 	}
 	
 	
-
 	// 글 등록하기	
 	@Transactional
 	public void add(final Board board) {
@@ -84,11 +83,12 @@ public class BoardDao {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(seq, c_seq, name, c_content) "
-								+ "values (?, comment_seq.NEXTVAL, ?, ?)");
+				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(seq, c_seq, name, c_content, userNum) "
+								+ "values (?, comment_seq.NEXTVAL, ?, ?, ?)");
 				pstmt.setInt(1, seq);
 				pstmt.setString(2, comment.getName());
 				pstmt.setString(3, comment.getC_content());
+				pstmt.setInt(4, comment.getUserNum());
 				return pstmt;
 			}
 		});

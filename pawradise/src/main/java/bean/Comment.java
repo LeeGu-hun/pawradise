@@ -9,7 +9,9 @@ public class Comment {
 	public String name; // 이름
 	public String c_content;// 커멘트
 	public Date regdate;
+	public int userNum;
 
+	
 	public Comment() {
 	}	
 
@@ -59,6 +61,14 @@ public class Comment {
 
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
+	}
+	
+	public int getUserNum() {
+		return userNum;
+	}
+
+	public void setUserNum(int userNum) {
+		this.userNum = userNum;
 	}
 	
 	
