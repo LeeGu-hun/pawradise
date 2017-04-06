@@ -42,13 +42,13 @@ public class BoardDao {
 
 	// 글의 갯수 구하기
 	public int getListCount() {
-		Integer listCount = jdbcTemplate.queryForObject("select count(*) from board ", Integer.class);
+		Integer listCount = jdbcTemplate.queryForObject("select count(*) from board where pub =1", Integer.class);
 		return listCount;
 	}
 
 	// 글 목록 모두 가져오기
 	public List<Board> getBoardList() {
-		List<Board> results = jdbcTemplate.query("select * from board", boardRowMapper);
+		List<Board> results = jdbcTemplate.query("select * from board where pub =1", boardRowMapper);
 		return results;
 	}
 
@@ -140,11 +140,11 @@ public class BoardDao {
 		Integer count;
 
 		if (srch == null || srch.equals("")) {
-			count = jdbcTemplate.queryForObject("select count(*) from board ", Integer.class);
+			count = jdbcTemplate.queryForObject("select count(*) from board where pub =1 ", Integer.class);
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(name like ? or title like ? or content like ?)", 
+					+ "(name like ? or title like ? or content like ?) and pub=1", 
 					Integer.class, srch, srch, srch);
 		}
 		System.out.println("페이지 count "+count);
@@ -158,13 +158,13 @@ public class BoardDao {
 		if (srch == null || srch.equals("")) {
 			results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
 					+ "content, filename, regdate, readcount, reply, pub, userNum from "
-					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? " ,
+					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? and pub=1" ,
 					boardRowMapper, startPage, (startPage+limit));
 		} else {
 			results = jdbcTemplate.query(
 					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(name like '%?%' or title like '%?%' or content like '%?%') and rnum>= ? and rnum<= ? ",
+					+ "(name like '%?%' or title like '%?%' or content like '%?%') and rnum>= ? and rnum<= ? and pub=1",
 					boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
 		}
 		System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
