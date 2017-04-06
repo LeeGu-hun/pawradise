@@ -35,12 +35,6 @@ import validator.ListCommandValidator;
 public class MemberListController {	
 	private AuthService authService;
 	
-	private ChangePasswordService changePasswordService;
-
-	public void setChangePasswordService(ChangePasswordService changePasswordService) {
-		this.changePasswordService = changePasswordService;
-	}
-
 	public void setAuthService(AuthService authService) {
 		this.authService = authService;
 	}
@@ -84,30 +78,6 @@ public class MemberListController {
 		return "member/memberList";
 	}
 	
-	@RequestMapping(value="/mypage/modify/{userNum}")
-	public String detail(@PathVariable("userNum") int userNum, Model model, HttpSession session,
-			ChangePwdCommand pwdCmd, Errors errors){
-		Member member = memberDao.selectByUserNum(userNum);
-		System.out.println("수정페이지");
-		System.out.println(userNum);
-		if(member == null) throw new MemberNotFoundException();
-		model.addAttribute("member", member);
-		new ChangePwdCommandValidator().validate(pwdCmd, errors);
-		if (errors.hasErrors()) {
-			return "mypage/memberModify";
-		}
-
-		try {
-			changePasswordService.changePassword(member.getEmail(), 
-					pwdCmd.getCurrentPassword(),
-					pwdCmd.getNewPassword());
-			return "mypage/memberModifyDone";
-		} catch (IdPasswordNotMatchingException e) {
-			errors.rejectValue("currentPassword", "notMatching");
-			return "mypage/memberModify";
-		}
-	}
-	
 	
 
 	public Date transDate(String d, String times){
@@ -122,7 +92,7 @@ public class MemberListController {
 	}
 
 	@RequestMapping(value="/mypage/mypage/{userNum}")
-	public String detail(@PathVariable("userNum") int userNum, Model model, HttpSession session){
+	public String detail(@PathVariable("userNum") int userNum, Model model, HttpSession session){		
 		Member member = memberDao.selectByUserNum(userNum);
 		System.out.println("마이페이지");
 		System.out.println(userNum);

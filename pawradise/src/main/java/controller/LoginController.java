@@ -23,7 +23,7 @@ public class LoginController {
 	private AuthService authService;
 
 	public void setAuthService(AuthService authService) {
-		this.authService = authService;
+		this.authService = authService; 
 	}
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)

@@ -6,7 +6,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<!-- 헤더부분 -->
+<!-- 헤더부분 --> 
 <%@ include file="/include/header.jsp"%>
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
 <body>
@@ -72,12 +72,13 @@
 			</tr>  
 		</table>
 		<div class="mptab" align="center">
-			| <a href="<c:url value="/mypage/modify/${member.userNum}"/>">MODIFY</a> | 			
+			<a href="<c:url value="/mypage/modify/${member.userNum}"/>"> 비밀번호 수정</a>		
 		
 
 		<div class="divide30"></div>
-		<input type="button"value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">
-		<button type="button"  id="loginbutton" onclick="location.href='/pawradise/index.jsp'">메인으로</button>
+		
+		<input type="button" value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">
+		<input type="button" value="메인으로" id="loginbutton" onclick="location.href='/pawradise/index.jsp'">
 		</div>
 
 	</div>

@@ -11,11 +11,17 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<bean class="controller.RegisterController" >
 		<property name="memRegSvc" ref="memberRegSvc"></property>
 	</bean> 
+	
 	<bean class="controller.LoginController">
 		<property name="authService" ref="authService" />
 	</bean>
+	
 	<bean class="controller.LogoutController" />
 	
+	<bean class="controller.ChangePwdController" >
+		<property name="changePasswordService" ref="changePwdSvc" />
+		
+	</bean>
 
  	<bean class="controller.MemberListController">
 		<property name="memberDao" ref="memberDao" />

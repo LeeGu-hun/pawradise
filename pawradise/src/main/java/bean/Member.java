@@ -13,9 +13,29 @@ public class Member {
 	private String petName;
 	private String phone;
 	private String address;
-	private Date regdate;	
+	private Date regdate;
+	
+	private String currentPassword;
+	private String newPassword;	
+
+	public String getCurrentPassword() {
+		return currentPassword;
+	}
+	public void setCurrentPassword(String currentPassword) {
+		this.currentPassword = currentPassword;
+	}
+	public String getNewPassword() {
+		return newPassword;
+	}
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
 	
 	
+	public Member() {
+		super();
+	}
+
 	public Member(String id, String name, String password, String email, String petName, String phone, String address, Date regdate) {
 		super();
 		this.id = id;
@@ -25,7 +45,7 @@ public class Member {
 		this.petName = petName;
 		this.phone = phone;
 		this.address = address;
-		this.regdate=regdate;
+		this.regdate=regdate;   
 	}
 	
 	public int getUserNum() {

@@ -60,7 +60,7 @@ public class BoardController {
 
 	// 리스트
 	@RequestMapping("/boardList")
-	public String boardListGetPost(String srch, PageMaker pageMaker, Model model) {
+	public String boardListGetPost(String srch, PageMaker pageMaker, Model model) { 
 		int count = 0;
 		int limit = 8;
 		pageMaker.setPage(pageMaker.getPage());

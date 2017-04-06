@@ -38,7 +38,7 @@
                         </div>
                        </c:if> 
                     </li>
-                    <li>
+                    <li> 
                         <a href="<%=request.getContextPath() %>/index.jsp"> Home</a>
                     </li>
                     <li>

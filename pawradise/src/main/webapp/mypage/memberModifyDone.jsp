@@ -11,7 +11,7 @@
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
 <body>
 <!--항상 같이 다니는 메뉴  -->
-	<%@ include file="/include/topMenu.jsp"%>  
+	<%@ include file="/include/topMenu.jsp"%>   
  
 	<!--서브상단헤더 시작 -->
 	<div class="breadcrumb-wrap">
@@ -34,8 +34,9 @@
 	<div class="center-heading">
 			<h2>비밀번호가 변경되었습니다.</h2>   
 			<span class="center-line"></span>
+			<p> <input type="button" value="로그인하러가기" id="byebutton" onclick="location.href='/pawradise/login'"></p>
 	</div>
-	<td><input type="button" value="로그인하러가기" id="byebutton" onclick="location.href='/pawradise/login'"></td>
+
 	<div class="divide50"></div>
 	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
 	<%@ include file="/include/footer2.jsp"%>

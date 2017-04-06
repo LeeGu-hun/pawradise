@@ -9,6 +9,11 @@
 <!-- 헤더부분 -->
 <%@ include file="/include/header.jsp"%>
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
+<script>
+	function chgPwd() {
+		document.getElementById("frm").submit();
+	}
+</script>
 <body>
 	<!--항상 같이 다니는 메뉴  -->
 	<%@ include file="/include/topMenu.jsp"%>
@@ -33,60 +38,33 @@
 <div class="divide80"></div>
     <div class="container">
      <div class="center-heading">
-                <h2>수정하기</h2>
+                <h2>비밀번호 수정하기</h2>
                 <span class="center-line"></span>
             </div> 
      <div class="row">
     
                 
-<form:form >
+<form:form commandName="passwordChg"  id="frm">
 		<table class="memmodi" align="center">
-			<tr class="moditop">
-				<td class="var">이름</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.name}</td>
-			</tr>
+ 
 			<tr class="modibottom">
 				<td class="var2">현재 비밀번호</td>
 				<td id="mp\"><td>
-				<td class="mpinfo"><input type="password" path="currentPassword" name="currentPassword" value="${pwdCmd.currentPassword}" size="50" /></td>
+				<td class="mpinfo"><input type="password" path="currentPassword" name="currentPassword" value="${member.currentPassword}" size="50" />
+				<form:errors path="currentPassword" /></td>
 			</tr>
 			<tr class="modibottom">
 				<td class="var2">변경할 비밀번호*</td>
 				<td id="mp\"><td>
-				<td class="mpinfo"><input type="password" path="newPassword" name="newPassword" value="${pwdCmd.newPassword}" size="50" /></td>
-			</tr>
-			<tr class="modibottom">
-				<td class="var">닉네임</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.id}</td>
-			</tr>
-			<tr class="modibottom">
-				<td class="var">애완동물</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.petName}</td>
-			</tr>
-			<tr class="modibottom">
-				<td class="var">전화번호</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.phone}</td>
-			</tr>
+				<td class="mpinfo"><input type="password" path="newPassword" name="newPassword" value="${member.newPassword}" size="50" />
+				<form:errors path="newPassword" /></td>
 			
-			
-			<tr class="modibottom">
-				<td class="var">주소</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.address}</td> 
-			</tr>			
-			<tr class="modibottom2">
-				<td class="var">E-mail</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.email}</td>
 			</tr>
 		</table>
+		
 		<div class="mptab" align="center">
 		<div class="divide30"></div>
-		<input type="submit" value="변경하기" id="loginbutton" onclick="changePass();">
+		<input type="submit" value="변경하기" id="loginbutton" onclick="chgPwd();">
 </form:form>		
 
 		<div class="divide30"></div>

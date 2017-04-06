@@ -2,7 +2,7 @@ package command;
 
 public class ChangePwdCommand {
 	private String currentPassword;
-	private String newPassword;
+	private String newPassword;	
 
 	public String getCurrentPassword() {
 		return currentPassword;
@@ -16,5 +16,6 @@ public class ChangePwdCommand {
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
 	}
+
 	
 }

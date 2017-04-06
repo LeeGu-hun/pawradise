@@ -12,7 +12,7 @@ public class ChangePwdCommandValidator implements Validator{
 	public boolean supports(Class<?> arg0) {
 		return ChangePwdCommand.class.isAssignableFrom(arg0);
 	}
-
+ 
 	@Override
 	public void validate(Object obj, Errors errors) {
 		ValidationUtils.rejectIfEmptyOrWhitespace(

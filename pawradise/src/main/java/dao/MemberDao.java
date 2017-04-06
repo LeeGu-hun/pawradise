@@ -43,7 +43,7 @@ public class MemberDao {
 	public int count2(){
 		List<Integer> results = jdbcTemplate.query(
 				"select count(*) from member ", 
-				new RowMapper<Integer>(){
+				new RowMapper<Integer>(){ 
 					@Override
 					public Integer mapRow(ResultSet rs, int rowNum) 
 							throws SQLException {
@@ -87,10 +87,9 @@ public class MemberDao {
 
 	} 
 	
-	public void update(Member member){
-		jdbcTemplate.update("update member set name=?, "
-				+ "password=? where email=?", member.getName(),
-				member.getPassword(), member.getEmail());
+	public void update(String newPwd, int userNum ){
+		jdbcTemplate.update("update member set password=? where userNum=?", 
+				newPwd, userNum);
 	}
 	
 	public List<Member> selectAll() {
