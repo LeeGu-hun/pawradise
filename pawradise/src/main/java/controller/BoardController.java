@@ -120,6 +120,7 @@ public class BoardController {
 
 		AuthInfo authInfo = (AuthInfo) session.getAttribute("authInfo");
 		board.setName(authInfo.getName());
+		board.setUserNum(authInfo.getUserNum());
 
 		MultipartFile multi = board.getMultiFile();
 		String newFileName = "";

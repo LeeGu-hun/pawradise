@@ -54,6 +54,7 @@
 						<td>글쓴이</td>
 						<td><input type="text" path="name" class="form-control" name="name"	size="10" 
 								maxlength="10" value="${sessionScope.authInfo.name}" readonly />
+							<form:hidden path="userNum" value="${sessionScope.authInfo.userNum}" />
 						</td>
 					</tr>
 					<tr>

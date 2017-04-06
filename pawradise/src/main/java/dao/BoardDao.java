@@ -67,12 +67,13 @@ public class BoardDao {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement("insert into board (seq, name, title, content, filename, readcount, reply) "
-								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0)");
+				PreparedStatement pstmt = con.prepareStatement("insert into board (seq, name, title, content, filename, readcount, reply, pub, userNum) "
+								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0,0,?)");
 				pstmt.setString(1, board.getName());
 				pstmt.setString(2, board.getTitle());
 				pstmt.setString(3, board.getContent());
 				pstmt.setString(4, board.getFileName());
+				pstmt.setInt(5, board.getUserNum());
 				return pstmt;
 			}
 		});
