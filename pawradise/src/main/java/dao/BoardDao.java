@@ -46,15 +46,9 @@ public class BoardDao {
 		return listCount;
 	}
 
-//	// 글 목록 모두 가져오기
-//	public List<Board> getBoardList() {
-//		List<Board> results = jdbcTemplate.query("select * from board where pub =1", boardRowMapper);
-//		return results;
-//	}
-	
 	// 글 목록 가져오기
 		public List<Board> getBoardList() {
-			List<Board> results = jdbcTemplate.query("select * from board where usernum=?", boardRowMapper);
+			List<Board> results = jdbcTemplate.query("select * from board where pub=1", boardRowMapper);
 			return results;
 		}
 
@@ -74,12 +68,13 @@ public class BoardDao {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
 				PreparedStatement pstmt = con.prepareStatement("insert into board (seq, name, title, content, filename, readcount, reply, pub, userNum) "
-								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0,0,?)");
+								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0,?,?)");
 				pstmt.setString(1, board.getName());
 				pstmt.setString(2, board.getTitle());
 				pstmt.setString(3, board.getContent());
 				pstmt.setString(4, board.getFileName());
-				pstmt.setInt(5, board.getUserNum());
+				pstmt.setInt(5, board.getPub());
+				pstmt.setInt(6, board.getUserNum());
 				return pstmt;
 			}
 		});
@@ -126,7 +121,7 @@ public class BoardDao {
 		}
 
 	
-	// 게시글 삭제시 comment 1개만 삭제
+	// comment 1개만 삭제
 	public boolean commnet1Delete(int c_seq) {
 		boolean result = false;
 		jdbcTemplate.update("delete from comment_t where c_seq = ?", c_seq);
@@ -151,7 +146,7 @@ public class BoardDao {
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(name like ? or title like ? or content like ?) and pub=1", 
+					+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and pub=1", 
 					Integer.class, srch, srch, srch);
 		}
 		System.out.println("페이지 count "+count);
@@ -163,18 +158,18 @@ public class BoardDao {
 		Integer count;
 
 		if (srch == null || srch.equals("")) {
-			count = jdbcTemplate.queryForObject("select count(*) from board ", Integer.class);
+			count = jdbcTemplate.queryForObject("select count(*) from board where userNum=? ", Integer.class, userNum);
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(name like ? or title like ? or content like ?) and userNum=? ", 
+					+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and userNum=? ", 
 					Integer.class, srch, srch, srch, userNum);
 		}
 		System.out.println("페이지 count "+count);
 		return count;
 	}
 	
-	// 개인게시물페이징처리
+	//마이페이지 페이징처리
 	public List<Board> selectMyPage(String srch, int startPage, int limit, int userNum) {
 			List<Board> results;
 			if (srch == null || srch.equals("")) {
@@ -184,9 +179,9 @@ public class BoardDao {
 						boardRowMapper, startPage, (startPage+limit) , userNum);
 			} else {
 				results = jdbcTemplate.query(
-						"select * from (select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
+						"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
 						+ "(select * from board order by seq desc)) where "
-						+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and rnum>=? and rnum<=? ) where usernum=? ",
+						+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') where usernum=? ",
 						boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
 			}
 			System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
@@ -209,7 +204,7 @@ public class BoardDao {
 			results = jdbcTemplate.query(
 					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
 					+ "(select * from board order by seq desc)) where "
-					+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and rnum>=? and rnum<=? and pub=1",
+					+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and pub=1",
 					boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
 		}
 		System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
