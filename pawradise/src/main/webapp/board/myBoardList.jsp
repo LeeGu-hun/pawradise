@@ -61,7 +61,7 @@ $(document).ready(function(){
 	<!--breadcrumbs-->
 	<div class="divide80"></div>
 	<div class="center-heading">
-		<h2>내가쓴 글</h2>
+		<h2>내가 쓴 글</h2>
 		<span class="center-line"></span>
 	</div>
 

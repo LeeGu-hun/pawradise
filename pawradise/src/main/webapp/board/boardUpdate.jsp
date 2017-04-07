@@ -47,7 +47,7 @@ function updateOk(){
 		<div class="container">
 
             <div class="center-heading">
-                <h2>포토게시판- 글쓰기</h2>
+                <h2>포토게시판 - 글 수정하기</h2>
                 <span class="center-line"></span>
             </div>   
             

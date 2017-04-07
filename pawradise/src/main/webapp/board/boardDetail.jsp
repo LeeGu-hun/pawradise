@@ -71,7 +71,7 @@
 			<div class="container mas-boxes">
 				<div class="blog-post">
 				<!-- 이미지 -->					
-					<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="800">
+					<center><img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="800"></center>
 					
 					<!-- 상세보기 -->
 					<ul class="list-inline post-detail">

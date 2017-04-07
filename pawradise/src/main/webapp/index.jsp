@@ -33,7 +33,7 @@
 							data-splitout="none" data-elementdelay="0.01"
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
-							style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">이젠 더이상 외롭지 않아요!
+							style="z-index: 2;  text-shadow: 2px 2px 4px #353535; max-width: auto; max-height: auto; white-space: nowrap;">이젠 더이상 외롭지 않아요!
 							</div> <!-- LAYER NR. 2 -->
 						<div class="tp-caption vertical-caption lfb ltt tp-resizeme"
 							data-x="left" data-hoffset="100" data-y="center"
@@ -43,7 +43,7 @@
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
 							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
-							집에 홀로 남겨진 우리 강아지, <br> 혼자 있어도 외롭지 않도록 PAWRADISE!
+							집에 홀로 남겨진 우리 강아지, <br> 혼자 있어도 외롭지 않도록 <strong>PAWRADISE!</strong>
 						</div>
 					</li>
 					<!-- SLIDE  -->
@@ -70,8 +70,8 @@
 							data-splitout="none" data-elementdelay="0.01"
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
-							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
-							내가 없을 때 우리 강아지는 뭘 하고 있을까? <br>귀여운 냥이 멍이들을 위한 스마트한 장난감, PAWRADISE!
+							style="z-index: 3; color:gray; max-width: auto; max-height: auto; white-space: nowrap;">
+							내가 없을 때 우리 강아지는 뭘 하고 있을까? <br>사랑하는 냥이 멍이들을 위한 스마트한 장난감, <strong>PAWRADISE!</strong>
 						</div>
 					</li>
 					<!-- SLIDE  -->
@@ -88,7 +88,7 @@
 							data-splitout="none" data-elementdelay="0.01"
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
-							style="z-index: 2; max-width: auto; max-height: auto; white-space: nowrap;">혼자있을때도
+							style="z-index: 2; text-shadow: 2px 2px 4px #353535; max-width: auto; max-height: auto; white-space: nowrap;">혼자 있을 때도
 							외롭지 않아요!</div> <!-- LAYER NR. 2 -->
 						<div class="tp-caption vertical-caption lfb ltt tp-resizeme"
 							data-x="left" data-hoffset="100" data-y="center"
@@ -97,8 +97,8 @@
 							data-splitout="none" data-elementdelay="0.01"
 							data-endelementdelay="0.1" data-endspeed="500"
 							data-endeasing="Power4.easeIn"
-							style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap;">
-							귀여운 냥이 멍이들을 위한 작은 파라다이스! <br> PAWRADISE로 만들어 주세요!
+							style="z-index: 3; text-shadow: 1px 1px 2px #353535; max-width: auto; max-height: auto; white-space: nowrap;">
+							귀여운 냥이 멍이들을 위한 작은 파라다이스! <br> <strong>PAWRADISE</strong>로 만들어 주세요!
 						</div>
 					</li>
 
@@ -285,7 +285,7 @@
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="colored-boxed dark">
 					<i class="fa fa-tablet"></i>
-					<h3>모바일앱과 연동</h3>
+					<h3>모바일 앱과 연동</h3>
 					<span class="center-line"></span>
 					<p>반려인이 없는 시간에도 함께 하는 듯!<br>앱 제어가 가능한 스마트 펫토이!</p>
 				</div>
