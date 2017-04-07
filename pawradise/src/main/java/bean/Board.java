@@ -206,7 +206,7 @@ public class Board{
 	      this.reply = reply;
 	}
 	
-	public int isPub() {
+	public int getPub() {
 		return pub;
 	}
 

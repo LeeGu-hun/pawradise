@@ -13,6 +13,7 @@ public class AuthService {
 	}
 	public AuthInfo authenticate(String email, String password){
 		Member member = memberDao.selectByEmail(email);
+		
 		if(member == null) throw new IdPasswordNotMatchingException();
 		
 		if(!member.matchPassword(password)) 
@@ -20,6 +21,4 @@ public class AuthService {
 		return new AuthInfo(member.getUserNum(), member.getId(), member.getEmail(),
 				member.getName());
 	}
-
-
 }

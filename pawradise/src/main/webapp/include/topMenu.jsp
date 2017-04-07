@@ -57,6 +57,7 @@
                         <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li><a href="<c:url value="/mypage/mypage/${sessionScope.authInfo.userNum}"/>">마이페이지</a></li>
+                            <li><a href="<c:url value="/board/myBoardList/${sessionScope.authInfo.userNum}"/>">내가쓴글보기</a></li>
                         </ul> 
                     </li>
                     <li>
