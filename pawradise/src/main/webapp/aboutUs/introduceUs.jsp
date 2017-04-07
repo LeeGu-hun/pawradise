@@ -51,7 +51,7 @@ function goDelete() {
 			<h4>오랜 외출로 항상 미안했던 마음, <strong> PAWRADISE</strong>가 덜어드립니다.</h4>
 			<br>
 			<div>
-				<img src="<%=request.getContextPath() %>/img/banner.png" />
+				<img src="<%=request.getContextPath() %>/img/pawradise.jpg" />
 			</div>
 			
 			<h3>사람의 사랑에 의한 반려동물을 위한 새로운 테크놀로지, <strong>PAWRADISE!</strong> </h3>
