@@ -22,9 +22,7 @@ function goWriter(){
 	location.href="<%=request.getContextPath()%>/board/boardWrite"
 	//location.href="./board/boardWrite"
 }
-function goMemList(){
-	location.href="./member/list"
-}
+
 </script>
 
 <script type="text/javascript">
@@ -108,8 +106,12 @@ $(document).ready(function(){
 	<div class="container">
 
 		<!--글쓰기버튼 -->
-		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
+		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>		
+		&nbsp;&nbsp;&nbsp;
+		<!-- 전체게시판으로 가기 -->
+		<a href="<%=request.getContextPath()%>/boardList"  class="btn btn-theme-dark btn-lg">포토게시판</a>
 		<div class="divide10"></div>
+		
 		<!--검색 -->
 		<form:form commandName="pageMaker" id="frm">
 			<p>
