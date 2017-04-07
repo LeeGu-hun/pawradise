@@ -69,7 +69,7 @@ public class BoardController {
 		pageMaker.setPage(pageMaker.getPage());
 		int point = (pageMaker.getPage() - 1) * 9;
 		if(point>=0)point=point+1;
-		srch = pageMaker.getSrch();
+		srch = pageMaker.getSrch();  
 		count = boardDao.countPage(srch);
 		// 레코드 총 갯수 구함
 		pageMaker.setCount(count); // 페이지 계산

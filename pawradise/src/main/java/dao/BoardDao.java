@@ -202,7 +202,7 @@ public class BoardDao {
 						+ "title, content, filename, regdate, readcount, reply, pub, userNum from "						
 						+ "(select * from board order by seq desc))where pub=1) where rnum>=? and rnum<=?",
 	               boardRowMapper, startPage, (startPage+limit));
-	      } else {
+	      } else {   
 	         results = jdbcTemplate.query(
 	               "select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
 	               + "(select * from board order by seq desc)) where "
