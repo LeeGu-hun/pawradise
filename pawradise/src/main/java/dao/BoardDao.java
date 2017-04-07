@@ -180,9 +180,9 @@ public class BoardDao {
 			} else {
 				results = jdbcTemplate.query(
 						"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
-						+ "(select * from board order by seq desc)) where "
-						+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') where usernum=? ",
-						boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
+					               + "(select * from board order by seq desc)) where "
+					               + "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and userNum=?",
+						boardRowMapper, srch, srch, srch,userNum);
 			}
 			System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
 			System.out.println("페이징결과 result "+results);
