@@ -193,24 +193,24 @@ public class BoardDao {
 	
 	
 	// 페이징처리
-	public List<Board> selectPage(String srch, int startPage, int limit) {
-		List<Board> results;
-		if (srch == null || srch.equals("")) {
-			results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
-					+ "content, filename, regdate, readcount, reply, pub, userNum from "
-					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=? and pub=1 " ,
-					boardRowMapper, startPage, (startPage+limit));
-		} else {
-			results = jdbcTemplate.query(
-					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
-					+ "(select * from board order by seq desc)) where "
-					+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and pub=1",
-					boardRowMapper, srch, srch, srch, startPage, (startPage+limit));
-		}
-		System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
-		System.out.println("페이징결과 result "+results);
-		return results;
-	}
+	   public List<Board> selectPage(String srch, int startPage, int limit) {
+	      List<Board> results;
+	      if (srch == null || srch.equals("")) {
+	         results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
+	               + "content, filename, regdate, readcount, reply, pub, userNum from "
+	               + "(select * from board order by seq desc)) where rnum>=? and rnum<=? and pub=1" ,
+	               boardRowMapper, startPage, (startPage+limit));
+	      } else {
+	         results = jdbcTemplate.query(
+	               "select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
+	               + "(select * from board order by seq desc)) where "
+	               + "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and pub=1",
+	               boardRowMapper, srch, srch, srch);
+	      }
+	      System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
+	      System.out.println("페이징결과 result "+results);
+	      return results;
+	   }
 	
 	// 게시글삭제
 	public boolean delete(int seq) {
