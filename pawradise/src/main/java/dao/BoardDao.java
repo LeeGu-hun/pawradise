@@ -42,13 +42,13 @@ public class BoardDao {
 
 	// 글의 갯수 구하기
 	public int getListCount() {
-		Integer listCount = jdbcTemplate.queryForObject("select count(*) from board where pub =1", Integer.class);
+		Integer listCount = jdbcTemplate.queryForObject("select count(*) from board", Integer.class);
 		return listCount;
 	}
 
 	// 글 목록 가져오기
 		public List<Board> getBoardList() {
-			List<Board> results = jdbcTemplate.query("select * from board where pub=1", boardRowMapper);
+			List<Board> results = jdbcTemplate.query("select * from board", boardRowMapper);
 			return results;
 		}
 
@@ -173,10 +173,11 @@ public class BoardDao {
 	public List<Board> selectMyPage(String srch, int startPage, int limit, int userNum) {
 			List<Board> results;
 			if (srch == null || srch.equals("")) {
-				results = jdbcTemplate.query("select * from (select * from (select rownum rnum, seq, name,"
-						+ " title, content, filename, regdate, readcount, reply, pub, userNum from "
-					+ "(select * from board order by seq desc)) where rnum>=? and rnum<=?) where usernum=? " ,
-						boardRowMapper, startPage, (startPage+limit) , userNum);
+				results = jdbcTemplate.query("select * from (select rownum rnum, seq, name,"
+						+ "title, content, filename, regdate, readcount, reply, pub, userNum from (select rownum rnum, seq, name,"
+						+ "title, content, filename, regdate, readcount, reply, pub, userNum from "
+					    + "(select * from board order by seq desc))where usernum=?) where rnum>=? and rnum<=?" ,
+						boardRowMapper, userNum, startPage, (startPage+limit));
 			} else {
 				results = jdbcTemplate.query(
 						"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
@@ -196,9 +197,10 @@ public class BoardDao {
 	   public List<Board> selectPage(String srch, int startPage, int limit) {
 	      List<Board> results;
 	      if (srch == null || srch.equals("")) {
-	         results = jdbcTemplate.query("select * from (select rownum rnum, seq, name, title, "
-	               + "content, filename, regdate, readcount, reply, pub, userNum from "
-	               + "(select * from board order by seq desc)) where rnum>=? and rnum<=? and pub=1" ,
+	         results = jdbcTemplate.query("select * from (select rownum rnum, seq, name,"
+						+ "title, content, filename, regdate, readcount, reply, pub, userNum from (select rownum rnum, seq, name,"
+						+ "title, content, filename, regdate, readcount, reply, pub, userNum from "						
+						+ "(select * from board order by seq desc))where pub=1) where rnum>=? and rnum<=?",
 	               boardRowMapper, startPage, (startPage+limit));
 	      } else {
 	         results = jdbcTemplate.query(

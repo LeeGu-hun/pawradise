@@ -42,7 +42,7 @@ public class BoardController {
 		boolean comment = boardDao.commnetDelete(seq);
 		System.out.println(board);
 		
-		return "board/boardList";
+		return "redirect:/boardList";
 	     
 	}
 
@@ -65,7 +65,7 @@ public class BoardController {
 	@RequestMapping("/boardList")
 	public String boardListGetPost(String srch, PageMaker pageMaker, Model model) {
 		int count = 0;
-		int limit = 9;
+		int limit = 8;
 		pageMaker.setPage(pageMaker.getPage());
 		int point = (pageMaker.getPage() - 1) * 9;
 		if(point>=0)point=point+1;
@@ -81,23 +81,23 @@ public class BoardController {
 	}
 
 	// 마이리스트
-		@RequestMapping("/board/myBoardList/{userNum}")
-		public String boardMyListGetPost(@PathVariable("userNum") int userNum, String srch, PageMaker pageMaker, Model model) {
-			int count = 0;
-			int limit = 8;
-			pageMaker.setPage(pageMaker.getPage());
-			int point = (pageMaker.getPage() - 1) * 9;
-			if(point>=0)point=point+1;
-			srch = pageMaker.getSrch();
-			count = boardDao.countMyPage(srch, userNum);
-			// 레코드 총 갯수 구함
-			pageMaker.setCount(count); // 페이지 계산
-			List<Board> boards = boardDao.selectMyPage(srch, point, limit, userNum);
-			System.out.println("리스트: " + count);
-			model.addAttribute("pageMaker", pageMaker);
-			model.addAttribute("boards", boards);
-			return "board/myBoardList";
-		}
+	@RequestMapping("/board/myBoardList/{userNum}")
+	public String boardMyListGetPost(@PathVariable("userNum") int userNum, String srch, PageMaker pageMaker, Model model) {
+		int count = 0;
+		int limit = 8;
+		pageMaker.setPage(pageMaker.getPage());
+		int point = (pageMaker.getPage() - 1) * 9;
+		if(point>=0)point=point+1;
+		srch = pageMaker.getSrch();
+		count = boardDao.countMyPage(srch, userNum);
+		// 레코드 총 갯수 구함
+		pageMaker.setCount(count); // 페이지 계산
+		List<Board> boards = boardDao.selectMyPage(srch, point, limit, userNum);
+		System.out.println("리스트: " + count);
+		model.addAttribute("pageMaker", pageMaker);
+		model.addAttribute("boards", boards);
+		return "board/myBoardList";
+	}
 	
 	// 상세보기GET
 	@RequestMapping(value = "/board/detail/{seq}", method = RequestMethod.GET)
