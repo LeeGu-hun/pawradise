@@ -29,7 +29,7 @@ function goDelete() {
                     <div class="col-sm-6 hidden-xs text-right">
                         <ol class="breadcrumb">
                             <li><a href="index.jsp">HOME</a></li>
-                            <li>냥냥멍멍귀여워</li>
+                            <li>회사소개</li>
                         </ol>
                     </div>
                 </div>
@@ -48,26 +48,14 @@ function goDelete() {
 			<h3> 내가 없는 빈 집에서 우리 야옹이는 무엇을 하고 있을까? </h3> 
 			<br>
 			<h4>반려동물을 사랑하는 마음에서 시작된 PAWRADISE! </h4>
-			<h4>오랜 외출로 항상 미안했던 마음,  PAWRADISE가 덜어드립니다.</h4>
+			<h4>오랜 외출로 항상 미안했던 마음, <strong> PAWRADISE</strong>가 덜어드립니다.</h4>
 			<br>
 			<div>
 				<img src="<%=request.getContextPath() %>/img/banner.png" />
 			</div>
 			
-			<h3>PAWRADISE : 사람의 사랑에 의한 반려동물을 위한 새로운 테크놀로지!</h3>
+			<h3>사람의 사랑에 의한 반려동물을 위한 새로운 테크놀로지, <strong>PAWRADISE!</strong> </h3>
 
-			
-			<div class="divide60"></div> 
-			<div>
-				<h6>Contact Us</h6>
-				<span> Adress : Busanjin-gu, Busan, Korea</span>
-				<br>
-				<span> PHONE : 010.1234.5678</span>
-				<br>
-				<span> E-mail : pawradise@paw.com</span>
-				<br>
-				<span> Fax : 1234 5678 9100</span>
-			</div>
 		</div> 
 	</div>  
 	<div class="divide60"></div> 
