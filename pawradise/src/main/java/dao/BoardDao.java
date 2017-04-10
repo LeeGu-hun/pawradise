@@ -100,7 +100,7 @@ public class BoardDao {
 	//commnet리스트
 	public List<Comment> commentList(int seq){
 		
-		List<Comment> results=jdbcTemplate.query("select * from comment_t where seq = ?  ", 
+		List<Comment> results=jdbcTemplate.query("select * from comment_t where seq = ? ORDER BY regDATE desc ",
 				
 				new RowMapper<Comment>(){
 					@Override

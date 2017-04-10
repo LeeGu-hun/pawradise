@@ -35,7 +35,6 @@ $(document).ready(function(){
 
 </script>
 
-
 <body>
 	<!--항상 같이 다니는 메뉴  -->
 	<%@ include file="/include/topMenu.jsp"%>
@@ -73,9 +72,7 @@ $(document).ready(function(){
 					<div class="blog-post">
 						<c:choose>
 							<c:when test="${!empty board.fileName}">
-								<img
-									src="<%=request.getContextPath() %>/uploads/${board.fileName}"
-									class="img-responsive">
+								<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" class="img-responsive">
 							</c:when>
 						</c:choose>
 						<br>
@@ -85,8 +82,8 @@ $(document).ready(function(){
 
 						<ul class="list-inline post-detail">
 							<li>${board.name}님의글</li>
-							<li><i class="fa fa-calendar"></i> <fmt:formatDate
-									value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
+							<li><i class="fa fa-calendar"></i>
+							<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
 							<li>글번호:${board.seq}</li>
 						</ul>
 						<p>"${board.content}"</p>
@@ -111,7 +108,7 @@ $(document).ready(function(){
 		<!--검색 -->
 		<form:form commandName="pageMaker" id="frm">
 			<p>
-			<input type="text" id="srch" name="srch" width="150px" placeholder="검색" /> <input type="submit" value="조회">
+			<input type="text" id="srch" name="srch" placeholder="검색" /> <input type="submit" value="조회">
 			<input type="text" name="page" id="page" hidden />
 			</p>
 		</form:form>

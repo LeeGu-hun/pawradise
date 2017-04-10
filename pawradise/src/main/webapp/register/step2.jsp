@@ -42,18 +42,14 @@
 		<form:form action="step3" commandName="registerRequest">
 			<table class="joinform">
 				<tr id="btline">
-					<td id="tbname"><spring:message code="Id" /></td>
-					<td id="tbwrite"><form:input path="id" id="tbfom"/> <form:errors path="id" /> 
+					<td id="tbname">닉네임</td>
+					<td id="tbwrite"><form:input path="name" id="tbfom"/> <form:errors path="name" /> 
 					</td>
 				</tr>
 				<tr id="btline">
 					<td id="tbname"><spring:message code="email" /></td>
 					<td id="tbwrite"><form:input path="email" id="tbfom"/> <form:errors path="email" />
 						</td>
-				</tr>
-				<tr id="btline">
-					<td id="tbname"><spring:message code="name" /></td>
-					<td id="tbwrite"><form:input path="name" id="tbfom"/> <form:errors path="name" /> </td>
 				</tr>
 				<tr id="btline">
 					<td id="tbname"><spring:message
@@ -69,14 +65,7 @@
 					<td id="tbname"><spring:message code="phone" /></td>
 					<td id="tbwrite"><form:input path="phone" id="tbfom"/></td>
 				</tr>
-				<tr id="btline">
-					<td id="tbname">애완동물이름</td>
-					<td id="tbwrite"><form:input path="petName" id="tbfom"/></td>
-				</tr>
-				<tr id="btline">
-					<td id="tbname"><spring:message code="address" /></td>
-					<td id="tbwrite"><form:input path="address" id="tbfom"/></td>
-				</tr>			
+						
 			</table>
 			<div class="divide20"></div>
 			<input type="submit" value="<spring:message code="register.btn" />"	id="joinbutton" />

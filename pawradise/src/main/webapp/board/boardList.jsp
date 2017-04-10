@@ -39,6 +39,32 @@ $(document).ready(function(){
 
 </script>
 
+<script>
+// 삽입될 이미지와 링크
+var pictures =[
+'<A href ="#"><img src="http://www.jsguide.net/ver2/images/examples.jpg" border = "0"></A>',
+'<A href ="#"><img src="http://www.jsguide.net/ver2/images/faq.jpg" border = "0"></A>',
+'<A href ="#"><img src="http://www.jsguide.net/ver2/images/qna.jpg" border = "0"></A>',
+'<A href ="#"><img src="http://www.jsguide.net/ver2/images/manual.jpg" border = "0"></A>',
+'<A href ="#"><img src="http://www.jsguide.net/ver2/images/articles.jpg" border = "0"></A>',
+'<A href ="#"><img src="http://www.jsguide.net/ver2/images/board.jpg" border = "0"></A>'
+
+];
+// 이미지 갱신 주기( 1000 == 1초 )
+//var refreshTime = 1000;
+
+function outRandomImage()
+{
+randomId = Math.floor( Math.random() * pictures.length ); // 랜덤 값 추출
+viewImage( randomId ); // viewImage 호출
+}
+
+function viewImage( randomId )
+{
+randomId++; // 랜덤값 1증가
+if( randomId == pictures.length ) randomId = 0; // 랜덤값이 배열 크기와 같을 경우 가장 처음 이미지..
+image.innerHTML = pictures[ randomId ]; // 이미지 출력
+</script>
 
 <body>
 	<!--항상 같이 다니는 메뉴  -->
@@ -79,9 +105,8 @@ $(document).ready(function(){
 						<div class="item-img-wrap">
 							<c:choose>
 								<c:when test="${!empty board.fileName}">
-									<img
-										src="<%=request.getContextPath() %>/uploads/${board.fileName}"
-										class="img-responsive">
+									<a href="<c:url value="/board/detail/${board.seq}"/>">
+									<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" class="img-responsive"></a>
 								</c:when>
 							</c:choose>
 						</div>
@@ -94,8 +119,8 @@ $(document).ready(function(){
 
 						<ul class="list-inline post-detail">
 							<li>${board.name}님의글</li>
-							<li><i class="fa fa-calendar"></i> <fmt:formatDate
-									value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
+							<li><i class="fa fa-calendar"></i>
+							<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
 							<li>글번호:${board.seq}</li>
 						</ul>
 

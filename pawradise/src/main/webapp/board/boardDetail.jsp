@@ -15,15 +15,6 @@
 	function goDelete() {
 		location.href = "../delete/"
 	}
-
-	function addComment() {
-		
-		document.getElementById("frm").submit();
-		window.location.reload(true);
-		
-		document.getElementById("demo").innerHTML="댓글입력";
-	}
-	
 	function delComment() {
 		document.getElementById("delComment").submit();
 		window.location.reload(true);
@@ -33,6 +24,7 @@
 		 field.value="";
 	}
 </script>
+
 <body>
 	<!--항상 같이 다니는 메뉴  -->
 	<%@ include file="/include/topMenu.jsp"%>
@@ -67,13 +59,15 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="blog-post">
 				<!-- 이미지 -->					
+					
+					
 					<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="800">
 					
 					<!-- 상세보기 -->
 					<ul class="list-inline post-detail">
 						<li>by ${board.name}</li>
 						<li><i class="fa fa-calendar"></i>
-						<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
+						<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
 						<li><i class="fa fa-comment"></i>${board.reply} Comments</li>
 					</ul>
 					<p>${board.content}</p>
@@ -86,16 +80,16 @@
 					        <a href="<c:url value='/board/update/${seq}' />" class="btn btn-theme-dark btn-lg">수정하기</a>
 					    </c:when>															
 					</c:choose>
-					
-					
 				</p>
 				<!-- comments list -->
+				<br>
 				<div class="comment-post">
 					<h3>[${board.reply}]개의 Comments가 있습니다</h3>
-					
+					<br>
 					<c:forEach var="comments" items="${comments}">
 						<div class="comment-list">
-							<h6>${comments.name} 님의 comment &nbsp;&nbsp; ${comments.regdate} </h6>
+							<h6>${comments.name} 님의 comment &nbsp;&nbsp;
+							<fmt:formatDate value="${comments.regdate}" pattern="yyyy-MM-dd HH:mm" /></h6>
 							<p>${comments.c_content} &nbsp;&nbsp;							
 							<c:choose>					
 					    	<c:when test="${sessionScope.authInfo.userNum eq comments.userNum}">
@@ -124,7 +118,7 @@
 							</div>
 							<div class="form-group">
 								<label for="message">Comment</label>
-								<form:input path="c_content" size="50" id="c_content" maxlength="100" class="form-control" onfocus="clearText(this)"/>
+								<form:input path="c_content" size="50" id="c_content" maxlength="100" class="form-control" placeholder="댓글을 입력해주세요" onfocus="clearText(this)" />
 								<!-- <textarea path="c_content" class="form-control" rows="7" id="c_content" ></textarea> -->
 							</div>							
 							<button type="submit" onclick="addComment();" id="demo" class="btn btn-theme-bg btn-lg pull-right">댓글등록</button>
