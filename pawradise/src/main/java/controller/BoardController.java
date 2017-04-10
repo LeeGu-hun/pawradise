@@ -70,7 +70,7 @@ public class BoardController {
 	@RequestMapping("/boardList")
 	public String boardListGetPost(String srch, PageMaker pageMaker, Model model) {
 		int count = 0;
-		int limit = 9;
+		int limit = 8;
 		pageMaker.setPage(pageMaker.getPage());
 		int point = (pageMaker.getPage() - 1) * 9;
 		if(point>=0)point=point+1;
