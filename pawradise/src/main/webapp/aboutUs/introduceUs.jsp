@@ -18,7 +18,8 @@
 </script>
 <style>
 #def {
-	border: 1px solid grey;
+	border: 1px solid #d6d6d6;
+	background-color : #eaf2ff;
 	width: 75%;
 }
 
@@ -71,7 +72,7 @@
 			<div id=def>
 				<br>
 				<h2>
-					<i><strong>PAWRADISE</strong>란?</i>
+					<i><strong>PAWRADISE</strong> 란?</i>
 				</h2>
 				<br>
 				<p class="def">
