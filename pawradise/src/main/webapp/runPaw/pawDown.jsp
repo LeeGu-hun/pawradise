@@ -16,7 +16,19 @@
 		location.href = "../delete/"
 	}
 </script>
+<style>
+.pawr {
+	font-size: 13pt;
+}
 
+#tran {
+	font-size: 16pt;
+}
+
+#tran2 {
+	font-size: 20pt;
+}
+</style>
 <body>
 	<!--항상 같이 다니는 메뉴  -->
 	<%@ include file="/include/topMenu.jsp"%>
@@ -45,37 +57,47 @@
 			<h2>제품 소개</h2>
 			<span class="center-line"></span>
 		</div>
-		<div>
-			<h3>내가 없는 빈 집에서 우리 야옹이는 무엇을 하고 있을까?</h3>
-			<h2>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지, PAWRADISE!</h2>
+		<div align=center>
+			<h3>
+				<i> 내가 없는 빈 집에서 <strong>우리 야옹이</strong>는 무엇을 하고 있을까?
+				</i>
+			</h3>
 			<br>
-		</div>
-		<br>
-		<h4>
-			반려인이 없는 지루한 낮 시간에도<br> 냥이 멍이들이 신나게 뛰어놀고, 시간에 맞춰 신선한 사료를 먹을 수 있으며<br>
-			또한 원격으로 반려동물의 사진을 촬영하는 것도 가능합니다.
-		</h4>
+			<p class="pawr">반려동물을 사랑하는 마음에서 시작된 PAWRADISE!</p>
+			<p class="pawr">
+				오랜 외출로 항상 미안했던 마음, <strong> PAWRADISE</strong>가 덜어드립니다.
+			</p>
+			<p class="pawr">
+				반려인이 집을 비운 시간에도<br> 냥이 멍이들이 신나게 뛰어놀고, 시간에 맞춰 신선한 사료를 먹을 수
+				있으며,<br> 또한 원격으로 반려동물의 사진을 촬영하는 것도 가능합니다.
+			</p>
+			<br>
+			<p id="tran">
+				<i>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,</i>
+			</p>
+			<p id="tran2">
+				<i><strong>PAWRADISE!</strong></i>
+			</p>
+			<br>
+			
 
-		<!-- 동영상 div -->
-		<div>
+			<!-- 동영상 div -->
+			<div>
+				<br>
+				<h4>냥이 밥주는 영상(예시) - 소스有</h4>
+				<iframe width="560" height="315"
+					src="https://www.youtube.com/embed/7DwUOdvJp-8" frameborder="2"
+					allowfullscreen> </iframe>
+			</div>
+			<div>
+				<br>
+				<h4>냥이 놀아주는 영상(예시) - 소스有</h4>
+				<iframe width="560" height="315"
+					src="https://www.youtube.com/embed/Q05TAoPIHtQ" frameborder="2"
+					allowfullscreen> </iframe>
+			</div>
 			<br>
-			<h4>냥이 밥주는 영상(예시) - 소스有</h4>
-			<iframe width="560" height="315"
-				src="https://www.youtube.com/embed/7DwUOdvJp-8" 
-				frameborder="2" allowfullscreen> </iframe>
 		</div>
-		<div>
-			<br>
-			<h4>냥이 놀아주는 영상(예시) - 소스有</h4>
-			<iframe width="560" height="315"
-				src="https://www.youtube.com/embed/Q05TAoPIHtQ" 
-				frameborder="2"	allowfullscreen> </iframe>
-		</div>
-		<br>
-		<h4>
-			반려인이 없는 지루한 낮 시간에도<br> 냥이 멍이들이 신나게 뛰어놀고, 시간에 맞춰 신선한 사료를 먹을 수 있으며<br>
-			또한 원격으로 반려동물의 사진을 촬영하는 것도 가능합니다.
-		</h4>
 	</div>
 	<div class="divide60"></div>
 

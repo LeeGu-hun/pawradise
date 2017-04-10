@@ -17,6 +17,15 @@
 	}
 </script>
 <style>
+#def {
+	border: 1px solid grey;
+	width: 75%;
+}
+
+.def {
+	font-size: 16pt;
+}
+
 .pawr {
 	font-size: 13pt;
 }
@@ -24,6 +33,7 @@
 #tran {
 	font-size: 16pt;
 }
+
 #tran2 {
 	font-size: 20pt;
 }
@@ -58,17 +68,41 @@
 			<span class="center-line"></span>
 		</div>
 		<div align=center>
-			<h3><i> 내가 없는 빈 집에서 <strong>우리 야옹이</strong>는 무엇을 하고 있을까? </i></h3>
+			<div id=def>
+				<br>
+				<h2>
+					<i><strong>PAWRADISE</strong>란?</i>
+				</h2>
+				<br>
+				<p class="def">
+					동물들의 발을 뜻하는 영어 단어인 <strong>PAW</strong>와, 낙원이라는 뜻의 <strong>PARADISE</strong>를 합쳐,
+
+				</p>
+				<p class="def">
+					모든 반려동물들이 행복하길 바라는 마음을 담아 <strong>PAWRADISE</strong>가 탄생하게 되었습니다.
+				</p>
+				<br>
+			</div>
+			<div class="divide60"></div>
+
+			<h3>
+				<i> 내가 없는 빈 집에서 <strong>우리 야옹이</strong>는 무엇을 하고 있을까?
+				</i>
+			</h3>
 			<br>
 			<p class="pawr">반려동물을 사랑하는 마음에서 시작된 PAWRADISE!</p>
 			<p class="pawr">
 				오랜 외출로 항상 미안했던 마음, <strong> PAWRADISE</strong>가 덜어드립니다.
 			</p>
 			<br>
-			<p id="tran"><i>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,</i></p>
-			<p id="tran2"><i><strong>PAWRADISE!</strong></i></p>
+			<p id="tran">
+				<i>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,</i>
+			</p>
+			<p id="tran2">
+				<i><strong>PAWRADISE!</strong></i>
+			</p>
 			<br>
-			
+
 			<div>
 				<img src="<%=request.getContextPath()%>/img/pawradise.jpg" />
 			</div>

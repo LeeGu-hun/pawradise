@@ -28,17 +28,17 @@
 
 					<ul class="list-unstyled contact">
 						<li><p>
-								<strong><i class="fa fa-map-marker"></i> Address:</strong>
+								<strong><i class="fa fa-map-marker"></i> Address</strong>
 								R#601, 668, Jungang-daero, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								Busanjin-gu, Busan, Korea
 							</p></li>
 						<li><p>
-								<strong><i class="fa fa-envelope"></i> Mail Us:</strong> <a
+								<strong><i class="fa fa-envelope"></i> Mail Us</strong> <a
 									href="#">Support@nyangmung.com</a>
 							</p></li>
 						<li>
 							<p>
-								<strong><i class="fa fa-phone"></i> Phone:</strong> +82 010 1234
+								<strong><i class="fa fa-phone"></i> Phone</strong> +82 010 1234
 								5678
 							</p>
 						</li>
