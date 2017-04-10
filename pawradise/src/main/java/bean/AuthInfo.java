@@ -2,19 +2,16 @@ package bean;
 
 public class AuthInfo {
 	private int UserNum;
-	private String id;
 	private String email;
-	private String name; 
-	 
+	private String name;
 	
-	public AuthInfo(int userNum, String id, String email, String name) {
+	
+	public AuthInfo(int userNum, String name, String email) {
 		super();
 		UserNum = userNum;
-		this.id = id;
-		this.email = email;
 		this.name = name;
-	}
-
+		this.email = email;
+	} 
 
 	public int getUserNum() {
 		return UserNum;
@@ -23,10 +20,7 @@ public class AuthInfo {
 	public void setUserNum(int userNum) {
 		UserNum = userNum;
 	}
-
-	public String getId() {
-		return id;
-	}
+	
 	public String getEmail() {
 		return email;
 	}

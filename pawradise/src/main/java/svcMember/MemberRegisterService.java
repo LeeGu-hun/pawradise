@@ -8,7 +8,7 @@ import dao.MemberDao;
 import exception.AlreadyExistingMemberException;
 
 public class MemberRegisterService {
-	private MemberDao memberDao;
+	private MemberDao memberDao; 
 
 	public MemberRegisterService(MemberDao memberDao) {
 		this.memberDao = memberDao;
@@ -19,9 +19,9 @@ public class MemberRegisterService {
 		if(member != null)
 			throw new AlreadyExistingMemberException(
 					"중복된 아이디" + req.getEmail());
-		Member newMember = new Member(req.getId(), req.getName(), req.getPassword(),req.getEmail(), req.getPetName(),
-				req.getPhone(),req.getAddress(),new Date());
+		Member newMember = new Member(req.getName(), req.getPassword(),req.getEmail(),
+				req.getPhone(), new Date());
 
-		memberDao.insert(newMember);
+		memberDao.insert(newMember);		
 	}
 }

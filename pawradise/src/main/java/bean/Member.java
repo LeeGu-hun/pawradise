@@ -6,15 +6,12 @@ import exception.IdPasswordNotMatchingException;
 
 public class Member {
 	private int userNum;
-	private String id;
 	private String name;
 	private String password;
 	private String email;
-	private String petName;
 	private String phone;
-	private String address;
 	private Date regdate;
-	
+		
 	private String currentPassword;
 	private String newPassword;	
 
@@ -36,15 +33,11 @@ public class Member {
 		super();
 	}
 
-	public Member(String id, String name, String password, String email, String petName, String phone, String address, Date regdate) {
+	public Member(String name, String password, String email, String phone, Date regdate) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.password = password;
 		this.email = email;
-		this.petName = petName;
-		this.phone = phone;
-		this.address = address;
 		this.regdate=regdate;   
 	}
 	
@@ -54,12 +47,7 @@ public class Member {
 	public void setUserNum(int userNum) {
 		this.userNum = userNum;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+	
 	public String getName() {
 		return name;
 	}
@@ -75,29 +63,17 @@ public class Member {
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPetName() {
-		return petName;
-	}
-	public void setPetName(String petName) {
-		this.petName = petName;
-	}
 	
 	public String getPhone() {
-		return phone;
+		return phone; 
 	}
 
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
 	}
 	public Date getRegdate() {
 		return regdate;
@@ -113,4 +89,5 @@ public class Member {
 	public boolean matchPassword(String password){
 		return (this.password.equals(password))?true:false;
 	}
+	
 }

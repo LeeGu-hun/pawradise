@@ -29,11 +29,11 @@ public class MemberDao {
 		@Override
 		public Member mapRow(ResultSet rs, int rowNum) 
 				throws SQLException {
-			Member member = new Member(rs.getString("id"), rs.getString("name"),rs.getString("password"),
-					rs.getString("email"), rs.getString("petName"), rs.getString("Phone"), rs.getString("address"),rs.getDate("regdate"));
+			Member member = new Member(rs.getString("name"),rs.getString("password"),
+					rs.getString("email"), rs.getString("Phone"), rs.getDate("regdate"));
 			member.setUserNum(rs.getInt("userNum"));
 			return member;
-		}
+		}  
 	};
 
 	public void setDataSource(DataSource dataSource) {
@@ -72,15 +72,12 @@ public class MemberDao {
 			public PreparedStatement createPreparedStatement(Connection con) 
 					throws SQLException {
 			PreparedStatement pstmt = con.prepareStatement(
-				"insert into Member (userNum, id, name, password, email, petname, phone, address) " 
-						+ "values(member_seq.NEXTVAL,?,?,?,?,?,?,?)");			
-			pstmt.setString(1, member.getId());
-			pstmt.setString(2, member.getName());
-			pstmt.setString(3, member.getPassword()); 
-			pstmt.setString(4, member.getEmail());
-			pstmt.setString(5, member.getPetName());
-			pstmt.setString(6, member.getPhone());
-			pstmt.setString(7, member.getAddress());
+				"insert into Member (userNum, name, password, email, phone) " 
+						+ "values(member_seq.NEXTVAL,?,?,?,?)");			
+			pstmt.setString(1, member.getName());
+			pstmt.setString(2, member.getPassword()); 
+			pstmt.setString(3, member.getEmail());
+			pstmt.setString(4, member.getPhone());
 			return pstmt;
 			}
 		});
@@ -111,8 +108,9 @@ public class MemberDao {
 				+ "order by regdate desc, id desc "
 				+ "limit ?,? ",
 				memRowMapper, from, to, startPage, limit);
-		return results;
+		return results; 
 	}
+	
 	public void memberDelete(Member member) {
 		jdbcTemplate.update(
 				"delete from MEMBER where EMAIL = ?", 
@@ -128,5 +126,6 @@ public class MemberDao {
 	public Member selectByUserNum(int userNum) {
 		List<Member> results = jdbcTemplate.query("select * from member where usernum=? ", memRowMapper, userNum);
 		return results.isEmpty()?null: results.get(0);
-	}
+	} 
+	
 }
