@@ -61,7 +61,7 @@ $(document).ready(function(){
 	<!--breadcrumbs-->
 	<div class="divide80"></div>
 	<div class="center-heading">
-		<h2>내가 쓴 글</h2>
+		<h2>내가쓴 글</h2>
 		<span class="center-line"></span>
 	</div>
 
@@ -70,17 +70,15 @@ $(document).ready(function(){
 			<!--컨텐츠들어가는부분 시작-->
 			<c:forEach var="board" items="${boards}">
 				<div class="col-md-10 col-md-offset-1">
-					<c:choose>
-						<c:when test="${!empty board.fileName}">
-							<img
-								src="<%=request.getContextPath() %>/uploads/${board.fileName}"
-								class="img-responsive">
-						</c:when>
-					</c:choose>
-
-
 					<div class="blog-post">
-					<br>
+						<c:choose>
+							<c:when test="${!empty board.fileName}">
+								<img
+									src="<%=request.getContextPath() %>/uploads/${board.fileName}"
+									class="img-responsive">
+							</c:when>
+						</c:choose>
+						<br>
 						<h3>
 							<a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
 						</h3>
@@ -91,36 +89,36 @@ $(document).ready(function(){
 									value="${board.regdate}" pattern="yyyy-MM-dd" /></li>
 							<li>글번호:${board.seq}</li>
 						</ul>
-						<p>
-							"${board.content}"
-						</p>
+						<p>"${board.content}"</p>
 						<img src="<%=request.getContextPath()%>/img/comment.png"
 							width="15"> [${board.reply}]</a>
-					</div>				
+					</div>
 				</div>
 			</c:forEach>
 			<!--컨텐츠들어가는부분 끝-->
 		</div>
 	</div>
-	
-	<div class="container">
-
+	<div class="pager">
 		<!--글쓰기버튼 -->
-		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>		
+		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
 		&nbsp;&nbsp;&nbsp;
 		<!-- 전체게시판으로 가기 -->
-		<a href="<%=request.getContextPath()%>/boardList"  class="btn btn-theme-dark btn-lg">포토게시판</a>
+		<a href="<%=request.getContextPath()%>/boardList"
+			class="btn btn-theme-dark btn-lg">포토게시판</a>
 		<div class="divide10"></div>
-		
+		<!--글쓰기버튼 -->
+
 		<!--검색 -->
 		<form:form commandName="pageMaker" id="frm">
 			<p>
-				<input type="text" id="srch" name="srch" placeholder="검색" /> <input
-					type="submit" value="조회"> <input type="text" name="page"
-					id="page" hidden />
+			<input type="text" id="srch" name="srch" width="150px" placeholder="검색" /> <input type="submit" value="조회">
+			<input type="text" name="page" id="page" hidden />
 			</p>
 		</form:form>
 		<!--검색 -->
+	</div>
+
+	<div class="container">
 		<ul class="pager">
 			<c:if test="${pageMaker.prev }">
 				<li class="previous"><a href='#'

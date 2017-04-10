@@ -1,9 +1,15 @@
 package controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -43,7 +49,6 @@ public class BoardController {
 		System.out.println(board);
 		
 		return "redirect:/boardList";
-	     
 	}
 
 	// 수정하기 페이지로이동
@@ -65,11 +70,11 @@ public class BoardController {
 	@RequestMapping("/boardList")
 	public String boardListGetPost(String srch, PageMaker pageMaker, Model model) {
 		int count = 0;
-		int limit = 8;
+		int limit = 9;
 		pageMaker.setPage(pageMaker.getPage());
 		int point = (pageMaker.getPage() - 1) * 9;
 		if(point>=0)point=point+1;
-		srch = pageMaker.getSrch();  
+		srch = pageMaker.getSrch();
 		count = boardDao.countPage(srch);
 		// 레코드 총 갯수 구함
 		pageMaker.setCount(count); // 페이지 계산
@@ -108,23 +113,29 @@ public class BoardController {
 		List<Comment> comments = boardDao.commentList(seq);		
 		model.addAttribute("comments", comments);
 		model.addAttribute("board", board);		
-		
-		
+				
 		return "board/boardDetail";
 	}
 	
 	// 상세보기POST
 	@RequestMapping(value = "/board/detail/{seq}", method = RequestMethod.POST)
-	public String comment(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session) {				
+	public String comment(@PathVariable("seq") int seq, Model model, Board board, Comment comment, Errors errors, HttpSession session){				
 		if(!(comment.getName()==null) && !(comment.getC_content()==null)){			
-			boardDao.insertComment(comment, seq);
-			comment=new Comment();
+			try {
+				boardDao.insertComment(comment, seq);
+				comment=new Comment();
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("댓글미등록에러.");
+//				StringWriter sw = new StringWriter();
+//				e.printStackTrace(new PrintWriter(sw));
+//				String exceptionAsString = sw.toString();
+//				e.printStackTrace(new PrintStream(new FileOutputStream("경고")));
+			}			
 		}
 		boardDao.commnet1Delete(comment.getC_seq());
-		
 		return "redirect:/board/detail/"+ seq;
-	}
-		
+	}		
 	
 	// 글쓰기GET
 	@RequestMapping(value = "/board/boardWrite",method = RequestMethod.GET) 
@@ -146,7 +157,7 @@ public class BoardController {
 
 		MultipartFile multi = board.getMultiFile();
 		String newFileName = "";
-		if (multi != null) {
+		if (!multi.isEmpty()) {
 			String fileName = multi.getOriginalFilename();
 			// 파일명이 중복되지 않게 파일명에 시간추가
 			newFileName = System.currentTimeMillis() + "_" + fileName;
@@ -157,7 +168,7 @@ public class BoardController {
 				multi.transferTo(file);
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
+				}
 		}
 		boardDao.add(board);
 		
@@ -168,5 +179,4 @@ public class BoardController {
 	         return "redirect:/board/myBoardList/" + userNum;
 	      }
 	}
-
 }

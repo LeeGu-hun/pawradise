@@ -13,28 +13,25 @@
 <title>게시판상세</title>
 <script>
 	function goDelete() {
-		
 		location.href = "../delete/"
 	}
 
 	function addComment() {
+		
 		document.getElementById("frm").submit();
 		window.location.reload(true);
 		
+		document.getElementById("demo").innerHTML="댓글입력";
 	}
 	
 	function delComment() {
 		document.getElementById("delComment").submit();
 		window.location.reload(true);
 	}
-	
 	function clearText(field){
 		 if(field.defaultValue==field.value)
 		 field.value="";
-	 }
-
-
-	
+	}
 </script>
 <body>
 	<!--항상 같이 다니는 메뉴  -->
@@ -60,18 +57,17 @@
 
 	<div class="divide80"></div>
 
-	<div class="container">
-
 		<div class="center-heading">
 			<h2>${board.title}</h2>
 			<span class="center-line"></span>
 		</div>
-		<div class="row">
+	<div class="container">
+	<div class="row">
 			<!-- 상세보기 -->
-			<div class="container mas-boxes">
+			<div class="col-md-10 col-md-offset-1">
 				<div class="blog-post">
 				<!-- 이미지 -->					
-					<center><img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="800"></center>
+					<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="800">
 					
 					<!-- 상세보기 -->
 					<ul class="list-inline post-detail">
@@ -131,7 +127,8 @@
 								<form:input path="c_content" size="50" id="c_content" maxlength="100" class="form-control" onfocus="clearText(this)"/>
 								<!-- <textarea path="c_content" class="form-control" rows="7" id="c_content" ></textarea> -->
 							</div>							
-							<button type="submit" onclick="addComment();" class="btn btn-theme-bg btn-lg pull-right">댓글등록</button>
+							<button type="submit" onclick="addComment();" id="demo" class="btn btn-theme-bg btn-lg pull-right">댓글등록</button>
+							
 						</form:form>
 					</div>
 				</div>			
