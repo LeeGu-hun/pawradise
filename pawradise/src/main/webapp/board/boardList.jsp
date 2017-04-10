@@ -121,7 +121,7 @@ image.innerHTML = pictures[ randomId ]; // 이미지 출력
 							<li>${board.name}님의글</li>
 							<li><i class="fa fa-calendar"></i>
 							<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
-							<li>글번호:${board.seq}</li>
+							<li>No.${board.seq}</li>
 						</ul>
 
 						<p>
@@ -141,6 +141,7 @@ image.innerHTML = pictures[ randomId ]; // 이미지 출력
 						</p>
 						<img src="<%=request.getContextPath()%>/img/comment.png"
 							width="15"> [${board.reply}]</a>
+						
 					</div>
 				</div>
 			</c:forEach>
@@ -151,7 +152,7 @@ image.innerHTML = pictures[ randomId ]; // 이미지 출력
 
 		<!--글쓰기버튼 -->
 		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>&nbsp;
-		<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내가쓴글</a>
+		<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내가 쓴 글</a>
 		<div class="divide10"></div>
 		<!--검색 -->
 		<form:form commandName="pageMaker" id="frm">
