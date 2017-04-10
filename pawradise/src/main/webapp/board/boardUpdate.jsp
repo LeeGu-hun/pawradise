@@ -56,7 +56,7 @@ function updateOk(){
 		<table  class="table">
 			<tr>
 			<td>글쓴이</td>
-			<td><input type="text" name="name" size="10" maxlength="10"  class="form-control" value="${sessionScope.authInfo.id}" readonly/>
+			<td><input type="text" name="name" size="10" maxlength="10"  class="form-control" value="${sessionScope.authInfo.name}" readonly/>
 			</td>
 			</tr>		
 			<tr>
