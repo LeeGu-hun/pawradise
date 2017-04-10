@@ -98,30 +98,22 @@
 				<br>
 				<h4>냥이 밥주는 영상(예시) - 소스有</h4>
 				<div>
-					<object width="560" height="315">
-						<param name="movie"
-							value="https://www.youtube.com/v/7DwUOdvJp-8?version=3"></param>
-						<param name="allowFullScreen" value="true"></param>
-						<param name="allowscriptaccess" value="always"></param>
-						<embed src="https://www.youtube.com/v/7DwUOdvJp-8?version=3"
-							type="application/x-shockwave-flash" width="560" height="315"
-							allowscriptaccess="always" allowfullscreen="true"></embed>
-					</object>
+					<object width="640" height="360"
+						data="https://www.youtube.com/embed/7DwUOdvJp-8?ecver=2"
+						type="text/html" frameborder="0"
+						style="position: absolute; width: 100%; height: 100%; left: 0"
+						allowfullscreen></object>
 				</div>
 			</div>
 			<div class="video">
 				<br>
 				<h4>냥이 놀아주는 영상(예시) - 소스有</h4>
 				<div>
-					<object width="560" height="315">
-						<param name="movie"
-							value="https://www.youtube.com/v/Q05TAoPIHtQ?version=3"></param>
-						<param name="allowFullScreen" value="true"></param>
-						<param name="allowscriptaccess" value="always"></param>
-						<embed src="https://www.youtube.com/v/Q05TAoPIHtQ?version=3"
-							type="application/x-shockwave-flash" width="560" height="315"
-							allowscriptaccess="always" allowfullscreen="true"></embed>
-					</object>
+					<object width="640" height="360"
+						data="https://www.youtube.com/embed/hHIrxL0giJQ?ecver=2"
+						type="text/html" frameborder="0"
+						style="position: absolute; width: 100%; height: 100%; left: 0"
+						allowfullscreen></object>
 				</div>
 			</div>
 			<br>
