@@ -8,14 +8,15 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="footer-col">
-					<img src="<%=request.getContextPath()%>/img/gandhi2.jpg" />
+					<img src="<%=request.getContextPath()%>/img/footerlogo.png" />
 				</div>
 			</div>
 			<!--footer col-->
+			
 			<div class="col-md-3 col-sm-6 margin30">
 				<div class="footer-col">
-					<h3>Pawradise</h3>
-					<p>PAWRADISE는 모든 생명의 가치를 생각합니다. 모든 생명은 소중하며, 또한 존중받을 권리가 있습니다.
+					<br><br><br>
+					<p>PAWRADISE는 모든 생명의 가치를 생각합니다. 모든 생명은 소중하며, 또한 존중 받을 권리가 있습니다.
 						PAWRADISE는 인간과 동물이 모두 행복한 세상을 꿈꾸는 '발바닥천국'입니다. </p>
 				</div>
 			</div>
