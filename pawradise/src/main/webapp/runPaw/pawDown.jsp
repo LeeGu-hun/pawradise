@@ -109,7 +109,7 @@
 					src="http://www.youtube.com/v/hHIrxL0giJQ?version=3&vq=highres"
 					type="application/x-shockwave-flash" width="640" height="360"
 					allowscriptaccess="always" allowfullscreen="true"
-					allowscriptaccess="never"></embed> 
+					allowscriptaccess="never"></embed>
 			</div>
 
 			<br>
