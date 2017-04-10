@@ -100,7 +100,7 @@
 					src="http://www.youtube.com/v/7DwUOdvJp-8?version=3&vq=highres"
 					type="application/x-shockwave-flash" width="640" height="360"
 					allowscriptaccess="always" allowfullscreen="true"
-					allowscriptaccess="never"></embed>
+					allowscriptaccess="never"></embed> 
 			</div>
 			<div class="divide60"></div>
 			<h4>고양이 놀아주기</h4>
