@@ -37,30 +37,6 @@
                 <span class="center-line"></span>
             </div> 
      <div class="row">
-           
-
-<<<<<<< HEAD
-		<table class="mptb" align="center">
-			<tr class="mpbottom">
-				<td class="var">닉네임</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.name}</td>
-			</tr>
-			<tr class="mpbottom">
-				<td class="var">전화번호</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.phone}</td>
-			</tr>		
-			<tr class="mpbottom">
-				<td class="var">E-mail</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.email}</td>
-			</tr>  
-		</table>
-		<div class="mptab" align="center">
-			<a href="<c:url value="/mypage/modify/${member.userNum}"/>"> 비밀번호 수정</a>		
-		
-=======
       <table class="mptb" align="center">
          <tr class="mpbottom">
             <td class="var">닉네임</td>
@@ -80,23 +56,13 @@
       </table>
       <div class="mptab" align="center">
          <a href="<c:url value="/mypage/modify/${member.userNum}"/>"> 비밀번호 수정</a>      
-      
->>>>>>> branch 'master' of https://github.com/LeeGu-hun/pawradise
 
-<<<<<<< HEAD
 		<div class="divide30"></div>
 		<input type="button" id="loginbutton" onclick="location.href='<c:url value="/mypage/memdelete/${sessionScope.authInfo.userNum }"/>' "value="탈퇴하기">
 		<%-- <a href="<c:url value="/mypage/memdelete/${sessionScope.authInfo.userNum }"/>" >탈퇴하기</a> --%> 
 		<%-- <a href="<c:url value="/mypage/mempassword.jsp"/>" id="logbutton"> 회원탈퇴</a> --%> 
 		<input type="button" value="메인으로" id="loginbutton" onclick="location.href='/pawradise/index.jsp'">
 		</div>
-=======
-      <div class="divide30"></div>
-      <a href="<c:url value="/mypage/mempassword/${member.userNum}"/>" id="logbutton"> 회원탈퇴</a> 
-      <input type="button" value="메인으로" id="loginbutton" onclick="location.href='/pawradise/index.jsp'">
-      </div>
->>>>>>> branch 'master' of https://github.com/LeeGu-hun/pawradise
-
    </div>
 </div>   
    <div class="divide50"></div>
