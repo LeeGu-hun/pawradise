@@ -28,6 +28,10 @@ function goMemList(){
 	location.href="./member/list"
 }
 
+function goBoardList(){
+	location.href="./boardList"
+}
+
 </script>
 
 <body>
@@ -68,36 +72,43 @@ function goMemList(){
 					<div class="item-img-wrap">
 						<c:choose>
 							<c:when test="${!empty board.fileName}">
-								<a href="<c:url value="/board/detail/${board.seq}"/>">
-								<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" class="img-responsive"></a>
+								<a href="<c:url value="/board/detail/${board.seq}"/>"> <img
+									src="<%=request.getContextPath() %>/uploads/${board.fileName}"
+									class="img-responsive"></a>
 							</c:when>
-								
+
 							<c:otherwise>
-							<c:set var="rand"><%= java.lang.Math.round(java.lang.Math.random() * 6) %>
-							</c:set>
+								<c:set var="rand"><%=java.lang.Math.round(java.lang.Math.random() * 6)%>
+								</c:set>
 								<c:choose>
 									<c:when test="${rand==1 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/0.jpg/" class="img-responsive"/>
+										<img src="http://192.168.0.75:8080/pawradise/img/0.jpg/"
+											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==2 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/1.jpg/" class="img-responsive"/>
+										<img src="http://192.168.0.75:8080/pawradise/img/1.jpg/"
+											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==3 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/2.jpg/" class="img-responsive"/>
+										<img src="http://192.168.0.75:8080/pawradise/img/2.jpg/"
+											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==4 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/3.jpg/" class="img-responsive"/>
+										<img src="http://192.168.0.75:8080/pawradise/img/3.jpg/"
+											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==5 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/4.jpg/" class="img-responsive"/>
+										<img src="http://192.168.0.75:8080/pawradise/img/4.jpg/"
+											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==6 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/5.jpg/" class="img-responsive"/>
+										<img src="http://192.168.0.75:8080/pawradise/img/5.jpg/"
+											class="img-responsive" />
 									</c:when>
 								</c:choose>
 							</c:otherwise>
 						</c:choose>
-						
+
 					</div>
 					<div class="mas-blog-inner">
 						<h3>
@@ -106,8 +117,8 @@ function goMemList(){
 
 						<ul class="list-inline post-detail">
 							<li>${board.name}님의글</li>
-							<li><i class="fa fa-calendar"></i>
-							<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
+							<li><i class="fa fa-calendar"></i> <fmt:formatDate
+									value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
 							<li>No.${board.seq}</li>
 						</ul>
 
@@ -128,30 +139,43 @@ function goMemList(){
 						</p>
 						<img src="<%=request.getContextPath()%>/img/comment.png"
 							width="15"> [${board.reply}]</a>
-						
+
 					</div>
 				</div>
 			</c:forEach>
 			<!--컨텐츠들어가는부분 끝-->
 		</div>
 	</div>
+	<div class="divide10"></div>
 	<div class="container">
 
 		<!--글쓰기버튼 -->
-		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>&nbsp;
-		<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내가 쓴 글</a>
+		<table width=100%>
+			<tr>
+				<td>
+					<a href="#" onclick="goBoardList();" class="btn btn-theme-dark btn-lg">처음 페이지로</a>&nbsp;&nbsp; 
+					<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내	글만 보기</a>&nbsp;&nbsp; 
+				</td>
+				<td align=right>
+					<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
+				</td>
+			</tr>
+			<tr>
+				<td align=right colspan="2">
+				<div class="divide10"></div>
+<!--검색 --> 			<form:form commandName="pageMaker" id="frm">
+						<p>
+							<input type="text" id="srch" name="srch" placeholder="검색" /> 
+							<input type="submit" value="조회"> <input type="text" name="page"	 id="page" hidden />
+						</p>
+<!--검색 -->			</form:form> 
+				</td>
+			</tr>
+		</table>
+
 		<div class="divide10"></div>
-		<!--검색 -->
-		<form:form commandName="pageMaker" id="frm">
-			<p>
-				<input type="text" id="srch" name="srch" placeholder="검색" /> <input
-					type="submit" value="조회"> <input type="text" name="page"
-					id="page" hidden />
-			</p>
-		</form:form>
-		<!--검색 -->
 		<ul class="pager">
-			<c:if test="${pageMaker.prev }">
+			<c:if test="${pageMaker.prev}">
 				<li class="previous"><a href='#'
 					onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
 			</c:if>
