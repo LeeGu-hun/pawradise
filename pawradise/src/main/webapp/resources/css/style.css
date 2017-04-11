@@ -70,7 +70,18 @@ body {
 	height:40px;
 	color:white;
 }
+#logbutton{
+	border:0;
+	background-color:#A6A6A6;
+	width:70px;
+	height:40px;
+	font-color:white;
+	text-decoration:none;
+}
 #loginbutton:hover{
+	background-color:#32c5d2;
+}
+#logbutton:hover{
 	background-color:#32c5d2;
 }
 .joininfo{
@@ -278,7 +289,7 @@ body {
 	aligh:center;
 	width:400px;
 	height:150px;
-	border:1px solid #32c5d2;
+	border:3px solid #32c5d2;
 }
 #byebutton{
 	valign:center;
@@ -303,6 +314,9 @@ body {
 	margin:0 auto;
 	text-align:center;
 	aligh:center;
+}
+#mempw{
+	width:280px;
 }
 /* �̰� �����κ� �������!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 

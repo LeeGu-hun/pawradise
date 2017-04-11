@@ -163,7 +163,7 @@
 			</div>
 			<div class="divide10"></div>
 			이용약관, 개인정보 수집 및 이용에 모두 동의합니다.
-			<input type="radio" id="agree" name="agree" value="true"/>
+			<input type="CheckBox" id="agree" name="agree" value="true"/>
 			<input type="submit" value="동의" onclick="chk()"/><br>
 
 			<div class="divide10"></div>

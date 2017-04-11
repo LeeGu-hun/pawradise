@@ -111,10 +111,11 @@ public class MemberDao {
 		return results; 
 	}
 	
-	public void memberDelete(Member member) {
+	public boolean memberDelete(int userNum) {
+		boolean result = false;
 		jdbcTemplate.update(
-				"delete from MEMBER where EMAIL = ?", 
-				member.getEmail());
+				"delete from MEMBER where usernum = ?" , userNum);
+		return result;
 	}
 	public List<Member> selectByRegdate(Date from, Date to) {
 		List<Member> results = jdbcTemplate.query(

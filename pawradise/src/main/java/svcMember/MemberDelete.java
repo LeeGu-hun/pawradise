@@ -12,12 +12,12 @@ private MemberDao memberDao;
 	public void setMemberDao(MemberDao memberDao){
 		this.memberDao = memberDao;
 	}
-	public void deleteMember(String email){
-		Member member = memberDao.selectByEmail(email);
+	public void deleteMember(int userNum){
+		Member member = memberDao.selectByUserNum(userNum);
 		if(member == null){
 			throw new MemberNotFoundException();
 		}
-		memberDao.memberDelete(member);
+		memberDao.memberDelete(userNum);
 	}
 
 }

@@ -41,30 +41,15 @@
 
 		<table class="mptb" align="center">
 			<tr class="mpbottom">
-				<td class="var">이름</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.name}</td>
-			</tr>
-			<tr class="mpbottom">
 				<td class="var">닉네임</td>
 				<td id="mp\">|<td>
-				<td class="mpinfo">${member.id}</td>
-			</tr>
-			<tr class="mpbottom">
-				<td class="var">애완동물</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.petName}</td>
+				<td class="mpinfo">${member.name}</td>
 			</tr>
 			<tr class="mpbottom">
 				<td class="var">전화번호</td>
 				<td id="mp\">|<td>
 				<td class="mpinfo">${member.phone}</td>
-			</tr>
-			<tr class="mpbottom">
-				<td class="var">주소</td>
-				<td id="mp\">|<td>
-				<td class="mpinfo">${member.address}</td>
-			</tr>			
+			</tr>		
 			<tr class="mpbottom">
 				<td class="var">E-mail</td>
 				<td id="mp\">|<td>
@@ -76,8 +61,9 @@
 		
 
 		<div class="divide30"></div>
-		
-		<input type="button" value="회원탈퇴" id="loginbutton" onclick="location.href='/pawradise/mypage/memberout.jsp'">
+		<input type="button" id="loginbutton" onclick="location.href='<c:url value="/mypage/memdelete/${sessionScope.authInfo.userNum }"/>' "value="탈퇴하기">
+		<%-- <a href="<c:url value="/mypage/memdelete/${sessionScope.authInfo.userNum }"/>" >탈퇴하기</a> --%> 
+		<%-- <a href="<c:url value="/mypage/mempassword.jsp"/>" id="logbutton"> 회원탈퇴</a> --%> 
 		<input type="button" value="메인으로" id="loginbutton" onclick="location.href='/pawradise/index.jsp'">
 		</div>
 

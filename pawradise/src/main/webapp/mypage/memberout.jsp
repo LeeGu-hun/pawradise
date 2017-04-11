@@ -53,9 +53,7 @@
 					<textarea rows="10" cols="70" class="outtext"></textarea>
 				</div>
 			</td>
-			<td><input type="button" value="회원탈퇴" id="outbutton" onclick="location.href='/pawradise/mypage/mempassword.jsp'"><br>
-				<input type="button" value="취소" id="outback"
-				onclick="location.href='/pawradise/mypage/mydetail.jsp'"></td>
+			<td><input type="button" value="탈퇴완료" id="outbutton" onclick="location.href='/pawradise/login'"><br>				
 		</table>
 	</div>
 	</div>
