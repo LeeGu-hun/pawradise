@@ -27,43 +27,7 @@ function goMyWriter(){
 function goMemList(){
 	location.href="./member/list"
 }
-</script>
 
-<script type="text/javascript">
-$(document).ready(function(){
-     $("a[name='title']").on("click", function(e){ //제목
-        e.preventDefault();
-        fn_openBoardDetail($(this));
-    });
-}); 
-
-</script>
-
-<script>
-// 삽입될 이미지와 링크
-var pictures =[
-'<A href ="#"><img src="http://www.jsguide.net/ver2/images/examples.jpg" border = "0"></A>',
-'<A href ="#"><img src="http://www.jsguide.net/ver2/images/faq.jpg" border = "0"></A>',
-'<A href ="#"><img src="http://www.jsguide.net/ver2/images/qna.jpg" border = "0"></A>',
-'<A href ="#"><img src="http://www.jsguide.net/ver2/images/manual.jpg" border = "0"></A>',
-'<A href ="#"><img src="http://www.jsguide.net/ver2/images/articles.jpg" border = "0"></A>',
-'<A href ="#"><img src="http://www.jsguide.net/ver2/images/board.jpg" border = "0"></A>'
-
-];
-// 이미지 갱신 주기( 1000 == 1초 )
-//var refreshTime = 1000;
-
-function outRandomImage()
-{
-randomId = Math.floor( Math.random() * pictures.length ); // 랜덤 값 추출
-viewImage( randomId ); // viewImage 호출
-}
-
-function viewImage( randomId )
-{
-randomId++; // 랜덤값 1증가
-if( randomId == pictures.length ) randomId = 0; // 랜덤값이 배열 크기와 같을 경우 가장 처음 이미지..
-image.innerHTML = pictures[ randomId ]; // 이미지 출력
 </script>
 
 <body>
@@ -102,16 +66,39 @@ image.innerHTML = pictures[ randomId ]; // 이미지 출력
 			<c:forEach var="board" items="${boards}">
 				<div class="mas-boxes-inner">
 					<div class="item-img-wrap">
-						<div class="item-img-wrap">
-							<c:choose>
-								<c:when test="${!empty board.fileName}">
-									<a href="<c:url value="/board/detail/${board.seq}"/>">
-									<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" class="img-responsive"></a>
-								</c:when>
-							</c:choose>
-						</div>
+						<c:choose>
+							<c:when test="${!empty board.fileName}">
+								<a href="<c:url value="/board/detail/${board.seq}"/>">
+								<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" class="img-responsive"></a>
+							</c:when>
+								
+							<c:otherwise>
+							<c:set var="rand"><%= java.lang.Math.round(java.lang.Math.random() * 6) %>
+							</c:set>
+								<c:choose>
+									<c:when test="${rand==1 }">
+										<img src="http://192.168.0.75:8080/pawradise/img/0.jpg/" class="img-responsive"/>
+									</c:when>
+									<c:when test="${rand==2 }">
+										<img src="http://192.168.0.75:8080/pawradise/img/1.jpg/" class="img-responsive"/>
+									</c:when>
+									<c:when test="${rand==3 }">
+										<img src="http://192.168.0.75:8080/pawradise/img/2.jpg/" class="img-responsive"/>
+									</c:when>
+									<c:when test="${rand==4 }">
+										<img src="http://192.168.0.75:8080/pawradise/img/3.jpg/" class="img-responsive"/>
+									</c:when>
+									<c:when test="${rand==5 }">
+										<img src="http://192.168.0.75:8080/pawradise/img/4.jpg/" class="img-responsive"/>
+									</c:when>
+									<c:when test="${rand==6 }">
+										<img src="http://192.168.0.75:8080/pawradise/img/5.jpg/" class="img-responsive"/>
+									</c:when>
+								</c:choose>
+							</c:otherwise>
+						</c:choose>
+						
 					</div>
-
 					<div class="mas-blog-inner">
 						<h3>
 							<a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
@@ -121,7 +108,7 @@ image.innerHTML = pictures[ randomId ]; // 이미지 출력
 							<li>${board.name}님의글</li>
 							<li><i class="fa fa-calendar"></i>
 							<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
-							<li>글번호:${board.seq}</li>
+							<li>No.${board.seq}</li>
 						</ul>
 
 						<p>
@@ -141,6 +128,7 @@ image.innerHTML = pictures[ randomId ]; // 이미지 출력
 						</p>
 						<img src="<%=request.getContextPath()%>/img/comment.png"
 							width="15"> [${board.reply}]</a>
+						
 					</div>
 				</div>
 			</c:forEach>
@@ -151,7 +139,7 @@ image.innerHTML = pictures[ randomId ]; // 이미지 출력
 
 		<!--글쓰기버튼 -->
 		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>&nbsp;
-		<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내가쓴글</a>
+		<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내가 쓴 글</a>
 		<div class="divide10"></div>
 		<!--검색 -->
 		<form:form commandName="pageMaker" id="frm">

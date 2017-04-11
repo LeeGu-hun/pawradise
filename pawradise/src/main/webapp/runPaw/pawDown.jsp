@@ -92,30 +92,26 @@
 				<br>
 			</div>
 
-
+			<div class="divide60"></div>
 			<!-- 동영상 div -->
+			<h4>고양이 밥주기</h4>
 			<div class="video">
-				<br>
-				<h4>냥이 밥주는 영상(예시) - 소스有</h4>
-				<div>
-					<object width="640" height="360"
-						data="https://www.youtube.com/embed/7DwUOdvJp-8?ecver=2"
-						type="text/html" frameborder="0"
-						style="position: absolute; width: 100%; height: 100%; left: 0"
-						allowfullscreen></object>
-				</div>
+				<embed
+					src="http://www.youtube.com/v/7DwUOdvJp-8?version=3&vq=highres"
+					type="application/x-shockwave-flash" width="640" height="360"
+					allowscriptaccess="always" allowfullscreen="true"
+					allowscriptaccess="never"></embed> 
 			</div>
+			<div class="divide60"></div>
+			<h4>고양이 놀아주기</h4>
 			<div class="video">
-				<br>
-				<h4>냥이 놀아주는 영상(예시) - 소스有</h4>
-				<div>
-					<object width="640" height="360"
-						data="https://www.youtube.com/embed/hHIrxL0giJQ?ecver=2"
-						type="text/html" frameborder="0"
-						style="position: absolute; width: 100%; height: 100%; left: 0"
-						allowfullscreen></object>
-				</div>
+				<embed
+					src="http://www.youtube.com/v/hHIrxL0giJQ?version=3&vq=highres"
+					type="application/x-shockwave-flash" width="640" height="360"
+					allowscriptaccess="always" allowfullscreen="true"
+					allowscriptaccess="never"></embed>
 			</div>
+
 			<br>
 		</div>
 	</div>
