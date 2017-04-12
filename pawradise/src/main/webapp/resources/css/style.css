@@ -32,6 +32,31 @@ body {
 }
 
 /* �̰� �����κ�!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+#boardsrchb{
+	background-color:#333;
+	border:0;
+	color:white;
+	border-radius: 2px;
+	height:36px; width:55px;
+	}
+#boardsrchb:hover{
+	background-color:#32c5d2;
+	color:white;
+}
+#srch{
+	height:36px;
+	width:300px;
+}
+#frm{
+	aligh:center; margin:0 auto; text-align:center;
+}
+#srchform{
+	aligh:center; margin:0 auto; text-align:center;
+}
+.current{
+	font-weight:bold;
+	text-size:+1;
+}
 .agreeform{
 	height:
 	margin:0 auto;

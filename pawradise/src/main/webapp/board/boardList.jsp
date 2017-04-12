@@ -45,17 +45,6 @@ function goBoardList(){
 	background-color:#32c5d2;
 	color:white;
 }
-#srch{
-	height:36px;
-	width:300px;
-}
-#frm{
-	aligh:center; margin:0 auto; text-align:center;
-}
-#srchform{
-	aligh:center; margin:0 auto; text-align:center;
-}
-
 </style>
 <body>
 	<!--항상 같이 다니는 메뉴  -->
@@ -204,9 +193,18 @@ function goBoardList(){
 			</c:if>
 			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
 				var="idx">
-				<li class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
-					<a href='#' onclick='pageGo(${idx});'>${idx}</a>
-				</li>
+				<c:choose>
+					<c:when test="${idx eq pagemaker.page}">				
+						<li class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+						<font style="color:red;"><a href='#' onclick='pageGo(${idx});'>${idx}</a></font>
+						</li>				
+					</c:when>
+					<c:otherwise>
+						<li class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+						<a href='#' onclick='pageGo(${idx});'>${idx}</a>
+						</li>
+					</c:otherwise>	
+				</c:choose>
 			</c:forEach>
 			<c:if test="${pageMaker.next }">
 				<li class="next"><a href='#'
