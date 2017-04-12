@@ -59,11 +59,11 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="blog-post">
 				<!-- 이미지 -->					
+					<div align=center>
+						<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="800" >
+					</div>
 					
-					
-					<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" width="800">
-					
-					<!-- 상세보기 -->
+				<!-- 상세보기 -->
 					<ul class="list-inline post-detail">
 						<li>by ${board.name}</li>
 						<li><i class="fa fa-calendar"></i>

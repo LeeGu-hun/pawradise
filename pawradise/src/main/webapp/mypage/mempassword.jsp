@@ -69,9 +69,13 @@
 		<h5>※ 탈퇴할 경우 회원관련 데이터가 복구되지 않습니다. 정말로 탈퇴하시겠습니까?</h5>
 		<div class="divide20"></div>
 		<form:form id="frm">
+		
 			<table class="passconf2">
 				<tr>
-					<td ><label id="mempw"><input id="pw" name="pw"
+				
+					<td >
+					<div class="divide20"></div>
+					<label id="mempw"><input id="pw" name="pw"
 							placeholder="비밀번호" class="form-control" type="password" /></label></td>
 				</tr>
 				<tr>
@@ -79,7 +83,10 @@
 							placeholder="비밀번호확인" class="form-control" type="password" /></label></td>
 				</tr>
 				<tr>
-				<td><input type="button" id="loginbutton" onclick="sendDel();"value="탈퇴완료"></td>
+				<td>
+				<div class="divide10"></div>
+				<input type="button" id="loginbutton" onclick="sendDel();"value="탈퇴완료">
+				<div class="divide10"></div></td>
 				</tr>
 			</table>
 		</form:form>
