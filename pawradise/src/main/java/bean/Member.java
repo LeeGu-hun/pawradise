@@ -38,7 +38,8 @@ public class Member {
 		this.name = name;
 		this.password = password;
 		this.email = email;
-		this.regdate=regdate;   
+		this.regdate=regdate;  
+		this.phone=phone;
 	}
 	
 	public int getUserNum() {
