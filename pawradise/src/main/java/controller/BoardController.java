@@ -1,16 +1,9 @@
 package controller;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -19,6 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import bean.AuthInfo;
@@ -27,6 +21,8 @@ import bean.Comment;
 import command.PageMaker;
 import dao.BoardDao;
 import validator.BoardValidator;
+import xml.Data;
+import xml.XmlDataList;
 
 @Controller
 public class BoardController {
@@ -178,5 +174,18 @@ public class BoardController {
 	         int userNum = authInfo.getUserNum();
 	         return "redirect:/board/myBoardList/" + userNum;
 	      }
+	}
+	
+	//게시판xml변환
+	@RequestMapping(value = "/boardToXml")
+    @ResponseBody
+	public XmlDataList xml() {
+		
+		List<Data>  list = boardDao.xmlBoardList();
+		System.out.println(list);
+		
+		XmlDataList xdl = new XmlDataList(list);		
+				 
+		 return xdl;
 	}
 }

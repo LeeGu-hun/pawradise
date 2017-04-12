@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List; 
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import bean.Board;
 import bean.Comment;
+import xml.Data;
 
 public class BoardDao {
 	private JdbcTemplate jdbcTemplate;
@@ -35,7 +36,7 @@ public class BoardDao {
 		public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
 			Board board = new Board(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
 					rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"), rs.getInt("readCount"),
-					rs.getInt("reply"),rs.getInt("pub"),rs.getInt("userNum"));
+					rs.getInt("reply"), rs.getInt("pub"), rs.getInt("userNum"));
 			return board;
 		}
 	};
@@ -47,27 +48,26 @@ public class BoardDao {
 	}
 
 	// 글 목록 가져오기
-		public List<Board> getBoardList() {
-			List<Board> results = jdbcTemplate.query("select * from board", boardRowMapper);
-			return results;
-		}
+	public List<Board> getBoardList() {
+		List<Board> results = jdbcTemplate.query("select * from board", boardRowMapper);
+		return results;
+	}
 
-	
 	// 글 내용보기
 	public Board getDetail(int seq) {
 		List<Board> results = jdbcTemplate.query("select * from board where seq=? ", boardRowMapper, seq);
 		return results.isEmpty() ? null : results.get(0);
 	}
-	
-	
-	// 글 등록하기	
+
+	// 글 등록하기
 	@Transactional
 	public void add(final Board board) {
-		
+
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement("insert into board (seq, name, title, content, filename, readcount, reply, pub, userNum) "
+				PreparedStatement pstmt = con.prepareStatement(
+						"insert into board (seq, name, title, content, filename, readcount, reply, pub, userNum) "
 								+ "values (board_seq.NEXTVAL, ?, ?, ?, ?, 0,0,?,?)");
 				pstmt.setString(1, board.getName());
 				pstmt.setString(2, board.getTitle());
@@ -81,11 +81,12 @@ public class BoardDao {
 	}
 
 	// comment입력
-	public void insertComment(final Comment comment,final int seq) {
+	public void insertComment(final Comment comment, final int seq) {
 		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
 			public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
-				PreparedStatement pstmt = con.prepareStatement("insert into comment_t(seq, c_seq, name, c_content, userNum) "
+				PreparedStatement pstmt = con
+						.prepareStatement("insert into comment_t(seq, c_seq, name, c_content, userNum) "
 								+ "values (?, comment_seq.NEXTVAL, ?, ?, ?)");
 				pstmt.setInt(1, seq);
 				pstmt.setString(2, comment.getName());
@@ -96,31 +97,30 @@ public class BoardDao {
 		});
 
 	}
-	
-	//commnet리스트
-	public List<Comment> commentList(int seq){
-		
-		List<Comment> results=jdbcTemplate.query("select * from comment_t where seq = ? ORDER BY regDATE desc ",
-				
-				new RowMapper<Comment>(){
+
+	// commnet리스트
+	public List<Comment> commentList(int seq) {
+
+		List<Comment> results = jdbcTemplate.query("select * from comment_t where seq = ? ORDER BY regDATE desc ",
+
+				new RowMapper<Comment>() {
 					@Override
 					public Comment mapRow(ResultSet rs, int c_seq) throws SQLException {
-						Comment comment=new Comment(rs.getInt("c_seq"), rs.getString("name"), 
-								rs.getString("c_content"),  rs.getDate("regdate"), rs.getInt("userNum"));
+						Comment comment = new Comment(rs.getInt("c_seq"), rs.getString("name"),
+								rs.getString("c_content"), rs.getDate("regdate"), rs.getInt("userNum"));
 						return comment;
-					}				
-				},seq);
-		
+					}
+				}, seq);
+
 		return results;
 	}
 
-	
-	//commnet 갯수
-		public void getCountComment(int seq) {
-			jdbcTemplate.update("update board set reply=(select count(*) from comment_t where seq = ?) where seq=?",seq, seq);
-		}
+	// commnet 갯수
+	public void getCountComment(int seq) {
+		jdbcTemplate.update("update board set reply=(select count(*) from comment_t where seq = ?) where seq=?", seq,
+				seq);
+	}
 
-	
 	// comment 1개만 삭제
 	public boolean commnet1Delete(int c_seq) {
 		boolean result = false;
@@ -128,7 +128,7 @@ public class BoardDao {
 
 		return result;
 	}
-	
+
 	// 게시글 삭제시 comment 삭제
 	public boolean commnetDelete(int seq) {
 		boolean result = false;
@@ -146,10 +146,10 @@ public class BoardDao {
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and pub=1", 
+							+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and pub=1",
 					Integer.class, srch, srch, srch);
 		}
-		System.out.println("페이지 count "+count);
+		System.out.println("페이지 count " + count);
 		return count;
 	}
 
@@ -162,58 +162,57 @@ public class BoardDao {
 		} else {
 			count = jdbcTemplate.queryForObject(
 					"select count(*) from board where "
-					+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and userNum=? ", 
+							+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and userNum=? ",
 					Integer.class, srch, srch, srch, userNum);
 		}
-		System.out.println("페이지 count "+count);
+		System.out.println("페이지 count " + count);
 		return count;
 	}
-	
-	//마이페이지 페이징처리
+
+	// 마이페이지 페이징처리
 	public List<Board> selectMyPage(String srch, int startPage, int limit, int userNum) {
-			List<Board> results;
-			if (srch == null || srch.equals("")) {
-				results = jdbcTemplate.query("select * from (select rownum rnum, seq, name,"
-						+ "title, content, filename, regdate, readcount, reply, pub, userNum from (select rownum rnum, seq, name,"
-						+ "title, content, filename, regdate, readcount, reply, pub, userNum from "
-					    + "(select * from board order by seq desc))where usernum=?) where rnum>=? and rnum<=?" ,
-						boardRowMapper, userNum, startPage, (startPage+limit));
-			} else {
-				results = jdbcTemplate.query(
-						"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
-					               + "(select * from board order by seq desc)) where "
-					               + "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and userNum=?",
-						boardRowMapper, srch, srch, srch,userNum);
-			}
-			System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
-			System.out.println("페이징결과 result "+results);
-			return results;
+		List<Board> results;
+		if (srch == null || srch.equals("")) {
+			results = jdbcTemplate.query(
+					"select * from (select rownum rnum, seq, name,"
+							+ "title, content, filename, regdate, readcount, reply, pub, userNum from (select rownum rnum, seq, name,"
+							+ "title, content, filename, regdate, readcount, reply, pub, userNum from "
+							+ "(select * from board order by seq desc))where usernum=?) where rnum>=? and rnum<=?",
+					boardRowMapper, userNum, startPage, (startPage + limit));
+		} else {
+			results = jdbcTemplate.query(
+					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
+							+ "(select * from board order by seq desc)) where "
+							+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%') and userNum=?",
+					boardRowMapper, srch, srch, srch, userNum);
 		}
-	
-	
-	
-	
+		System.out.println("srch " + srch + " startPage: " + startPage + " limit: " + (startPage + limit));
+		System.out.println("페이징결과 result " + results);
+		return results;
+	}
+
 	// 페이징처리
-	   public List<Board> selectPage(String srch, int startPage, int limit) {
-	      List<Board> results;
-	      if (srch == null || srch.equals("")) {
-	         results = jdbcTemplate.query("select * from (select rownum rnum, seq, name,"
-						+ "title, content, filename, regdate, readcount, reply, pub, userNum from (select rownum rnum, seq, name,"
-						+ "title, content, filename, regdate, readcount, reply, pub, userNum from "						
-						+ "(select * from board order by seq desc))where pub=1) where rnum>=? and rnum<=?",
-	               boardRowMapper, startPage, (startPage+limit));
-	      } else {   
-	         results = jdbcTemplate.query(
-	               "select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
-	               + "(select * from board order by seq desc)) where "
-	               + "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%' ) and pub=1",
-	               boardRowMapper, srch, srch, srch);
-	      }
-	      System.out.println("srch "+srch+" startPage: "+startPage+" limit: "+ (startPage+limit));
-	      System.out.println("페이징결과 result "+results);
-	      return results;
-	   }
-	
+	public List<Board> selectPage(String srch, int startPage, int limit) {
+		List<Board> results;
+		if (srch == null || srch.equals("")) {
+			results = jdbcTemplate.query(
+					"select * from (select rownum rnum, seq, name,"
+							+ "title, content, filename, regdate, readcount, reply, pub, userNum from (select rownum rnum, seq, name,"
+							+ "title, content, filename, regdate, readcount, reply, pub, userNum from "
+							+ "(select * from board order by seq desc))where pub=1) where rnum>=? and rnum<=?",
+					boardRowMapper, startPage, (startPage + limit));
+		} else {
+			results = jdbcTemplate.query(
+					"select * from (select rownum rnum, seq, name, title, content, filename, regdate, readcount, reply, pub, userNum from "
+							+ "(select * from board order by seq desc)) where "
+							+ "(name like '%' || ? || '%' or title like '%' || ? || '%' or content like '%' || ? || '%' ) and pub=1",
+					boardRowMapper, srch, srch, srch);
+		}
+		System.out.println("srch " + srch + " startPage: " + startPage + " limit: " + (startPage + limit));
+		System.out.println("페이징결과 result " + results);
+		return results;
+	}
+
 	// 게시글삭제
 	public boolean delete(int seq) {
 		boolean result = false;
@@ -222,15 +221,32 @@ public class BoardDao {
 		return result;
 	}
 
-	 // 글 수정하기 
+	// 글 수정하기
 	public void update(Board board) {
-	 jdbcTemplate.update("update board set title=?, content=? where seq=?",
-	 board.getTitle(), board.getContent(), board.getSeq()); }
+		jdbcTemplate.update("update board set title=?, content=? where seq=?", board.getTitle(), board.getContent(),
+				board.getSeq());
+	}
 
 	// 조회수 업데이트
 	public void readCountUpdate(int seq) {
 		jdbcTemplate.update("update board set readcount=readcount+1 where seq=?", seq);
 	}
 
+	// xml 글 목록 가져오기int seq, String name, String title, String content, String fileName, Date regdate
+	public List<Data> xmlBoardList() {
+
+		List<Data> results = jdbcTemplate.query("select * from board ",
+
+				new RowMapper<Data>() {
+					@Override
+					public Data mapRow(ResultSet rs, int c_seq) throws SQLException {
+						Data data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
+								rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"));
+						return data;
+					}
+				});
+
+		return results;
+	}
 
 }
