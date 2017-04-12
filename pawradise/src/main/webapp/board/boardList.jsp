@@ -33,7 +33,30 @@ function goBoardList(){
 }
 
 </script>
+<style>
+#boardsrchb{
+	background-color:#333;
+	border:0;
+	color:white;
+	border-radius: 2px;
+	height:36px; width:55px;
+	}
+#boardsrchb:hover{
+	background-color:#32c5d2;
+	color:white;
+}
+#srch{
+	height:36px;
+	width:300px;
+}
+#frm{
+	aligh:center; margin:0 auto; text-align:center;
+}
+#srchform{
+	aligh:center; margin:0 auto; text-align:center;
+}
 
+</style>
 <body>
 	<!--항상 같이 다니는 메뉴  -->
 	<%@ include file="/include/topMenu.jsp"%>
@@ -48,7 +71,7 @@ function goBoardList(){
 				<div class="col-sm-6 hidden-xs text-right">
 					<ol class="breadcrumb">
 						<li><a href="index.jsp">HOME</a></li>
-						<li>냥냥멍멍 귀여워</li>
+						<li>커뮤니티 게시판</li>
 					</ol>
 				</div>
 			</div>
@@ -152,28 +175,28 @@ function goBoardList(){
 		<!--글쓰기버튼 -->
 		<table width=100%>
 			<tr>
-				<td>
+				<td id="listtd">
 					<a href="#" onclick="goBoardList();" class="btn btn-theme-dark btn-lg">처음 페이지로</a>&nbsp;&nbsp; 
 					<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내	글만 보기</a>&nbsp;&nbsp; 
-				</td>
-				<td align=right>
+				</td>			
+				<td id="listtd"align=right>
 					<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
 				</td>
 			</tr>
 			<tr>
 				<td align=right colspan="2">
-				<div class="divide10"></div>
-<!--검색 --> 			<form:form commandName="pageMaker" id="frm">
-						<p>
+				<div class="divide20"></div>
+<!--검색 --> 	<form:form commandName="pageMaker" id="frm">
+						<p id="srchform">
 							<input type="text" id="srch" name="srch" placeholder="검색" /> 
-							<input type="submit" value="조회"> <input type="text" name="page"	 id="page" hidden />
+							<input type="submit" value="조회" id="boardsrchb"> <input type="text" name="page"	 id="page" hidden />
 						</p>
-<!--검색 -->			</form:form> 
+<!--검색 -->		</form:form>		
 				</td>
 			</tr>
 		</table>
 
-		<div class="divide10"></div>
+		<div class="divide20"></div>
 		<ul class="pager">
 			<c:if test="${pageMaker.prev}">
 				<li class="previous"><a href='#'

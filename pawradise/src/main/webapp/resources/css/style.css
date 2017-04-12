@@ -289,7 +289,7 @@ body {
 	aligh:center;
 	width:400px;
 	height:150px;
-	border:3px solid #32c5d2;
+	border:1px solid #32c5d2;
 }
 #byebutton{
 	valign:center;
@@ -317,6 +317,15 @@ body {
 }
 #mempw{
 	width:280px;
+}
+#boardsrchb{
+	background-color:#32c5d2;
+	border:0;
+	color:black;
+}
+#boardsrchb:hover{
+	background-color:black;
+	color:white;
 }
 /* �̰� �����κ� �������!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 

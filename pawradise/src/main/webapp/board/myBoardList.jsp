@@ -49,7 +49,7 @@ $(document).ready(function(){
 				<div class="col-sm-6 hidden-xs text-right">
 					<ol class="breadcrumb">
 						<li><a href="index.jsp">HOME</a></li>
-						<li>냥냥멍멍 귀여워</li>
+						<li>내게시판</li>
 					</ol>
 				</div>
 			</div>
