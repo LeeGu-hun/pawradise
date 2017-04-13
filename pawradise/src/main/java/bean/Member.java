@@ -38,8 +38,7 @@ public class Member {
 		this.name = name;
 		this.password = password;
 		this.email = email;
-		this.regdate=regdate;  
-		this.phone=phone;
+		this.regdate=regdate;   
 	}
 	
 	public int getUserNum() {
@@ -82,8 +81,8 @@ public class Member {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
-	public void changePassword(String oldPassword, String newPassword){
-		if(!password.equals(oldPassword))
+	public void changePassword(String currentPassword, String newPassword){
+		if(!password.equals(currentPassword))
 			throw new IdPasswordNotMatchingException();
 		this.password = newPassword;
 	}

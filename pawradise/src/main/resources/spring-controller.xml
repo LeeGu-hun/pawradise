@@ -19,8 +19,8 @@ http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<bean class="controller.LogoutController" />
 	
 	<bean class="controller.ChangePwdController" >
-		<property name="changePasswordService" ref="changePwdSvc" />
-		
+		<property name="memberDao" ref="memberDao" />
+		<property name="changePwdSvc" ref="changePwdSvc" /> 
 	</bean>
 
  	<bean class="controller.MemberListController">

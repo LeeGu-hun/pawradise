@@ -84,9 +84,11 @@ public class MemberDao {
 
 	} 
 	
-	public void update(String newPwd, int userNum ){
-		jdbcTemplate.update("update member set password=? where userNum=?", 
-				newPwd, userNum);
+	public boolean update(String newPassword, String email ){
+		boolean result = false;
+		jdbcTemplate.update("update member set password=? where email=?", 
+				newPassword, email);
+		return result;
 	}
 	
 	public List<Member> selectAll() {

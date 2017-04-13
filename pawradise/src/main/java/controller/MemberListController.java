@@ -112,8 +112,11 @@ public class MemberListController {
 	public String delet(){
 		return "mypage/mempassword";
 	}
+	
+//  회원 탈퇴
 	@RequestMapping(value = "/mypage/memdelete/{userNum}", method=RequestMethod.POST)
-	public String delete(@PathVariable("userNum") int userNum,HttpServletRequest request, HttpServletResponse response)throws Exception{
+	public String delete(@PathVariable("userNum") int userNum,
+			HttpServletRequest request, HttpServletResponse response)throws Exception{
 		String result = "";
 		String pw = request.getParameter("pw");
 		Member mem = memberDao.selectByUserNum(userNum);

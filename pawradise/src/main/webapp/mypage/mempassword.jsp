@@ -16,22 +16,23 @@
 		var em = document.getElementById("email");
 		if (em.value = "") {
 			alert("암호를 입력하세요");
-		} else if (pw.vlaue = "") {
+		} else if (pw.value = "") {
 			alert("이메일을 입력하세요");
 		}
 	}
+
 	function sendDel() {
 		var pw = document.getElementById("pw");
 		var rePw = document.getElementById("rePw");
 		if (pw.value == "") {
 			alert("비밀번호를 입력하세요");
 			return;
-		} 
+		}
 		if (rePw.value == "") {
 			alert("비밀번호 확인을 입력하세요");
 			return;
 		}
-		if(pw.value != rePw.value){
+		if (pw.value != rePw.value) {
 			alert("비밀번호와 비밀번호 확인을 확인해주세요");
 			return;
 		}
@@ -52,7 +53,7 @@
 				<div class="col-sm-6 hidden-xs text-right">
 					<ol class="breadcrumb">
 						<li><a href="index.jsp">HOME</a></li>
-						<li>냥냥멍멍귀여워</li>
+						<li>회원탈퇴</li>
 					</ol>
 				</div>
 			</div>
@@ -63,30 +64,32 @@
 	<div class="passconf">
 
 		<div class="center-heading">
-			<h2>탈퇴</h2>
+			<h2>회원탈퇴</h2>
 			<span class="center-line"></span>
 		</div>
 		<h5>※ 탈퇴할 경우 회원관련 데이터가 복구되지 않습니다. 정말로 탈퇴하시겠습니까?</h5>
 		<div class="divide20"></div>
 		<form:form id="frm">
-		
+
 			<table class="passconf2">
 				<tr>
-				
-					<td >
-					<div class="divide20"></div>
-					<label id="mempw"><input id="pw" name="pw"
-							placeholder="비밀번호" class="form-control" type="password" /></label></td>
+
+					<td>
+						<div class="divide20"></div> <label id="mempw"><input
+							id="pw" name="pw" placeholder="비밀번호" class="form-control"
+							type="password" /></label>
+					</td>
 				</tr>
 				<tr>
-					<td ><label id="mempw"><input id="rePw" name="rePw"
+					<td><label id="mempw"><input id="rePw" name="rePw"
 							placeholder="비밀번호확인" class="form-control" type="password" /></label></td>
 				</tr>
 				<tr>
-				<td>
-				<div class="divide10"></div>
-				<input type="button" id="loginbutton" onclick="sendDel();"value="탈퇴완료">
-				<div class="divide10"></div></td>
+					<td>
+						<div class="divide10"></div> <input type="button" id="loginbutton"
+						onclick="sendDel();" value="탈퇴완료">
+						<div class="divide10"></div>
+					</td>
 				</tr>
 			</table>
 		</form:form>

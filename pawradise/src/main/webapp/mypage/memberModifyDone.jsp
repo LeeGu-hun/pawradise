@@ -23,7 +23,7 @@
 				<div class="col-sm-6 hidden-xs text-right">
 					<ol class="breadcrumb">
 						<li><a href="index.jsp">HOME</a></li>
-						<li>냥냥멍멍귀여워</li>
+						<li>비밀번호 변경</li>
 					</ol>
 				</div>
 			</div>
@@ -32,9 +32,12 @@
 	<!--breadcrumbs-->
 	<div class="divide50"></div>
 	<div class="center-heading">
-			<h2>비밀번호가 변경되었습니다.</h2>   
+			<h2>비밀번호가 변경완료</h2>   
 			<span class="center-line"></span>
-			<p> <input type="button" value="로그인하러가기" id="byebutton" onclick="location.href='/pawradise/login'"></p>
+			<div class="divide30"></div>
+			<p>로그아웃 되었습니다. 새로운 비밀번호로 다시 로그인해주세요.</p>
+			<div class="divide10"></div>
+			<p> <input type="button" value="로그인" id="loginbutton" onclick="location.href='/pawradise/login'"></p>
 	</div>
 
 	<div class="divide50"></div>

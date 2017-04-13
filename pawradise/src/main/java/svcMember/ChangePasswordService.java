@@ -17,12 +17,12 @@ public class ChangePasswordService {
 	}
 
 	@Transactional
-	public void changePassword(int userNum, String oldPwd, String newPwd){
-		Member member = memberDao.selectByUserNum(userNum);
+	public void changePassword(String email, String currentPassword, String newPassword){
+		Member member = memberDao.selectByEmail(email);
 //		System.out.println(member);
 		if(member == null) throw new MemberNotFoundException();
 //		System.out.println("oldPwd: "+oldPwd+"newPwd: "+ newPwd);
-		member.changePassword(oldPwd, newPwd);
-		memberDao.update(newPwd, userNum);
+		member.changePassword(currentPassword, newPassword);
+		memberDao.update(newPassword, email);
 	}
 }
