@@ -191,6 +191,8 @@ function goBoardList(){
 				<li class="previous"><a href='#'
 					onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
 			</c:if>
+			<c:choose>
+			<c:when test="${pageMaker.srch==null || pageMaker.srch.equals('')}">
 			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
 				var="idx">
 				<c:choose>
@@ -206,6 +208,14 @@ function goBoardList(){
 					</c:otherwise>	
 				</c:choose>
 			</c:forEach>
+			</c:when>
+			<c:otherwise>
+				<c:forEach begin="${pageMaker.start }" end="" var ="idx2">
+				<li class='<c:out value="${idx2 == 1}"/>'>
+				</li>
+				</c:forEach>
+			</c:otherwise>
+			</c:choose>
 			<c:if test="${pageMaker.next }">
 				<li class="next"><a href='#'
 					onclick='pageGo(${pageMaker.page+1});'>Next Page →</a></li>
