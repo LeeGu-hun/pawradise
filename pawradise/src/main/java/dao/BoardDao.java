@@ -248,5 +248,21 @@ public class BoardDao {
 
 		return results;
 	}
+	
+	// xml 내글내글내글 목록 가져오기int seq, String name, String title, String content, String fileName, Date regdate
+		public List<Data> xmlMyBoardList(int userNum) {
 
+			List<Data> results = jdbcTemplate.query("select * from board where usernum=? ",
+
+					new RowMapper<Data>() {
+						@Override
+						public Data mapRow(ResultSet rs, int c_seq) throws SQLException {
+							Data data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
+									rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"));
+							return data;
+						}
+					} , userNum);
+
+			return results;
+		}
 }

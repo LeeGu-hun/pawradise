@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import bean.Member;
 import command.PageMaker;
@@ -27,6 +28,10 @@ import exception.IdPasswordNotMatchingException;
 import exception.MemberNotFoundException;
 import svcMember.AuthService;
 import validator.ListCommandValidator;
+import xml.Data;
+import xml.MemData;
+import xml.XmlDataList;
+import xml.XmlMemDataList;
 
 @Controller
 public class MemberListController {
@@ -135,30 +140,17 @@ public class MemberListController {
 			return "mypage/mempassword";
 		}
 	}
-	// new LoginCommandValidator().validate(loginCommand, errors);
-	// if (errors.hasErrors())
-	// return "mypage/mempassword";
-	// try {
-	// boolean member = memberDao.memberDelete(userNum);
-	// AuthInfo authInfo =
-	// authService.authenticate(loginCommand.getEmail(),loginCommand.getPassword());
-	// authInfo.getUserNum();
-	// return "mypage/memberout";
-	// } catch (IdPasswordNotMatchingException e) {
-	// errors.reject("idPasswordNotMatching");
-	// return "mypage/mempassword";
-	// }
-
-	/*
-	 * @RequestMapping(value="/mypage/memdelete/{userNum}") public String
-	 * memberdelete(@PathVariable("userNum") int userNum, Model model,MemberDao
-	 * memberDao, Errors errors, HttpSession session){ boolean member =
-	 * memberDao.memberDelete(userNum); try { session.invalidate(); return
-	 * "mypage/memberout";
-	 * 
-	 * } catch (IdPasswordNotMatchingException e) {
-	 * errors.rejectValue("Password", "notMatching");
-	 * 
-	 * return "mypage/mempassword"; } }
-	 */
+	
+	//xml member
+	@RequestMapping(value = "/MyPageXml/{userNum}")
+    @ResponseBody
+	public XmlMemDataList xml(@PathVariable("userNum")int userNum) {
+		
+		List<MemData> list = memberDao.xmlMyList(userNum);
+		System.out.println(list);
+		
+		XmlMemDataList xdl = new XmlMemDataList(list);		
+				 
+		 return xdl;
+	}
 }

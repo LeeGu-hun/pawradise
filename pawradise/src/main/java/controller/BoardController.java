@@ -188,4 +188,17 @@ public class BoardController {
 				 
 		 return xdl;
 	}
+	
+	//게시판xml변환
+		@RequestMapping(value = "/boardToMyXml/{userNum}")
+	    @ResponseBody
+		public XmlDataList MyXml(@PathVariable("userNum") int userNum) {
+			
+			List<Data>  listm = boardDao.xmlMyBoardList(userNum);
+			System.out.println(listm);
+			
+			XmlDataList xdl = new XmlDataList(listm);		
+					 
+			 return xdl;
+		}
 }
