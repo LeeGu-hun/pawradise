@@ -39,6 +39,7 @@ public class Member {
 		this.password = password;
 		this.email = email;
 		this.regdate=regdate;   
+		this.phone=phone;
 	}
 	
 	public int getUserNum() {
