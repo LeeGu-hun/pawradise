@@ -12,28 +12,29 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="member")
 public class XmlMemDataList {
 	
-	@XmlElement(name="list")
-	private List<MemData> list;
+	@XmlElement(name="mylist")
+	private List<MemData> mylist;
 		
-	public XmlMemDataList(List<MemData> list) {
-		this.list = list;
-	}
-
-	public XmlMemDataList() {
+	
+	public XmlMemDataList(List<MemData> mylist) {
 		super();
+		this.mylist = mylist;
 	}
 
-	public List<MemData> getList() {
-		return list;
+
+	public List<MemData> getMylist() {
+		return mylist;
 	}
 
-	public void setList(List<MemData> list) {
-		this.list = list;
+
+	public void setMylist(List<MemData> mylist) {
+		this.mylist = mylist;
 	}
+
 
 	@Override
 	public String toString(){
-		return "MemDataList [lsit=" + list + "]";
+		return "MemDataList [list=" + mylist + "]";
 	}
 	
 	

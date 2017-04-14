@@ -126,10 +126,10 @@ public class MemberDao {
 
 				new RowMapper<MemData>() {
 					@Override
-					public MemData mapRow(ResultSet rs, int rowNum) throws SQLException {
-						MemData mdata = new MemData(rs.getString("name"), rs.getString("password"),
+					public MemData mapRow(ResultSet rs, int c_seq) throws SQLException {
+						MemData memdata = new MemData(rs.getString("name"), rs.getString("password"),
 								rs.getString("email"), rs.getString("phone"), rs.getInt("userNum"));
-						return mdata;
+						return memdata;
 					}
 				}, userNum);
 

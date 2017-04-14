@@ -8,7 +8,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name="data", 
+@XmlType(name="memdata", 
 	propOrder={"name","password", "email", "phone","userNum"})
 public class MemData{  
 	
@@ -41,6 +41,26 @@ public class MemData{
 		this.userNum = userNum;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public int getUserNum() {
+		return userNum;
+	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -62,3 +82,4 @@ public class MemData{
 	}	
 	
 }
+ 

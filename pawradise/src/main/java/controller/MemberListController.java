@@ -144,9 +144,9 @@ public class MemberListController {
 	//xml member
 	@RequestMapping(value = "/MyPageXml/{userNum}")
     @ResponseBody
-	public XmlMemDataList xml(@PathVariable("userNum")int userNum) {
+	public XmlMemDataList MemXml(@PathVariable("userNum")int userNum) {
 		
-		List<MemData> list = memberDao.xmlMyList(userNum);
+		List<MemData> list= memberDao.xmlMyList(userNum);
 		System.out.println(list);
 		
 		XmlMemDataList xdl = new XmlMemDataList(list);		

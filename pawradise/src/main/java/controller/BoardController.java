@@ -194,10 +194,10 @@ public class BoardController {
 	    @ResponseBody
 		public XmlDataList MyXml(@PathVariable("userNum") int userNum) {
 			
-			List<Data>  listm = boardDao.xmlMyBoardList(userNum);
-			System.out.println(listm);
+			List<Data>  mylist = boardDao.xmlMyBoardList(userNum);
+			System.out.println(mylist);
 			
-			XmlDataList xdl = new XmlDataList(listm);		
+			XmlDataList xdl = new XmlDataList(mylist);		
 					 
 			 return xdl;
 		}
