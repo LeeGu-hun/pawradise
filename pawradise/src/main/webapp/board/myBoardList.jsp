@@ -55,11 +55,16 @@ $(document).ready(function(){
 			<c:forEach var="board" items="${boards}">
 				<div class="col-md-10 col-md-offset-1">
 					<div class="blog-post">
-						<c:choose>
-							<c:when test="${!empty board.fileName}">
-								<img src="<%=request.getContextPath() %>/uploads/${board.fileName}" class="img-responsive">
-							</c:when>
-						</c:choose>
+						<div align="center">
+
+							<c:choose>
+								<c:when test="${!empty board.fileName}">
+									<img
+										src="<%=request.getContextPath() %>/uploads/${board.fileName}"
+										class="img-responsive">
+								</c:when>
+							</c:choose>
+						</div>
 						<br>
 						<h3>
 							<a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
@@ -67,8 +72,8 @@ $(document).ready(function(){
 
 						<ul class="list-inline post-detail">
 							<li>${board.name}님의글</li>
-							<li><i class="fa fa-calendar"></i>
-							<fmt:formatDate value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
+							<li><i class="fa fa-calendar"></i> <fmt:formatDate
+									value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
 							<li>글번호:${board.seq}</li>
 						</ul>
 						<p>"${board.content}"</p>
@@ -80,24 +85,27 @@ $(document).ready(function(){
 			<!--컨텐츠들어가는부분 끝-->
 		</div>
 	</div>
-	<div class="pager">
-		<!--글쓰기버튼 -->
-		<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
-		&nbsp;&nbsp;&nbsp;
-		<!-- 전체게시판으로 가기 -->
-		<a href="<%=request.getContextPath()%>/boardList"
-			class="btn btn-theme-dark btn-lg">포토게시판</a>
-		<div class="divide10"></div>
-		<!--글쓰기버튼 -->
-
-		<!--검색 -->
-		<form:form commandName="pageMaker" id="frm">
-			<p>
-			<input type="text" id="srch" name="srch" placeholder="검색" /> <input type="submit" value="조회">
-			<input type="text" name="page" id="page" hidden />
-			</p>
-		</form:form>
-		<!--검색 -->
+	<div class="container">
+		<div class="pager">
+			<!--글쓰기버튼 -->
+			<table width=100%>
+				<tr>
+					<td width=33.33% align="left"><a href="#"
+						onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
+						&nbsp;&nbsp;&nbsp; <!-- 전체게시판으로 가기 --> <a
+						href="<%=request.getContextPath()%>/boardList"
+						class="btn btn-theme-dark btn-lg">포토게시판</a></td>
+					<td width=33.33%></td>
+					<td width=33.33% align="right">
+						<!--검색 --> <form:form commandName="pageMaker" id="frm">
+							<input type="text" id="srch" name="srch" placeholder="검색" />
+							<input type="submit" id="boardsrchb" value="조회">
+							<input type="text" name="page" id="page" hidden />
+						</form:form> <!--검색 -->
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 
 	<div class="container">

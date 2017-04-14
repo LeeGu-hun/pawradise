@@ -34,16 +34,18 @@ function goBoardList(){
 
 </script>
 <style>
-#boardsrchb{
-	background-color:#333;
-	border:0;
-	color:white;
+#boardsrchb {
+	background-color: #333;
+	border: 0;
+	color: white;
 	border-radius: 2px;
-	height:36px; width:55px;
-	}
-#boardsrchb:hover{
-	background-color:#32c5d2;
-	color:white;
+	height: 36px;
+	width: 55px;
+}
+
+#boardsrchb:hover {
+	background-color: #32c5d2;
+	color: white;
 }
 </style>
 <body>
@@ -149,23 +151,23 @@ function goBoardList(){
 		<!--글쓰기버튼 -->
 		<table width=100%>
 			<tr>
-				<td id="listtd">
-					<a href="#" onclick="goBoardList();" class="btn btn-theme-dark btn-lg">처음 페이지로</a>&nbsp;&nbsp; 
-					<a href="#" onclick="goMyWriter();" class="btn btn-theme-dark btn-lg">내	글만 보기</a>&nbsp;&nbsp; 
-				</td>			
-				<td id="listtd"align=right>
-					<a href="#" onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
-				</td>
+				<td id="listtd" width=33.33%><a href="#"
+					onclick="goBoardList();" class="btn btn-theme-dark btn-lg">처음
+						페이지로</a>&nbsp;&nbsp; <a href="#" onclick="goMyWriter();"
+					class="btn btn-theme-dark btn-lg">내 글만 보기</a>&nbsp;&nbsp;</td>
+				<td width=33.33%></td>
+				<td id="listtd" align=right width=33.33%><a href="#"
+					onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a></td>
 			</tr>
 			<tr>
-				<td align=right colspan="2">
-				<div class="divide20"></div>
-<!--검색 --> 	<form:form commandName="pageMaker" id="frm">
-						<p id="srchform">
-							<input type="text" id="srch" name="srch" placeholder="검색" /> 
-							<input type="submit" value="조회" id="boardsrchb"> <input type="text" name="page"	 id="page" hidden />
-						</p>
-<!--검색 -->		</form:form>		
+				<td align=center colspan="3">
+					<div class="divide20"></div> <!--검색 --> <form:form
+						commandName="pageMaker" id="frm">
+						<input type="text" id="srch" name="srch" placeholder="검색" />
+						<input type="submit" value="조회" id="boardsrchb">
+						<input type="text" name="page" id="page" hidden />
+						<!--검색 -->
+					</form:form>
 				</td>
 			</tr>
 		</table>
@@ -177,29 +179,31 @@ function goBoardList(){
 					onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
 			</c:if>
 			<c:choose>
-			<c:when test="${pageMaker.srch==null || pageMaker.srch.equals('')}">
-			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
-				var="idx">
-				<c:choose>
-					<c:when test="${idx eq pagemaker.page}">				
-						<li class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
-						<font style="color:red;"><a href='#' onclick='pageGo(${idx});'>${idx}</a></font>
-						</li>				
-					</c:when>
-					<c:otherwise>
-						<li class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
-						<a href='#' onclick='pageGo(${idx});'>${idx}</a>
-						</li>
-					</c:otherwise>	
-				</c:choose>
-			</c:forEach>
-			</c:when>
-			<c:otherwise>
-				<c:forEach begin="${pageMaker.start }" end="" var ="idx2">
-				<li class='<c:out value="${idx2 == 1}"/>'>
-				</li>
-				</c:forEach>
-			</c:otherwise>
+				<c:when test="${pageMaker.srch==null || pageMaker.srch.equals('')}">
+					<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
+						var="idx">
+						<c:choose>
+							<c:when test="${idx eq pagemaker.page}">
+								<li
+									class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+									<font style="color: red;"><a href='#'
+										onclick='pageGo(${idx});'>${idx}</a></font>
+								</li>
+							</c:when>
+							<c:otherwise>
+								<li
+									class='<c:out value="${idx == pageMaker.page?'current':''}"/>'>
+									<a href='#' onclick='pageGo(${idx});'>${idx}</a>
+								</li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+				</c:when>
+				<c:otherwise>
+					<c:forEach begin="${pageMaker.start }" end="" var="idx2">
+						<li class='<c:out value="${idx2 == 1}"/>'></li>
+					</c:forEach>
+				</c:otherwise>
 			</c:choose>
 			<c:if test="${pageMaker.next }">
 				<li class="next"><a href='#'
