@@ -3583,6 +3583,54 @@ ul.post-desc li + li {
   background: url(../img/showcase-1.jpg) no-repeat center center;
 }
 
+.breadcrumb-wrap {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-1.gif) no-repeat center center;
+}
+.breadcrumb-wrap1 {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-1.gif) no-repeat center center;
+}
+.breadcrumb-wrap2 {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-2.gif) no-repeat center center;
+}
+.breadcrumb-wrap3 {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-3.gif) no-repeat center center;
+}
+.breadcrumb-wrap4 {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-4.gif) no-repeat center center;
+}
+.breadcrumb-wrap5 {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-5.gif) no-repeat center center;
+}
+.breadcrumb-wrap6 {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-6.gif) no-repeat center center;
+}
+.breadcrumb-wrap7 {
+  padding: 60px 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: url(../img/showcase-7.gif) no-repeat center center;
+}
 .breadcrumb-wrap h4 {
   margin: 0px;
   font-size: 16px;
