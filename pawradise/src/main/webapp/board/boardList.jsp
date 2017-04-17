@@ -77,31 +77,28 @@ function goBoardList(){
 							</c:when>
 
 							<c:otherwise>
-								<c:set var="rand"><%=java.lang.Math.round(java.lang.Math.random() * 6)%>
+								<c:set var="rand"><%=java.lang.Math.round(java.lang.Math.random() * 5)%>
 								</c:set>
 								<c:choose>
+									
 									<c:when test="${rand==1 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/0.jpg/"
+										<img src="http://192.168.0.75:8080/pawradise/img/6.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==2 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/1.jpg/"
+										<img src="http://192.168.0.75:8080/pawradise/img/7.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==3 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/2.jpg/"
+										<img src="http://192.168.0.75:8080/pawradise/img/8.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==4 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/3.jpg/"
+										<img src="http://192.168.0.75:8080/pawradise/img/9.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==5 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/4.jpg/"
-											class="img-responsive" />
-									</c:when>
-									<c:when test="${rand==6 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/5.jpg/"
+										<img src="http://192.168.0.75:8080/pawradise/img/10.jpg/"
 											class="img-responsive" />
 									</c:when>
 								</c:choose>

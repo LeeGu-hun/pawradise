@@ -20,15 +20,17 @@
 	<div class="divide70"></div>
 	<div class="regdone">
 		<div class="donemsg">
-		<h2>
-			<spring:message code="register.btn" />
-		</h2>
+		<div class="center-heading">
+                <h2>가입 완료</h2>
+                <span class="center-line"></span>
+            </div>
 		<p>
 			<spring:message code="register.done"
 				arguments="${registerRequest.name},${word}" />
 		</p>
-		<p>저희 냥냥멍멍귀여워의 회원이 되신걸 축하드립니다</p>
+		<p>PAWRADISE의 회원이 되신 것을 축하드립니다!</p>
 		<p>
+		
 			<a href="<c:url value="/index.jsp"/>">[<spring:message code="go.main" />]&nbsp;&nbsp;
 			<a href="<c:url value="/login"/>">[로그인하기]
 			</a>

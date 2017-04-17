@@ -58,20 +58,14 @@ body {
 	text-size:+1;
 }
 .agreeform{
-	height:
-	margin:0 auto;
+/* 	border:1px solid #d9d9d9; */
+	margin: 0 auto;
 	valign:center;
 	text-align:center;
 	aligh:center;
+	width: 80%;
 }
-.agreeborder{
-	border:1px solid #d9d9d9;
-	margin:0 auto;
-	padding:10px 5px 20px 5px;
-	valign:center;
-	text-align:center;
-	aligh:center;
-}
+
 .agreecontents{
 	margin:0 auto;
 	padding:10px 10px 10px 10px;
@@ -3617,7 +3611,7 @@ ul.post-desc li + li {
   padding: 60px 0;
   background-position: center center;
   background-repeat: no-repeat;
-  background: url(../img/showcase-5.gif) no-repeat center center;
+  background: url(../img/showcase-2.gif) no-repeat center center;
 }
 .breadcrumb-wrap6 {
   padding: 60px 0;
@@ -3653,10 +3647,12 @@ ol.breadcrumb li {
   font-size: 14px;
   text-transform: capitalize;
   letter-spacing: 1px;
+  text-shadow: 1px 1px 1px black;
 }
 
 ol.breadcrumb li a {
   color: #fff;
+  text-shadow: 1px 1px 1px black;
 }
 
 /***list of highlight**/
