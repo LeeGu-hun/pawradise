@@ -24,7 +24,7 @@
 }
 
 .def {
-	font-size: 16pt;
+	font-size: 13pt;
 }
 
 .pawr {
@@ -57,9 +57,9 @@
 		<div align=center>
 			<div id=def>
 				<br>
-				<h2>
+				<h3>
 					<strong>PAWRADISE</strong> 란?
-				</h2>
+				</h3>
 				<br>
 				<p class="def">
 					동물들의 발을 뜻하는 영어 단어인 <strong>PAW</strong>와, 낙원이라는 뜻의 <strong>PARADISE</strong>를 합쳐,
