@@ -128,7 +128,7 @@ $(document).ready(function(){
 	<div class="container">
 		<ul class="pager">
 			<c:if test="${pageMaker.prev }">
-				<li class="previous"><a href='#'
+				<li class="previous"><a href='#' 
 					onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
 			</c:if>
 			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
