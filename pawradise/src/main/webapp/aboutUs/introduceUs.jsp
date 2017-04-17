@@ -58,7 +58,7 @@
 			<div id=def>
 				<br>
 				<h2>
-					<i><strong>PAWRADISE</strong> 란?</i>
+					<strong>PAWRADISE</strong> 란?
 				</h2>
 				<br>
 				<p class="def">
@@ -79,14 +79,14 @@
 			<br>
 			<p class="pawr">반려동물을 사랑하는 마음에서 시작된 PAWRADISE!</p>
 			<p class="pawr">
-				오랜 외출로 항상 미안했던 마음, <strong> PAWRADISE</strong>가 덜어드립니다.
+				오랜 외출로 항상 미안했던 마음, PAWRADISE가 덜어드립니다.
 			</p>
 			<br>
 			<p id="tran">
-				<i>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,</i>
+				사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,
 			</p>
 			<p id="tran2">
-				<i><strong>PAWRADISE!</strong></i>
+				<strong>PAWRADISE!</strong>
 			</p>
 			<br>
 

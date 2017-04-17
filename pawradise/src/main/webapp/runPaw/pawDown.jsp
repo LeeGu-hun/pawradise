@@ -64,18 +64,19 @@
 				<br>
 				<p class="pawr">반려동물을 사랑하는 마음에서 시작된 PAWRADISE!</p>
 				<p class="pawr">
-					오랜 외출로 항상 미안했던 마음, <strong> PAWRADISE</strong>가 덜어드립니다.
+					오랜 외출로 항상 미안했던 마음, PAWRADISE가 덜어드립니다.
 				</p>
 				<p class="pawr">
-					반려인이 집을 비운 시간에도<br> 냥이 멍이들이 신나게 뛰어놀고, 시간에 맞춰 신선한 사료를 먹을 수 있으며,
-					<br> 또한 원격으로 반려동물의 사진을 촬영하는 것도 가능합니다.
+					반려인이 집을 비운 시간에도<br></p> 
+				<p class="pawr">냥이 멍이들이 신나게 뛰어놀고, 시간에 맞춰 신선한 사료를 먹을 수 있으며,</p>
+				<p class="pawr">또한 원격으로 반려동물의 사진을 촬영하는 것도 가능합니다.
 				</p>
 				<br>
 				<p id="tran">
-					<i>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,</i>
+					사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,
 				</p>
 				<p id="tran2">
-					<i><strong>PAWRADISE!</strong></i>
+					<strong>PAWRADISE!</strong>
 				</p>
 				<br>
 			</div>
