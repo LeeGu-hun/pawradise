@@ -72,10 +72,10 @@
 				</p>
 				<br>
 				<p id="tran">
-					<i>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,</i>
+					사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,
 				</p>
 				<p id="tran2">
-					<i><strong>PAWRADISE!</strong></i>
+					<strong>PAWRADISE!</strong>
 				</p>
 				<br>
 			</div>
