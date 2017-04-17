@@ -62,7 +62,7 @@ $(document).ready(function(){
 	<!--breadcrumbs-->
 	<div class="divide80"></div>
 	<div class="center-heading">
-		<h2>내가 쓴 글</h2>
+		<h2>${sessionScope.authInfo.name }님의 글</h2>
 		<span class="center-line"></span>
 	</div>
 
