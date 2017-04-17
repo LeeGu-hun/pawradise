@@ -12,7 +12,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -33,7 +33,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -55,7 +55,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+					<!-- 	<h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -77,7 +77,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -99,7 +99,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -121,7 +121,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -142,12 +142,12 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
 							<li><a href="index.jsp">HOME</a></li>
-							<li>환영합니다.</li>
+							<li>환영합니다!</li>
 						</ol>
 					</div>
 				</div>
@@ -164,7 +164,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+					<!-- 	<h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -186,7 +186,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -208,7 +208,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -230,7 +230,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -251,7 +251,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -271,7 +271,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -291,7 +291,7 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+						<!-- <h4>PAWRADISE</h4> -->
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
@@ -313,12 +313,33 @@
 
 				<div class="row">
 					<div class="col-sm-6">
-						<h4>냥냥멍멍 귀여워</h4>
+					<!-- <h4>PAWRADISE</h4> -->	
 					</div>
 					<div class="col-sm-6 hidden-xs text-right">
 						<ol class="breadcrumb">
 							<li><a href="index.jsp">HOME</a></li>
 							<li>마이페이지</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+	</c:when>
+	
+	<c:when
+		test="${url == 'http://localhost:8080/pawradise/runPaw/pawDown.jsp' }">
+		<!-- div 15 -->
+		<div class="breadcrumb-wrap1">
+			<div class="container">
+
+				<div class="row">
+					<div class="col-sm-6">
+					<!-- <h4>PAWRADISE</h4> -->	
+					</div>
+					<div class="col-sm-6 hidden-xs text-right">
+						<ol class="breadcrumb">
+							<li><a href="index.jsp">HOME</a></li>
+							<li>제품소개</li>
 						</ol>
 					</div>
 				</div>

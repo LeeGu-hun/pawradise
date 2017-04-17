@@ -9,6 +9,23 @@
 <!-- 헤더부분 -->
 <%@ include file="/include/header.jsp"%>
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
+
+<style>
+#boardsrchb {
+	background-color: #333;
+	border: 0;
+	color: white;
+	border-radius: 2px;
+	height: 36px;
+	width: 55px;
+}
+
+#boardsrchb:hover {
+	background-color: #32c5d2;
+	color: white;
+}
+</style>
+
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
 	type="text/javascript"></script>
@@ -45,7 +62,7 @@ $(document).ready(function(){
 	<!--breadcrumbs-->
 	<div class="divide80"></div>
 	<div class="center-heading">
-		<h2>내가 쓴 글</h2>
+		<h2>${sessionScope.authInfo.name }님의 글</h2>
 		<span class="center-line"></span>
 	</div>
 

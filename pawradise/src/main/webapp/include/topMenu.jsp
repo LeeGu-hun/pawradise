@@ -24,7 +24,7 @@
                     <li class="nav-header">
                     <c:if test="${!empty sessionScope.authInfo.userNum}">
                         <div class="dropdown profile-element" align="center">
- 							<strong>${sessionScope.authInfo.name }님 안녕하세요</strong><br><br>
+ 							반갑습니다, <strong>${sessionScope.authInfo.name }</strong>님!<br><br>
  							<a href="#" onclick="location.href='<%=request.getContextPath() %>/logout'"  
  							class="btn border-theme btn-sm">로그아웃</a>                      
                           
@@ -56,7 +56,7 @@
                     <li>
                         <a href="#">My Page<span class=" arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li><a href="<c:url value="/mypage/mypage/${sessionScope.authInfo.userNum}"/>">마이 페이지</a></li>
+                            <li><a href="<c:url value="/mypage/mypage/${sessionScope.authInfo.userNum}"/>">마이페이지</a></li>
                             <li><a href="<c:url value="/board/myBoardList/${sessionScope.authInfo.userNum}"/>">내가 쓴 글</a></li>
                         </ul> 
                     </li>
