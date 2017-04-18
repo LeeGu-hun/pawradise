@@ -175,30 +175,5 @@ public class BoardController {
 	         return "redirect:/board/myBoardList/" + userNum;
 	      }
 	}
-	
-	//게시판xml변환
-	@RequestMapping(value = "/boardToXml")
-    @ResponseBody
-	public XmlDataList xml() {
-		
-		List<Data>  list = boardDao.xmlBoardList();
-		System.out.println(list);
-		
-		XmlDataList xdl = new XmlDataList(list);		
-				 
-		 return xdl;
-	}
-	
-	//게시판xml변환
-		@RequestMapping(value = "/boardToMyXml/{userNum}")
-	    @ResponseBody
-		public XmlDataList MyXml(@PathVariable("userNum") int userNum) {
-			
-			List<Data>  mylist = boardDao.xmlMyBoardList(userNum);
-			System.out.println(mylist);
-			
-			XmlDataList xdl = new XmlDataList(mylist);		
-					 
-			 return xdl;
-		}
+
 }

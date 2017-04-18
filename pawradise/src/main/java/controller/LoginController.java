@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,10 +59,11 @@ public class LoginController {
 			int userNum = authInfo.getUserNum();
 			return "redirect:/board/myBoardList/" + userNum;
 
-			// return "redirect:board/myBoardList/{userNum}";
 		} catch (IdPasswordNotMatchingException e) {
 			errors.reject("idPasswordNotMatching");
 			return "login/loginForm";
 		}
 	}
+	
+	
 }

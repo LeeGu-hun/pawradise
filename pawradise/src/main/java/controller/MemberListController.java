@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import bean.AuthInfo;
 import bean.Member;
 import command.PageMaker;
 import dao.MemberDao;
@@ -141,16 +142,6 @@ public class MemberListController {
 		}
 	}
 	
-	//xml member
-	@RequestMapping(value = "/MyPageXml/{userNum}")
-    @ResponseBody
-	public XmlMemDataList MemXml(@PathVariable("userNum")int userNum) {
-		
-		List<MemData> list= memberDao.xmlMyList(userNum);
-		System.out.println(list);
-		
-		XmlMemDataList xdl = new XmlMemDataList(list);		
-				 
-		 return xdl;
-	}
+	
+
 }
