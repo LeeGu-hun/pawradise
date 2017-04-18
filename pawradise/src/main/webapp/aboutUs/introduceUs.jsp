@@ -19,24 +19,30 @@
 <style>
 #def {
 	border: 1px solid #d6d6d6;
-	background-color : #eaf2ff;
+	border-radius: 25px;
+	/* background-color : #eaf2ff; */
 	width: 75%;
 }
 
 .def {
-	font-size: 13pt;
+	font-size: 17pt;
 }
 
+#myCat {
+	font-size: 20pt;
+}
 .pawr {
-	font-size: 13pt;
+	font-size: 17pt;
 }
 
 #tran {
-	font-size: 16pt;
+	font-size: 20pt;
+	color: black;
 }
 
 #tran2 {
-	font-size: 20pt;
+	font-size: 24pt;
+	color: black;
 }
 </style>
 
@@ -45,7 +51,7 @@
 	<%@ include file="/include/topMenu.jsp"%>
 	<!-- 서브상단헤더 -->
 	<%@ include file="/include/topBanner.jsp"%>
-	
+
 	<!-- About Us 내용 시작 -->
 	<div class="divide80"></div>
 
@@ -55,46 +61,47 @@
 			<span class="center-line"></span>
 		</div>
 		<div align=center>
+			<p id="myCat"><i> 내가 없는 빈 집에서 <strong>우리 야옹이</strong>는 무엇을 하고 있을까?</i></p>
+			<br><br>
+			<p class="pawr">반려동물을 사랑하는 마음에서 시작된 PAWRADISE!</p><br>
+			<p class="pawr">오랜 외출로 항상 미안했던 마음, <strong> PAWRADISE</strong>가 덜어드립니다.</p>
+			<br>
+				<div class="divide60"></div>
 			<div id=def>
 				<br>
-				<h3>
-					<strong>PAWRADISE</strong> 란?
-				</h3>
+				<h1><i><strong>PAWRADISE</strong> 란?</i></h1>
+				<br> 
+				<img src="<%=request.getContextPath()%>/img/pawParadise1.png" width="800px" /> 
 				<br>
-				<p class="def">
-					동물들의 발을 뜻하는 영어 단어인 <strong>PAW</strong>와, 낙원이라는 뜻의 <strong>PARADISE</strong>를 합쳐,
 
+				<p class="def">	
+				동물의 발을 뜻하는 영어 단어인 <strong>PAW</strong>와, 낙원이라는 뜻의 <strong>PARADISE</strong>를 합쳐,
 				</p>
-				<p class="def">
-					모든 반려동물들이 행복하길 바라는 마음을 담아 <strong>PAWRADISE</strong>가 탄생하게 되었습니다.
-				</p>
+				<br>
+				<p class="def">모든 동물들이 행복하길 바라는 마음을 담아 <strong>PAWRADISE</strong>가 탄생하게 되었습니다.</p>
 				<br>
 			</div>
 			<div class="divide60"></div>
 
-			<h3>
-				<i> 내가 없는 빈 집에서 <strong>우리 야옹이</strong>는 무엇을 하고 있을까?
-				</i>
-			</h3>
-			<br>
-			<p class="pawr">반려동물을 사랑하는 마음에서 시작된 PAWRADISE!</p>
-			<p class="pawr">
-				오랜 외출로 항상 미안했던 마음, PAWRADISE가 덜어드립니다.
-			</p>
-			<br>
-			<p id="tran">
-				사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,
-			</p>
-			<p id="tran2">
-				<strong>PAWRADISE!</strong>
-			</p>
-			<br>
+
 
 			<div>
-				<img src="<%=request.getContextPath()%>/img/pawradise.jpg" />
+				<%-- <img src="<%=request.getContextPath()%>/img/pawradise.png" width="800px" /><br>
+				<img src="<%=request.getContextPath()%>/img/pawradise4.png" width="800px" /><br>
+				<img src="<%=request.getContextPath()%>/img/pawradise2.png" width="800px" /><br>--%>
+				<img src="<%=request.getContextPath()%>/img/pawradise5.png" width="800px" /><br> 
+				
+				<div class="divide50"></div>
+				<p id="tran">
+					<br> <i>사람의, 사랑에 의한, 반려동물을 위한 새로운 테크놀로지,</i>
+				</p><br>
+				<p id="tran2">
+					<i><strong>PAWRADISE!</strong></i>
+				</p>
 			</div>
 		</div>
 	</div>
+	<div class="divide60"></div>
 	<div class="divide60"></div>
 
 
