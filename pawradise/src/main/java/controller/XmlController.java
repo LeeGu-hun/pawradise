@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import bean.AuthInfo;
 import bean.Board;
@@ -73,7 +74,7 @@ public class XmlController {
 		model.addAttribute("id", id);model.addAttribute("pw",pw);
 		model.addAttribute("userNum",userNum);
 		System.out.println(id+" / "+pw+" / "+userNum);
-		return "redirect:/boardToMyXml/";	
+		return "redirect:/MyPageXml/";	
 		
 		
 	}
@@ -104,14 +105,21 @@ public class XmlController {
 	//xml member
 	@RequestMapping(value = "/MyPageXml/")
     @ResponseBody
-	public XmlMemDataList xml(int userNum) {
+	public ModelAndView xml(int userNum) {
 		
+		ModelAndView mav = new ModelAndView();
 		List<MemData> list = memberDao.xmlMyList(userNum);
-		System.out.println(list);
+		List<Data>  listm = boardDao.xmlMyBoardList(userNum);
 		
-		return new XmlMemDataList(list);		
-				 
-		 
+		mav.addObject("list",list);
+		mav.addObject("listm",listm);
+        mav.setViewName("xml");
+		
+		System.out.println(mav);
+		return mav;	 
 
 	}
+	
+	
+	
 }
