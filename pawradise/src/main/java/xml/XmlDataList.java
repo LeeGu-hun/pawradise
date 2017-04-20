@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="board")
 public class XmlDataList {
 	
-	@XmlElement(name="list")
+	@XmlElement(name="item")
 	private List<Data> list;
 		
 	public XmlDataList(List<Data> list) {
@@ -33,7 +33,7 @@ public class XmlDataList {
 
 	@Override
 	public String toString(){
-		return "DataList [lsit=" + list + "]";
+		return "DataList [item=" + list + "]";
 	}
 	
 	

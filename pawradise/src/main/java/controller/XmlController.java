@@ -73,7 +73,7 @@ public class XmlController {
 		model.addAttribute("id", id);model.addAttribute("pw",pw);
 		model.addAttribute("userNum",userNum);
 		System.out.println(id+" / "+pw+" / "+userNum);
-		return "redirect:/boardToMyXml/";			
+		return "redirect:/boardToMyXml/";	
 		
 		
 	}
@@ -81,14 +81,12 @@ public class XmlController {
 	//게시판xml변환
 	@RequestMapping(value = "/boardToXml")
     @ResponseBody
-	public XmlDataList xml() {
+	public XmlDataList xml(HttpServletRequest request) {
 		
-		List<Data>  list = boardDao.xmlBoardList();
+		List<Data>  list = boardDao.xmlBoardList(request.getContextPath());
 		System.out.println(list);
 		
-		XmlDataList xdl = new XmlDataList(list);		
-				 
-		 return xdl;
+		return new XmlDataList(list);		
 	}
 	
 	//게시판xml변환
@@ -99,9 +97,7 @@ public class XmlController {
 		List<Data>  listm = boardDao.xmlMyBoardList(userNum);
 		System.out.println(listm);
 		
-		XmlDataList xdl = new XmlDataList(listm);		
-				 
-		 return xdl;
+		return new XmlDataList(listm);		
 	}
 	
 	
@@ -113,8 +109,9 @@ public class XmlController {
 		List<MemData> list = memberDao.xmlMyList(userNum);
 		System.out.println(list);
 		
-		XmlMemDataList xdl = new XmlMemDataList(list);		
+		return new XmlMemDataList(list);		
 				 
-		 return xdl;
+		 
+
 	}
 }

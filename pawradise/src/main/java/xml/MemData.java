@@ -24,7 +24,7 @@ public class MemData{
 	
 	@Override
 	public String toString(){
-		return "memdata [name=" + name +
+		return "item [name=" + name +
 				", password=" + password +
 				", email=" + email +
 				", phone=" + phone +	

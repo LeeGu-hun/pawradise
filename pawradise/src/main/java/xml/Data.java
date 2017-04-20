@@ -1,13 +1,10 @@
 package xml;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
-
-import org.springframework.web.multipart.MultipartFile;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name="data", 
@@ -21,20 +18,27 @@ public class Data{
 	private String fileName;
 	private Date regdate;
 
-
 	public Data() {}
 	
 	@Override
 	public String toString(){
-		return "data [seq=" + seq +
-				", title=" + title +
-				", name=" + name +
-				", content=" + content +	
-				", fileName=" + fileName +
-				", regdate=" + regdate +
-				"]";
+//		if(fileName != null){
+			return "data [seq=" + seq +
+					", title=" + title +
+					", name=" + name +
+					", content=" + content +	
+					", fileName=" + fileName +
+					", regdate=" + regdate +
+					"]";
+//		} else {
+//			return "data [seq=" + seq +
+//					", title=" + title +
+//					", name=" + name +
+//					", content=" + content +	
+//					", regdate=" + regdate +
+//					"]";
+//		}
 	}	
-
 
 	public Data(int seq, String name, String title, String content, String fileName, Date regdate) {
 		super();
@@ -46,7 +50,14 @@ public class Data{
 		this.regdate = regdate;
 	}
 
-
+	public Data(int seq, String name, String title, String content, Date regdate) {
+		super();
+		this.seq = seq;
+		this.name = name;
+		this.title = title;
+		this.content = content;
+		this.regdate = regdate;
+	}
 
 	public int getSeq() {
 	      return seq;
@@ -88,11 +99,12 @@ public class Data{
 	      this.fileName = fileName;
 	}
 
-	public Date getRegdate() {
+	public Date getRegdate() {		
 		return regdate;
 	}
 
 	public void setRegdate(Date regdate) {
+		
 		this.regdate = regdate;
 	}
 

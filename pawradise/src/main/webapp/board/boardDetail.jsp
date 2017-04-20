@@ -60,14 +60,11 @@
 					<p>${board.content}</p>
 				</div>
 				<p align="center">
-					<a href="<c:url value='/boardList'/>"
-						class="btn btn-theme-dark btn-lg">리스트</a>
+					<a href="<c:url value='/boardList'/>" class="btn btn-theme-dark btn-lg">리스트</a>
 					<c:choose>
 						<c:when test="${sessionScope.authInfo.userNum eq board.userNum}">
-							<a href="<c:url value='/board/delete/${seq}' />"
-								class="btn btn-theme-dark btn-lg">삭제하기</a>
-							<a href="<c:url value='/board/update/${seq}' />"
-								class="btn btn-theme-dark btn-lg">수정하기</a>
+							<a href="<c:url value='/board/delete/${seq}' />" class="btn btn-theme-dark btn-lg">삭제하기</a>
+							<a href="<c:url value='/board/update/${seq}' />" class="btn btn-theme-dark btn-lg">수정하기</a>
 						</c:when>
 					</c:choose>
 				</p>

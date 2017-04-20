@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -233,15 +231,25 @@ public class BoardDao {
 	}
 
 	// xml 글 목록 가져오기int seq, String name, String title, String content, String fileName, Date regdate
-	public List<Data> xmlBoardList() {
+	public List<Data> xmlBoardList(final String urlFile) {
 
-		List<Data> results = jdbcTemplate.query("select * from board ",
+		List<Data> results = jdbcTemplate.query("select * from board order by seq desc",
 
 				new RowMapper<Data>() {
 					@Override
 					public Data mapRow(ResultSet rs, int c_seq) throws SQLException {
-						Data data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
-								rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"));
+						Data data;
+						String str = rs.getString("fileName");
+						System.out.println(">>>>" + str);
+						if(str.indexOf(".") != -1){
+							data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
+									rs.getString("content"), "http://192.168.0.114:8080"+ urlFile + "/uploads/" 
+											+ str, rs.getDate("regdate"));
+						} else {
+							data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
+									rs.getString("content"), rs.getDate("regdate"));
+						}
+						System.out.println("<<<<"+data.getFileName());
 						return data;
 					}
 				});
