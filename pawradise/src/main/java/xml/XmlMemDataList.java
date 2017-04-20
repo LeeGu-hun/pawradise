@@ -34,7 +34,7 @@ public class XmlMemDataList {
 
 	@Override
 	public String toString(){
-		return "MemDataList [list=" + mylist + "]";
+		return "MemDataList [mylist=" + mylist + "]";
 	}
 	
 	

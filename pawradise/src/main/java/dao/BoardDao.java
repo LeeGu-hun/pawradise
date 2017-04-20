@@ -258,9 +258,9 @@ public class BoardDao {
 	}
 	
 	// xml 내글내글내글 목록 가져오기int seq, String name, String title, String content, String fileName, Date regdate
-		public List<Data> xmlMyBoardList(int userNum) {
+		public List<Data> xmlMyBoardList(String email) {
 
-			List<Data> results = jdbcTemplate.query("select * from board where usernum=? ",
+			List<Data> results = jdbcTemplate.query("select * from board where email=? ",
 
 					new RowMapper<Data>() {
 						@Override
@@ -269,7 +269,7 @@ public class BoardDao {
 									rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"));
 							return data;
 						}
-					} , userNum);
+					} , email);
 
 			return results;
 		}

@@ -120,9 +120,9 @@ public class MemberDao {
 	}
 
 	// xml 마이페이지
-	public List<MemData> xmlMyList(int userNum) {
+	public List<MemData> xmlMyList(String email) {
 
-		List<MemData> results = jdbcTemplate.query("select * from member where usernum=? ",
+		List<MemData> results = jdbcTemplate.query("select * from member where email=? ",
 
 				new RowMapper<MemData>() {
 					@Override
@@ -131,7 +131,7 @@ public class MemberDao {
 								rs.getString("email"), rs.getString("phone"), rs.getInt("userNum"));
 						return memdata;
 					}
-				}, userNum);
+				}, email);
 
 		return results;
 	}
