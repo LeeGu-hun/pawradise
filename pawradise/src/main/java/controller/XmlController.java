@@ -93,9 +93,9 @@ public class XmlController {
 	//게시판xml변환
 	@RequestMapping(value = "/boardToMyXml/")
     @ResponseBody
-	public XmlDataList MyXml(String email) {
+	public XmlDataList MyXml(int userNum) {
 		
-		List<Data>  listm = boardDao.xmlMyBoardList(email);
+		List<Data>  listm = boardDao.xmlMyBoardList(userNum);
 		System.out.println(listm);
 		
 		return new XmlDataList(listm);		
@@ -105,18 +105,11 @@ public class XmlController {
 	//xml member
 	@RequestMapping(value = "/MyPageXml/")
     @ResponseBody
-	public ModelAndView xml(String email) {
+	public XmlMemDataList xml(int userNum) {
 		
-		ModelAndView mav = new ModelAndView();
-		List<MemData> list = memberDao.xmlMyList(email);
-		List<Data>  listm = boardDao.xmlMyBoardList(email);
-		
-		mav.addObject("list",list);
-		mav.addObject("listm",listm);
-        mav.setViewName("xml");
-		
-		System.out.println(mav);
-		return mav;	 
+		List<MemData> list = memberDao.xmlMyList(userNum);
+
+		return new XmlMemDataList(list);	
 
 	}
 	

@@ -13,28 +13,28 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class XmlMemDataList {
 	
 	@XmlElement(name="mylist")
-	private List<MemData> mylist;
+	private List<MemData> list;
 		
 	
-	public XmlMemDataList(List<MemData> mylist) {
+	public XmlMemDataList(List<MemData> list) {
 		super();
-		this.mylist = mylist;
+		this.list = list;
 	}
 
 
-	public List<MemData> getMylist() {
-		return mylist;
+	public List<MemData> getlist() {
+		return list;
 	}
 
 
-	public void setMylist(List<MemData> mylist) {
-		this.mylist = mylist;
+	public void setMylist(List<MemData> list) {
+		this.list = list;
 	}
 
 
 	@Override
 	public String toString(){
-		return "MemDataList [mylist=" + mylist + "]";
+		return "MemDataList [mylist=" + list + "]";
 	}
 	
 	
