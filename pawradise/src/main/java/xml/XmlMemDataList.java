@@ -20,7 +20,9 @@ public class XmlMemDataList {
 		super();
 		this.list = list;
 	}
-
+	public XmlMemDataList() {
+		super();
+	}
 
 	public List<MemData> getlist() {
 		return list;

@@ -230,7 +230,8 @@ public class BoardDao {
 		jdbcTemplate.update("update board set readcount=readcount+1 where seq=?", seq);
 	}
 
-	// xml 글 목록 가져오기int seq, String name, String title, String content, String fileName, Date regdate
+	// xml 글 목록 가져오기int seq, String name, String title, String content, String
+	// fileName, Date regdate
 	public List<Data> xmlBoardList(final String urlFile) {
 
 		List<Data> results = jdbcTemplate.query("select * from board order by seq desc",
@@ -241,36 +242,45 @@ public class BoardDao {
 						Data data;
 						String str = rs.getString("fileName");
 						System.out.println(">>>>" + str);
-						if(str.indexOf(".") != -1){
+						if (str.indexOf(".") != -1) {
 							data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
-									rs.getString("content"), "http://192.168.0.114:8080"+ urlFile + "/uploads/" 
-											+ str, rs.getDate("regdate"));
+									rs.getString("content"), "http://192.168.0.114:8080" + urlFile + "/uploads/" + str,
+									rs.getDate("regdate"));
 						} else {
 							data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
 									rs.getString("content"), rs.getDate("regdate"));
 						}
-						System.out.println("<<<<"+data.getFileName());
+						System.out.println("<<<<" + data.getFileName());
 						return data;
 					}
 				});
 
 		return results;
 	}
-	
-	// xml 내글내글내글 목록 가져오기int seq, String name, String title, String content, String fileName, Date regdate
-		public List<Data> xmlMyBoardList(int userNum) {
 
-			List<Data> results = jdbcTemplate.query("select * from board where userNum=? ",
+	// xml 내글내글내글 목록 가져오기int seq, String name, String title, String content,
+	// String fileName, Date regdate
+	public List<Data> xmlMyBoardList(int userNum,final String urlFile) {
 
+			List<Data> results = jdbcTemplate.query("select * from board where userNum=? order by seq desc",
 					new RowMapper<Data>() {
-						@Override
-						public Data mapRow(ResultSet rs, int c_seq) throws SQLException {
-							Data data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
-									rs.getString("content"), rs.getString("fileName"), rs.getDate("regdate"));
-							return data;
-						}
-					} , userNum);
-
+				@Override
+				public Data mapRow(ResultSet rs, int c_seq) throws SQLException {
+					Data data;
+					String str = rs.getString("fileName");
+					System.out.println(">>>>" + str);
+					if (str.indexOf(".") != -1) {
+						data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
+								rs.getString("content"), "http://192.168.0.114:8080" + urlFile + "/uploads/" + str,
+								rs.getDate("regdate"));
+					} else {
+						data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
+								rs.getString("content"), rs.getDate("regdate"));
+					}
+					System.out.println("<<<<" + data.getFileName());
+					return data;
+				}
+			},userNum);
 			return results;
 		}
 }
