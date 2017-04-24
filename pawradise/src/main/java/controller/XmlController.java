@@ -16,12 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import bean.AuthInfo;
 import bean.Board;
 import bean.Comment;
-import bean.Member;
 import command.LoginCommand;
 import command.PageMaker;
 import dao.BoardDao;
@@ -76,7 +74,7 @@ public class XmlController {
 		model.addAttribute("pw", pw);
 		model.addAttribute("userNum", userNum);
 		System.out.println(id + " / " + pw + " / " + userNum);
-		return "redirect:/MyPageXml/";
+		return "redirect:/boardToXml";
 
 	}
 
@@ -85,49 +83,31 @@ public class XmlController {
 	@ResponseBody
 	public XmlDataList xml(HttpServletRequest request) {
 
-		List<Data> list = boardDao.xmlBoardList(request.getContextPath());
+		List<Data> list = boardDao.xmlBoardList();
 		System.out.println(list);
 
 		return new XmlDataList(list);
 	}
 
 	// 게시판xml변환
-	@RequestMapping(value = "/boardToMyXml/", method = RequestMethod.POST)
+	@RequestMapping(value = "/boardToMyXml")
 	@ResponseBody
-	public String MyXml(HttpServletRequest request, HttpSession session, Model model,
-			HttpServletResponse response, LoginCommand loginCommand) {
-		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		
-		AuthInfo authInfo = authService.authenticate(id, pw);
-		int userNum = authInfo.getUserNum();
+	public XmlDataList MyXml(int userNum, HttpServletRequest request) {	
 
-		model.addAttribute("userNum", userNum);
-		
-		List<Data> list = boardDao.xmlMyBoardList(userNum,request.getContextPath());
-		System.out.println(list);
-		
-		return "redirect:/boardToMyXml/";
-//		return new XmlDataList(list);
+		List<Data> listm = boardDao.xmlMyBoardList(userNum);
+		System.out.println(listm);
+
+		return new XmlDataList(listm);
 	}
 
 	// xml member
-	@RequestMapping(value = "/MyPageXml/", method = RequestMethod.POST)
+	@RequestMapping(value = "/MyPageXml")
 	@ResponseBody
-	public XmlMemDataList xml(HttpSession session, HttpServletRequest request, Model model,
-			HttpServletResponse response, Member member) {
-
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		
-		AuthInfo authInfo = authService.authenticate(id, pw);
-		int userNum = authInfo.getUserNum();
-		
-		model.addAttribute("userNum", userNum);
-		model.addAttribute("id", id);
-		model.addAttribute("pw", pw);
+	public XmlMemDataList xml(int userNum, HttpServletRequest request) {
+				
 		List<MemData> list = memberDao.xmlMyList(userNum);
+
+		System.out.println(list);
 
 		return new XmlMemDataList(list);
 
@@ -135,29 +115,32 @@ public class XmlController {
 
 	// 모바일 글쓰기POST
 	@RequestMapping(value = "/mboardWrite")
-	public String mwrite(Board board, Errors errors, HttpSession session, HttpServletRequest request, Model model,
-			HttpServletResponse response) {
+	public String mwrite(Board board, Errors errors, HttpSession session, HttpServletRequest request, 
+			Model model, HttpServletResponse response) {
 
 		new BoardValidator().validate(board, errors);
 		if (errors.hasErrors())
 			return "result";
 		System.out.println("글쓰기 post요청");
-
+		
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
-		String title = request.getParameter("title");
-		String content = request.getParameter("content");
-		String mfileName = request.getParameter("mfileName");
-		String pub = request.getParameter("pub");
+		String title=request.getParameter("title");
+		String content=request.getParameter("content");
+		String mfileName=request.getParameter("mfileName");
+		String pub=request.getParameter("pub");
+		
+		
 
-		System.out.println(id + " / " + pw);
+		System.out.println(id + " / " + pw + " / " + title+ " / " + content);
 		AuthInfo authInfo = authService.authenticate(id, pw);
 		board.setName(authInfo.getName());
 		board.setUserNum(authInfo.getUserNum());
+		System.out.println(" authInfo.getName() " + authInfo.getName() + " authInfo.getUserNum() " + authInfo.getUserNum());
 		board.setTitle(title);
 		board.setContent(content);
 		board.setFileName(mfileName);
-
+/*
 		MultipartFile multi = board.getMultiFile();
 		String newFileName = "";
 		if (!multi.isEmpty()) {
@@ -173,13 +156,20 @@ public class XmlController {
 				e.printStackTrace();
 			}
 		}
+	*/	
 		boardDao.add(board);
 
 		if (board.getPub() == 1) {
 			return "redirect:/boardToXml";
-		} else {
+		} else {			
 			return "redirect:/boardToMyXml/";
 		}
+	}
+	
+	// 모바일 파일 업로드
+	@RequestMapping("/mUpload")
+	public String mUpload(){
+		return "/board/getMultipart";
 	}
 
 }
