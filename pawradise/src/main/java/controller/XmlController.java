@@ -209,7 +209,7 @@ public class XmlController {
 		}
 	}
 	// 모바일 글쓰기POST
-	@RequestMapping(value = "/mAppWrite", method = RequestMethod.POST)	
+	@RequestMapping(value = "/mAppWrite", method = RequestMethod.GET)	
 	public void mAppwrite(Board board, HttpServletRequest request, Model model, HttpServletResponse response) {
 		
 		String id = request.getParameter("id");
