@@ -46,7 +46,7 @@
 					<!-- 이미지 -->
 					<div align=center>
 						<img
-							src="<%=request.getContextPath() %>/uploads/${board.fileName}"
+							src="${board.fileName}"
 							width="800">
 					</div>
 

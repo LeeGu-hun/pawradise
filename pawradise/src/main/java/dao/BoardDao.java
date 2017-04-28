@@ -272,7 +272,7 @@ public class BoardDao {
 					System.out.println(">>>>" + str);
 					if (str.indexOf(".") != -1) {
 						data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
-								rs.getString("content"), "http://192.168.0.114:8080/pawradise/uploads/" + str,
+								rs.getString("content"), str,
 								rs.getDate("regdate"));
 					} else {
 						data = new Data(rs.getInt("seq"), rs.getString("name"), rs.getString("title"),
