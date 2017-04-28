@@ -159,6 +159,7 @@ public class BoardController {
 			newFileName = System.currentTimeMillis() + "_" + fileName;
 			board.setFileName(newFileName);
 			String path = board.getUpDir() + newFileName;
+			board.setFileName("http://192.168.0.114:8080/pawradise/uploads/"+newFileName);
 			try {
 				File file = new File(path);
 				multi.transferTo(file);

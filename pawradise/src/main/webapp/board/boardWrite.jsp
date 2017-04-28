@@ -16,18 +16,6 @@
 		document.getElementByName("frm").submit();
 	}
 </script>
-<!--script>
-	var frm = document.frm; 
-	$.ajax({
-		type:"POST",
-		url:'hate',
-		async:true,
-		data:{
-			"open" : frm.open.value
-		},
-		success{}
-	});
-</scrip-->
 
 <body>
 	<!--항상 같이 다니는 메뉴  -->

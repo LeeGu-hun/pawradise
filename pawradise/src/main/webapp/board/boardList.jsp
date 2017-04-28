@@ -72,7 +72,7 @@ function goBoardList(){
 						<c:choose>
 							<c:when test="${!empty board.fileName}">
 								<a href="<c:url value="/board/detail/${board.seq}"/>"> <img
-									src="<%=request.getContextPath() %>/uploads/${board.fileName}"
+									src="${board.fileName}"
 									class="img-responsive"></a>
 							</c:when>
 
@@ -82,23 +82,23 @@ function goBoardList(){
 								<c:choose>
 									
 									<c:when test="${rand==1 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/6.jpg/"
+										<img src="http://192.168.0.114:8080/pawradise/img/6.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==2 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/7.jpg/"
+										<img src="http://192.168.0.114:8080/pawradise/img/7.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==3 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/8.jpg/"
+										<img src="http://192.168.0.114:8080/pawradise/img/8.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==4 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/9.jpg/"
+										<img src="http://192.168.0.114:8080/pawradise/img/9.jpg/"
 											class="img-responsive" />
 									</c:when>
 									<c:when test="${rand==5 }">
-										<img src="http://192.168.0.75:8080/pawradise/img/10.jpg/"
+										<img src="http://192.168.0.114:8080/pawradise/img/10.jpg/"
 											class="img-responsive" />
 									</c:when>
 								</c:choose>

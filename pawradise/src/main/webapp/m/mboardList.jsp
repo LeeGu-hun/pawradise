@@ -10,25 +10,6 @@
 <%@ include file="/include/header.jsp"%>
 <!-- 모든페이지 상단 공통 인클루드 끝 <body>태그 바로 위에 </head>태그 모두 삭제하고 넣어주세요 -->
 
-<style>
-#boardsrchb {
-	background-color: #333;
-	border: 0;
-	color: white;
-	border-radius: 2px;
-	height: 36px;
-	width: 55px;
-}
-
-#boardsrchb:hover {
-	background-color: #32c5d2;
-	color: white;
-}
-</style>
-
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
-	type="text/javascript"></script>
 <script>
 function pageGo(page) {
 	document.getElementById("page").value = page;
@@ -42,29 +23,9 @@ function goWriter(){
 
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){
-     $("a[name='title']").on("click", function(e){ //제목
-        e.preventDefault();
-        fn_openBoardDetail($(this));
-    });
-}); 
-
-</script>
 
 <body>
-	<!--항상 같이 다니는 메뉴  -->
-	<%@ include file="/include/topMenu.jsp"%>
-
-	<!-- 서브상단헤더 -->
-	<%@ include file="/include/topBanner.jsp"%>
-
-	<!--breadcrumbs-->
-	<div class="divide80"></div>
-	<div class="center-heading">
-		<h2>${sessionScope.authInfo.name }님의 글</h2>
-		<span class="center-line"></span>
-	</div>
+	<div class="divide30"></div>
 
 	<div class="container">
 		<div class="row">
@@ -73,11 +34,17 @@ $(document).ready(function(){
 				<div class="col-md-10 col-md-offset-1">
 					<div class="blog-post">
 						<div align="center">
-
+							<ul class="list-inline post-detail">
+								<li>${board.name}님의글</li>
+								<li><i class="fa fa-calendar"></i> <fmt:formatDate
+										value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
+								<li>글번호:${board.seq}</li>
+							</ul>
+							<div class="divide20"></div>
 							<c:choose>
 								<c:when test="${!empty board.fileName}">
 									<img
-										src="${board.fileName}"
+										src="<%=request.getContextPath() %>/uploads/${board.fileName}"
 										class="img-responsive">
 								</c:when>
 							</c:choose>
@@ -86,13 +53,6 @@ $(document).ready(function(){
 						<h3>
 							<a href="<c:url value="/board/detail/${board.seq}"/>">${board.title}</a>
 						</h3>
-
-						<ul class="list-inline post-detail">
-							<li>${board.name}님의글</li>
-							<li><i class="fa fa-calendar"></i> <fmt:formatDate
-									value="${board.regdate}" pattern="yyyy-MM-dd HH:mm" /></li>
-							<li>글번호:${board.seq}</li>
-						</ul>
 						<p>"${board.content}"</p>
 						<img src="<%=request.getContextPath()%>/img/comment.png"
 							width="15"> [${board.reply}]</a>
@@ -103,32 +63,13 @@ $(document).ready(function(){
 		</div>
 	</div>
 	<div class="container">
-		<div class="pager">
-			<!--글쓰기버튼 -->
-			<table width=100%>
-				<tr>
-					<td width=33.33% align="left"><a href="#"
-						onclick="goWriter();" class="btn btn-theme-dark btn-lg">글쓰기</a>
-						&nbsp;&nbsp;&nbsp; <!-- 전체게시판으로 가기 --> <a
-						href="<%=request.getContextPath()%>/boardList"
-						class="btn btn-theme-dark btn-lg">포토게시판</a></td>
-					<td width=33.33%></td>
-					<td width=33.33% align="right">
-						<!--검색 --> <form:form commandName="pageMaker" id="frm">
-							<input type="text" id="srch" name="srch" placeholder="검색" />
-							<input type="submit" id="boardsrchb" value="조회">
-							<input type="text" name="page" id="page" hidden />
-						</form:form> <!--검색 -->
-					</td>
-				</tr>
-			</table>
-		</div>
+		<div class="pager"></div>
 	</div>
 
 	<div class="container">
 		<ul class="pager">
 			<c:if test="${pageMaker.prev }">
-				<li class="previous"><a href='#' 
+				<li class="previous"><a href='#'
 					onclick='pageGo(${pageMaker.page-1});'>← Previous Page</a></li>
 			</c:if>
 			<c:forEach begin="${pageMaker.start }" end="${pageMaker.end}"
@@ -147,8 +88,5 @@ $(document).ready(function(){
 	<!--masonary wrapper-->
 	<div class="divide60"></div>
 
-	<!--하단 footer부분 인클루드시작 body태그안에들어감 -->
-	<%@ include file="/include/footer2.jsp"%>
-	<!--하단 footer부분 인클루드 끝 body태그안에들어감-->
 </body>
 </html>
